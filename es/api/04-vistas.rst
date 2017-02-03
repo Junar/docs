@@ -29,6 +29,8 @@ El ``{format}``  puede tomar uno de los siguientes valores:
 
 -	xls: Retorna un enlace dentro de un elemento fUri para descargar una versión en XLS de la vista de datos.
 
+Existe además una salida especial reemplazando ``data.{format}`` por ``tableau.html``, la cual permite la integración con la aplicación Tableau al utilizar este nuevo endpoint como origen de datos desde la aplicación.
+
 
 Estructura JSON de la salida data.json
 --------------------------------------
