@@ -4,7 +4,7 @@ Documentación Junar / Junar docs
 
 -------------------------------------------
 
-**ES / Español **
+**ES / Español**
 
 - API: Archivos .rst con la documentación para uso de la API de Junar.
 
