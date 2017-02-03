@@ -13,13 +13,13 @@ All auth keys are anonymous by default, and are generated on the fly with each r
 Authorization
 ============
 
-If the domain is not associated to a live account, access is denied
+If the domain is not associated to an active account, access is denied
 
 If the auth_key is not recognized or does not belong to the account, access is denied
 
 If the auth_key is public, it checks the referer. If it cannot identify the referer, access is denied. This feature can be configured on a need-to basis by the Junar team
 
-If five (5) requests per seconds limit is surpassed, acces is denied for one (1) second
+If five (5) requests per seconds limit is surpassed, access is denied for one (1) second
 
 Public auth_keys allow only for read operations
 
