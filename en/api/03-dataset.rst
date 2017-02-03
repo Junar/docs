@@ -100,10 +100,10 @@ Possible values for the ``frequency`` field::
     hourly
     ondemand
     
-If successful, a sample return from the API looks like this::
+If successful, a sample return from the API looks like this
 
 .. code-block:: json
-    
+
     {
     "result": null,
     "endpoint": "file://1995/46721/71341786542282142096488420671282999110",
@@ -119,4 +119,5 @@ If successful, a sample return from the API looks like this::
     }
 
   
-  When updating a dataset, you can change everything from the title and description to the filename and even the file format. Just be sure that, if there's any resource asociated to this dataset, changes on the data structure will affect it's outcome. While this in general poses no problem in terms of new records/rows, any new column added will not be represented on pre-existing data views as they are linked to the previous data structure and will not reflect new columns. The data view will have to be edited on the workspace to include any new columns added on a dataset update process.
+
+When updating a dataset, you can change everything from the title and description to the filename and even the file format. Just be sure that, if there's any resource asociated to this dataset, changes on the data structure will affect it's outcome. While this in general poses no problem in terms of new records/rows, any new column added will not be represented on pre-existing data views as they are linked to the previous data structure and will not reflect new columns. The data view will have to be edited on the workspace to include any new columns added on a dataset update process.
