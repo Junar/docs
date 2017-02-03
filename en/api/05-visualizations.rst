@@ -23,7 +23,7 @@ From which we get the data with the following parameters :
 - created_at : Timestamp of resource revision creation.
 - link : Link to the resource in the Open Data portal
 
-Por ejemplo el ``GET   http://api.data.cityofsacramento.org/api/v2/visualizations/SACRA-UCR-YEAR-TO-YEAR.json?auth_key=MY_AUTH_KEY`` muestra los siguientes datos: 
+For example, if we ``GET   http://api.data.cityofsacramento.org/api/v2/visualizations/SACRA-UCR-YEAR-TO-YEAR.json?auth_key=MY_AUTH_KEY`` we receive the following response: 
 
 .. code-block:: json
 
