@@ -775,7 +775,8 @@ Ejemplo
 Publishing and updating data views using the API
 -------------------------------------------------
 
-In a similar way to publishing datasets using the API, you can create new data views over existing datasets using the API. You'd need a private API key with publishing grants to do so. You can use basic POST/PUT/PATCH verbs:
+In a similar way to publishing datasets using the API, you can create new data views over existing datasets using the API. You need a private API key with publishing grants to do so. All private API keys are delivered on demand exclusively to the official contact point of the account of the Junar team.
+When publishing/updating you can use basic POST/PUT/PATCH verbs:
 
 ::  
   
