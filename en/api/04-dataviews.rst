@@ -28,6 +28,7 @@ The ``{format}`` of the output can be one of the following:
 
 -	xls: Returns a link inside an fUri element to download an XLS version of the data view.
 
+There is a special endpoint obtained replacing ``data.{format}`` with ``tableau.html`` which enables the Junar API to be used as a data source on the Tableau application.
 
 JSON structure of the data.json output
 ---------------------------------------
