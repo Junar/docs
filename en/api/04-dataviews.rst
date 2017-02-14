@@ -781,9 +781,10 @@ You can perform certain FUNCTIONs and GROUP BY over data contained on the data v
 First define the position number of the columns to GROUP BY followed by a number to identify hierarchy (pGroupBy0=column0, pGroupBy1=column2...). Then apply different FUNCTION over columns of your data view. You must include in brackets the column over which is performed (pFunction0=SUM[column0], pFunction1=COUNT[column10]).
 
 For instance, to answer the question of how many different incidents occured per responding station in relation to fire response 911 calls from the city of Sacramento, a request can be made like
+
 ::
 
-http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=8fdd7b3db6ef82b08bcf4715b5f0dfce54fc6bf1&pGroupBy0=column2&pGroupBy1=column3&pFunction0=COUNT[column3]
+	http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=MY_AUTH_KEY&pGroupBy0=column2&pGroupBy1=column3&pFunction0=COUNT[column3]
 
 
 This returns the data in a CSV output.  Any other data.{format} can be used as well.
