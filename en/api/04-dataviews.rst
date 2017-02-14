@@ -773,6 +773,25 @@ Ejemplo
 	}
 
 
+GROUP BY, SUM, COUNT, AVG
+-------------------------
+
+You can perform certain FUNCTIONs and GROUP BY over data contained on the data view. All these operations are performed on-the-fly over a specific set of columns. They can be reused into the workspace to create new resources (data views, visualizations) that feed over the calculations made by the API. Current available functions are SUM, COUNT, AVG. 
+
+First define the position number of the columns to GROUP BY followed by a number to identify hierarchy (pGroupBy0=column0, pGroupBy1=column2...). Then apply different FUNCTION over columns of your data view. You must include in brackets the column over which is performed (pFunction0=SUM[column0], pFunction1=COUNT[column10]).
+
+For instance, to answer the question of how many different incidents occured per responding station in relation to fire response 911 calls from the city of Sacramento, a request can be made like
+::
+
+http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=8fdd7b3db6ef82b08bcf4715b5f0dfce54fc6bf1&pGroupBy0=column2&pGroupBy1=column3&pFunction0=COUNT[column3]
+
+
+This returns the data in a CSV output.  Any other data.{format} can be used as well.
+
+The **data.ajson** output can be reused as a web service and used to create a new dataset in the catalog. The use of cache for the dataset is encouraged, since each operation is performed on the fly and overuse can lead to degraded performance. 
+
+
+
 Publishing and updating data views using the API
 -------------------------------------------------
 
