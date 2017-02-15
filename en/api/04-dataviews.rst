@@ -789,7 +789,7 @@ For instance, to answer the question of how many different incidents occured per
 
 This returns the data in a CSV output.  Any other data.{format} can be used as well.
 
-The **data.ajson** output can be reused as a web service and used to create a new dataset in the catalog. The use of cache for the dataset is encouraged, since each operation is performed on the fly and overuse can lead to degraded performance. 
+The **data.ajson** output can be reused as a web service and used to create a new dataset in the catalog. The path to data for this new dataset will always be *$.result* when it comes from data.ajson output. The use of cache for the dataset is encouraged, since each operation is performed on the fly and overuse can lead to degraded performance. 
 
 
 
