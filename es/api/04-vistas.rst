@@ -767,6 +767,25 @@ Ejemplo
 	  "link": "http://sacramento.opendata.junar.com/datastreams/77447/sacramento-annual-crime-statistics/"
 	}
 
+Agrupaciones y Funciones sobre vistas de datos
+----------------------------------------------
+
+Puedes aplicar algunas FUNCIONES y AGRUPACIONES sobre los datos de una vista. Las operaciones se realizan a demanda sobre un juego de columnas definido en una llamada API y asociados a través de dos parámetros pGroupBy y pFunction. El resultado puede ser reutilizado como una fuente tipo web service REST/JSON para crear nuevos recursos de datos (vistas, visualizaciones) en el área de trabajo. Las funciones disponibles actualmente son SUM (suma), COUNT (contar), y AVG (promedio).
+
+En primer lugar definiremos la columna que servirá para agrupar mediante el parametro pGroupBy seguido de un número que indica la jerarquía (pGroupBy0=column0, pGroupBy1=column2...). Luego, aplicamos una función FUNCTION aplicada en la columna sobre la que vamos a operar. Debes incluir paréntesis cuadrados (brackets) al ingresar la columna, pudiendo concatenar mas de una pFunction agregandole un número entero empezando desde cero (pFunction0=SUM[column0], pFunction1=COUNT[column10]).
+
+Por ejemplo, si quisieramos responder a la pregunta por la cantidad de incidencias totales agrupadas según cada estación de respuesta del servicio 911 de la ciudad de Sacramento, el request a la API sería 
+
+::
+
+http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=8fdd7b3db6ef82b08bcf4715b5f0dfce54fc6bf1&pGroupBy0=column2&pGroupBy1=column3&pFunction0=COUNT[column3]
+
+
+Este request retorna los datos como un CSV. Cualquier otro valor de data.{format} puede ser utilizado también.
+
+El formato de salida **data.ajson** puede además ser reutilizado para crear un conjunto de datos en Junar usando la API como un servicio web REST/JSON. El path a los datos en todos los casos sería *$.result*. El uso del caché para el dataset es altamente recomendado, ya que la operación es realizada en línea y el exceso de uso puede degradar el rendimiento de la solicitud. 
+
+
 
 Publicación y actualización via API
 --------------------------------------
