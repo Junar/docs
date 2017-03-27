@@ -13,7 +13,7 @@ Las llamadas GET nos devuelven los siguientes parámetros :
 - guid : Identificador del recurso,
 - title : Título del conjunto de datos
 - description : Descripción del conjunto de datos
-- category_name : Nombre de la categoría
+- categories : Nombre de la categoría
 - endpoint : Url apuntando al recurso con los datos (archivos o página web)
 - tags : Opcional. Tags separados por coma.
 - user : Usuario que publica el recurso.
