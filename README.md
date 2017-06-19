@@ -1,14 +1,18 @@
 -------------------------------------------
 
-Documentación Junar / Junar docs
+Documentación API Junar / Junar API Docs
 
 -------------------------------------------
 
 **ES / Español**
 
-- API: Archivos .rst con la documentación para uso de la API de Junar.
+- https://junar.github.io/docs/es
 
 
 **EN / English**
 
-- API: .rst files with API docs explaining how to use it.
+- https://junar.github.io/docs/en
+
+
+
+
