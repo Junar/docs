@@ -1,0 +1,1028 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vistas de Datos &mdash; Documentación de API v2 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Documentación de API v2 2.0 documentation" href="../index.html"/>
+        <link rel="next" title="Visualizaciones" href="05-visualizaciones.html"/>
+        <link rel="prev" title="Conjunto de Datos" href="03-conjunto_de_datos.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Documentación de API v2
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-index.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-topicos.html">2. Tópicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-conjunto_de_datos.html">3. Conjunto de datos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Vistas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#estructura-json-de-la-salida-data-json">Estructura JSON de la salida data.json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejemplos-de-salida-de-los-datos">Ejemplos de salida de los datos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ejemplo-sobre-el-retorno-de-data-json">Ejemplo sobre el retorno de <em>data.json</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejemplo-sobre-el-retorno-de-data-pjson">Ejemplo sobre el retorno de <em>data.pjson</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejemplo-sobre-el-retorno-de-data-ajson">Ejemplo sobre el retorno de <em>data.ajson</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejemplo-sobre-el-retorno-de-data-xml">Ejemplo sobre el retorno de <em>data.xml</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejemplo-sobre-el-retorno-de-data-csv">Ejemplo sobre el retorno de <em>data.csv</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejemplo-sobre-el-retorno-de-data-xls">Ejemplo sobre el retorno de <em>data.xls</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#consumiendo-una-vista-de-datos-con-parametros">Consumiendo una vista de datos con parámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filtrar-los-resultados-de-una-vista">Filtrar los resultados de una vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ordenar-los-datos">Ordenar los Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formateo-de-datos">Formateo de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agrupaciones-y-funciones-sobre-vistas-de-datos">Agrupaciones y Funciones sobre vistas de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publicacion-y-actualizacion-via-api">Publicación y actualización via API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05-visualizaciones.html">5. Visualizaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-colecciones.html">6. Colecciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-estadisticas.html">7. Estadísticas del portal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentación de API v2</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Vistas de Datos</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_sections/04-vistas.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vistas-de-datos">
+<h1>Vistas de Datos<a class="headerlink" href="#vistas-de-datos" title="Permalink to this headline">¶</a></h1>
+<p>Una vista de datos es un recurso construido por un usuario a partir de una selección personalizada de filas y columnas en base a un conjunto de datos. Esta selección de datos puede incluir modificaciones adicionales sobre los datos originales, como incluir cabeceras, cambio en el tipo de dato o cambios en el formato de salida de los números</p>
+<p>En el recurso vista existe una llamada especial para mostrar todos sus datos:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datastreams</span><span class="o">/</span><span class="p">{</span><span class="n">guid</span><span class="p">}</span><span class="o">/</span><span class="n">data</span><span class="o">.</span><span class="p">{</span><span class="nb">format</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>El path que termina en data. <code class="docutils literal"><span class="pre">{format}</span></code>  permite retornar un nuevo campo <code class="docutils literal"><span class="pre">result</span></code>: donde están los datos del origen del recurso</p>
+<p>El <code class="docutils literal"><span class="pre">{format}</span></code>  puede tomar uno de los siguientes valores:</p>
+<ul class="simple">
+<li>json: Retorna un json con la estructura definida en el siguiente apartado.</li>
+<li>ajson: Retorna un array de arrays json dentro de un elemento ‘result’.</li>
+<li>pjson: Retorna un array con etiquetas para cada elemento. Utiliza siempre la primera fila como la vista de origen para las etiquetas.</li>
+<li>jsonp: Retorna los datos en formato JSONP</li>
+<li>csv: Retorna un documento de texto separado por comas.</li>
+<li>xml: Retorna los datos como una estructura XML.</li>
+<li>xls: Retorna un enlace dentro de un elemento fUri para descargar una versión en XLS de la vista de datos.</li>
+</ul>
+<p>Existe además una salida especial reemplazando <code class="docutils literal"><span class="pre">data.{format}</span></code> por <code class="docutils literal"><span class="pre">tableau.html</span></code>, la cual permite la integración con la aplicación Tableau al utilizar este nuevo endpoint como origen de datos desde la aplicación.</p>
+<div class="section" id="estructura-json-de-la-salida-data-json">
+<h2>Estructura JSON de la salida data.json<a class="headerlink" href="#estructura-json-de-la-salida-data-json" title="Permalink to this headline">¶</a></h2>
+<p>El resultado es un objeto Argument, el cual es una estructura recursiva de datos que contiene las siguientes propiedades:</p>
+<ul class="simple">
+<li>fType: Indica el tipo de dato del Argument. Sus valores pueden ser ARRAY | TEXT | NUMBER | DATE. El tipo ARRAY indica que el argumento contiene una TABLA. El tipo por defecto de los datos dentro de una TABLA es TEXT, a menos que se haya definido otro tipo de datos durante la creación. El tipo de dato puede ser modificado en cada consulta via API.</li>
+<li>Cuando el tipo de datos es un ARRAY, fRows y fCols indican el número de filas y columnas de la TABLA. De la misma manera, fArray contiene los datos de la TABLA como un arreglo de objetos Argument.</li>
+<li>Cuando el tipo de datos es TEXT el valor está contenido en fStr. Para un tipo de dato NUMBER el valor esta contenido en fNum. Para un tipo de dato DATE el valor está contenido en fNum como epoch time.</li>
+<li>Un Argument puede contener un enlace LINK. En esos casos, fType contiene LINK, la uri correspondiente viene en fUri y el texto a mostrar está contenido en fStr.</li>
+<li>Un array puede contener también el valor fHeader. Si fHeader es igual a “true”, significa que ese campo es parte de las cabeceras seleccionadas en la vista de datos.</li>
+<li>Cuando el tipo de datos es ERROR, ocurrió un error al ejecutar la vista de datos. El mensaje de error estará contenido en fStr.</li>
+<li>Cuando un error ocurre en la conexión con la fuente, el resultado es reemplazado con el último resultado que fue ejecutado correctamente.</li>
+<li>Para reconocer si el resultado está actualizado, existe una propiedad adicional llamada fTimestamp. Contiene el tiempo POSIX de cuando fue <strong>accedida la fuente de datos</strong> de forma exitosamente por última vez. Si fTimestamp tiene un valor igual a 0, significa que el resultado fue obtenido en ese instante.</li>
+</ul>
+</div>
+<div class="section" id="ejemplos-de-salida-de-los-datos">
+<h2>Ejemplos de salida de los datos<a class="headerlink" href="#ejemplos-de-salida-de-los-datos" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ejemplo-sobre-el-retorno-de-data-json">
+<h3>Ejemplo sobre el retorno de <em>data.json</em><a class="headerlink" href="#ejemplo-sobre-el-retorno-de-data-json" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fLength&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;ARRAY&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fTimestamp&quot;</span><span class="p">:</span> <span class="mi">1457102225405</span><span class="p">,</span>
+        <span class="nt">&quot;fArray&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Congreso Nacional - Biblioteca del Congreso&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Cifras en miles de $&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Código BIP&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Nombre de Proyecto&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Monto Identificado&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Remodelación Administración Valparaíso&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;26,505&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fHeader&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Bóveda y sala preservación colecciones valiosas&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fHeader&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;111,564&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fHeader&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Raparaciones daños terremoto, Sector Biblioteca&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;66,440&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Proyectos de climatización en Santiago y Valparaíso&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;62,101&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;TOTAL IDENTIFICADO&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;266,610&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;fRows&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="nt">&quot;fCols&quot;</span><span class="p">:</span> <span class="mi">3</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.dipres.gob.cl/574/articles-74267_doc_xls.xls&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Inversiones BCN durante el año 2011 según art. 24 de Ley de Presupuestos N° 18.482&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-06-04T14:12:52&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nóminas de Iniciativas de Inversión (M$) Biblioteca del Congreso Nacional&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;publicador&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;NOMIN-DE-BIBLI-DEL-12877&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finanzas&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplo-sobre-el-retorno-de-data-pjson">
+<h3>Ejemplo sobre el retorno de <em>data.pjson</em><a class="headerlink" href="#ejemplo-sobre-el-retorno-de-data-pjson" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{
+&quot;result&quot;: [
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;Versión : Ejecución DIPRES&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;Dirección de Presupeustos&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;Moneda Nacional - Miles de Pesos - Monto Devengado&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;11  PARTIDA : MINISTERIO DE DEFENSA NACIONAL&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;Ejecución acumulada al Primer Trimestre&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;Clasificación Económica&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;Subt.&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;350,239,182&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;INGRESOS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;1,787,369&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;RENTAS DE LA PROPIEDAD&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;06&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;85,459,417&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;INGRESOS DE OPERACION&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;07&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;2,464,229&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;OTROS INGRESOS CORRIENTES&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;08&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;228,441,645&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;APORTE FISCAL&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;09&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;1,553&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;VENTA DE ACTIVOS NO FINANCIEROS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;10&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;-200,000&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;VENTA DE ACTIVOS FINANCIEROS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;11&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;32,284,969&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;RECUPERACION DE PRESTAMOS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;12&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;0&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;SALDO INICIAL DE CAJA&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;15&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;309,580,095&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;GASTOS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;216,709,098&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;GASTOS EN PERSONAL&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;21&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;50,929,915&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;BIENES Y SERVICIOS DE CONSUMO&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;22&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;292,887&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;PRESTACIONES DE SEGURIDAD SOCIAL&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;23&quot;
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;6,926,828&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;TRANSFERENCIAS CORRIENTES&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;24&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;295,054&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;INTEGROS AL FISCO&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;25&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;72,619&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;OTROS GASTOS CORRIENTES&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;26&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;1,096,186&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;ADQUISICION DE ACTIVOS NO FINANCIEROS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;29&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;825,448&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;INICIATIVAS DE INVERSION&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;31&quot;
+},
+
+    {
+&quot;timestamp&quot;: 1466534470176,
+&quot;length&quot;: 27
+}
+],
+&quot;endpoint&quot;: &quot;http://www.sampleurl.gov/573/87684_public_record.xls&quot;,
+&quot;description&quot;: &quot;json&quot;,
+&quot;parameters&quot;: [
+
+],
+&quot;tags&quot;: [
+
+],
+&quot;timestamp&quot;: null,
+&quot;created_at&quot;: &quot;2012-06-04T14:12:52&quot;,
+&quot;title&quot;: &quot;prueba json&quot;,
+&quot;modified_at&quot;: &quot;2016-06-21T14:59:52&quot;,
+&quot;category_id&quot;: 40524,
+&quot;link&quot;: null,
+&quot;user&quot;: &quot;administrador&quot;,
+&quot;guid&quot;: &quot;PRUEB-JSON&quot;,
+&quot;category_name&quot;: &quot;Seguridad Pública&quot;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplo-sobre-el-retorno-de-data-ajson">
+<h3>Ejemplo sobre el retorno de <em>data.ajson</em><a class="headerlink" href="#ejemplo-sobre-el-retorno-de-data-ajson" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;Congreso Nacional - Biblioteca del Congreso&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Cifras en miles de $&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;Código BIP&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Nombre de Proyecto&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Monto Identificado&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Remodelación Administración Valparaíso&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;26,505&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Bóveda y sala preservación colecciones valiosas&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;111,564&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Raparaciones daños terremoto, Sector Biblioteca&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;66,440&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Proyectos de climatización en Santiago y Valparaíso&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;62,101&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;TOTAL IDENTIFICADO&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;266,610&quot;</span>
+        <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.dipres.gob.cl/574/articles-74267_doc_xls.xls&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Inversiones BCN durante el año 2011 según art. 24 de Ley de Presupuestos N° 18.482&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-06-04T14:12:52&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nóminas de Iniciativas de Inversión (M$) Biblioteca del Congreso Nacional&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;publicador&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;NOMIN-DE-BIBLI-DEL-12877&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finanzas&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplo-sobre-el-retorno-de-data-xml">
+<h3>Ejemplo sobre el retorno de <em>data.xml</em><a class="headerlink" href="#ejemplo-sobre-el-retorno-de-data-xml" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;table&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Congreso Nacional - Biblioteca del Congreso<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Cifras en miles de $<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Código BIP<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Nombre de Proyecto<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Monto Identificado<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Remodelación Administración Valparaíso<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>26,505<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Bóveda y sala preservación colecciones valiosas<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>111,564<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Raparaciones daños terremoto, Sector Biblioteca<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>66,440<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Proyectos de climatización en Santiago y Valparaíso<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>62,101<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column&gt;</span>TOTAL IDENTIFICADO<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>266,610<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplo-sobre-el-retorno-de-data-csv">
+<h3>Ejemplo sobre el retorno de <em>data.csv</em><a class="headerlink" href="#ejemplo-sobre-el-retorno-de-data-csv" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;Congreso Nacional - Biblioteca del Congreso&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Cifras en miles de $&quot;</span>
+<span class="s2">&quot;Código BIP&quot;</span><span class="p">,</span><span class="s2">&quot;Nombre de Proyecto&quot;</span><span class="p">,</span><span class="s2">&quot;Monto Identificado&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Remodelación Administración Valparaíso&quot;</span><span class="p">,</span><span class="s2">&quot;26,505&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Bóveda y sala preservación colecciones valiosas&quot;</span><span class="p">,</span><span class="s2">&quot;111,564&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Raparaciones daños terremoto, Sector Biblioteca&quot;</span><span class="p">,</span><span class="s2">&quot;66,440&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Proyectos de climatización en Santiago y Valparaíso&quot;</span><span class="p">,</span><span class="s2">&quot;62,101&quot;</span>
+<span class="s2">&quot;TOTAL IDENTIFICADO&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;266,610&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplo-sobre-el-retorno-de-data-xls">
+<h3>Ejemplo sobre el retorno de <em>data.xls</em><a class="headerlink" href="#ejemplo-sobre-el-retorno-de-data-xls" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;fUri&quot;</span><span class="p">:</span> <span class="s2">&quot;http://datastore.dev:8888/resources/datal_temp/2016-03-10/temp_1386265881861839185.xlsx&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;fNum&quot;</span><span class="p">:</span> <span class="mi">302</span><span class="p">,</span>
+  <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;REDIRECT&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="consumiendo-una-vista-de-datos-con-parametros">
+<h2>Consumiendo una vista de datos con parámetros<a class="headerlink" href="#consumiendo-una-vista-de-datos-con-parametros" title="Permalink to this headline">¶</a></h2>
+<p>Una vista de datos puede contener parámetros. Los parámetros pueden agregarse a la vista de datos solamente durante el proceso de creación. Estos parámetros pueden estar mapeados contra un formulario en un sitio web, directamente contra la URL de la fuente de datos o contra columnas de datos dentro de la tabla sobre la cual se crea la vista. La sintaxis apropiada para agregar parámetros en una solicitud API es
+pArgumentN=X
+Donde N es la posición del parámetro en la vista, empezando desde cero y X es el valor que tendrá dicho parámetro.</p>
+<p>Ejemplo:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>http://cne.cloudapi.junar.com/api/v2/datastreams/BALAN-NACIO-ENERG-POR-5269/data.ajson?auth_key=MI_AUTH_KEY&amp;pArgument0=2014
+</pre></div>
+</div>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{
+&quot;result&quot;: [
+    [
+  &quot;Año&quot;,
+&quot;Sección&quot;,
+&quot;Item&quot;,
+&quot;Combustible&quot;,
+&quot;Valor&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Petróleo Crudo&quot;,
+&quot;4,809.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Gas Natural&quot;,
+&quot;7,381.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energíargético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Carbón&quot;,
+&quot;29,147.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Biomasa&quot;,
+&quot;73,752.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Energía Hídrica&quot;,
+&quot;20,104.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Energía Eólica&quot;,
+&quot;1,241.00&quot;
+],
+(...)
+[
+&quot;2014&quot;,
+&quot;Sector de Consumo&quot;,
+&quot;Sector Industrial y Minero&quot;,
+&quot;Gas Corriente&quot;,
+&quot;6.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Sector de Consumo&quot;,
+&quot;Sector Industrial y Minero&quot;,
+&quot;Metanol&quot;,
+&quot;-&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Seccióntor de Consumo&quot;,
+&quot;Sector Industrial y Minero&quot;,
+        &quot;Total&quot;,
+&quot;1457102225405,105.00&quot;
+]
+],
+        &quot;endpoint&quot;: &quot;file://5995/5316/185277278134828680067533944176086411863&quot;,
+        &quot;description&quot;: &quot;Fuente: CNE. Datos desde 2008 a 2014 con el balance nacional energético consolidado en formato base de datos.&quot;,
+        &quot;parameters&quot;: [
+{
+&quot;default&quot;: &quot;2014&quot;,
+&quot;position&quot;: 0,
+&quot;name&quot;: &quot;Año&quot;,
+&quot;description&quot;: &quot;Año de la consulta en formato AAAA&quot;
+}
+],
+&quot;tags&quot;: [
+    &quot;Balance&quot;,
+    &quot;nacional&quot;,
+    &quot;energ tico&quot;,
+    &quot;bne&quot;,
+&quot;energia&quot;,
+&quot;Chile&quot;
+        ],
+&quot;timestamp&quot;: null,
+&quot;created_at&quot;: &quot;2015-11-11T17:27:41&quot;,
+&quot;title&quot;: &quot;Consolidado Balances Energéticos (2014 - 2008)&quot;,
+&quot;modified_at&quot;: &quot;2016-06-15T16:29:49&quot;,
+&quot;category_id&quot;: 41209,
+&quot;link&quot;: null,
+&quot;user&quot;: &quot;cne&quot;,
+&quot;guid&quot;: &quot;BALAN-NACIO-ENERG-POR-52693&quot;,
+&quot;category_name&quot;: &quot;Balance Energético&quot;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtrar-los-resultados-de-una-vista">
+<h2>Filtrar los resultados de una vista<a class="headerlink" href="#filtrar-los-resultados-de-una-vista" title="Permalink to this headline">¶</a></h2>
+<p>La API de Datos Abiertos de Junar permite a sus usuarios filtrar los resultados obtenidos durante la solicitud de una vista de datos utilizando la siguiente sintaxis:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>http://api.datosabiertos.chilecompra.cl/api/v2/datastreams/TRANS-ENTRE-PROVE-E-INSTI/data.ajson/?auth_key=MI_AUTH_KEY&amp;filter0=column4[&gt;]1000000000&amp;filter1=column0[==]Mobiliario&amp;where=(filter0 and filter1)
+</pre></div>
+</div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">[</span>
+        <span class="s2">&quot;Convenio Marco&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Institución&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Nombre Empresa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Cantidad OC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Monto OC&quot;</span>
+<span class="p">],</span>
+<span class="p">[</span>
+        <span class="s2">&quot;Mobiliario&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Ejército de Chile&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;MUEBLES TIMAUKEL LTDA.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;17.00&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2,443,853,748.52&quot;</span>
+<span class="p">]</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;file://6745/9345/70289701374408125008067787804389705863&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Datos agrupados en ordenes de compra y montos totales, en pesos chilenos, de cada transaccion realizada en un Convenio Marco para Enero 2016&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span>
+                <span class="p">[</span>
+                <span class="s2">&quot;transacciones&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ordenes de compra&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Proveedor&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;instituciones públicas&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;enero&quot;</span><span class="p">,</span><span class="s2">&quot;2015&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;convenio marco&quot;</span>
+                <span class="p">],</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-26T18:15:36&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Transacciones entre Proveedores e Instituciones en Convenio Marco - Enero 2015&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-26T19:07:49&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="mi">41338</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;chilecompra&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;TRANS-ENTRE-PROVE-E-INSTI&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Convenio Marco&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esto retorna todos los datos que sean mayores a 1.000.000.000 en la columna 4 y sean iguales a la palabra “Mobiliario” en la columna 0.</p>
+<p>Los filtros pueden ir desde 0 a N (filter0, filter1…filterN) y tienen la siguiente sintaxis:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">operando0</span> <span class="o">|</span> <span class="n">operador</span> <span class="n">lógico</span> <span class="o">|</span> <span class="n">operando1</span>
+</pre></div>
+</div>
+<p>Los operando0 pueden ser rownum (número de fila) o columnN (columna N, donde N es un entero que va desde 0 a N). El operando1 por lo general es una cadena de texto, número o fecha.</p>
+<p>Los operadores lógicos pueden ser:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">==</span><span class="p">],</span> <span class="p">[</span><span class="o">&gt;</span><span class="p">],</span> <span class="p">[</span><span class="o">&lt;</span><span class="p">],</span> <span class="p">[</span><span class="o">!=</span><span class="p">],</span> <span class="p">[</span><span class="n">contains</span><span class="p">],</span> <span class="p">[</span><span class="o">&gt;=</span><span class="p">],</span> <span class="p">[</span><span class="o">&lt;=</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Los corchetes [] deben ser incluidos. Los operandos son sensibles a mayúsculas si el contenido es una cadena de texto. En el caso del operador lógico [contains], el orden de los operandos debe invertirse.</p>
+<p>La operación where tiene una expresión lógica para concatenar filtros de tipo AND u OR. En este caso, se utilizaría (filter0 and filter1). Las expresiones and y or sirven para diferenciar la relación entre los filtros y pueden concatenarse tanto como fuera necesario para cumplir una cierta condicion por ejemplo:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">filter0</span> <span class="ow">and</span> <span class="n">filter1</span><span class="p">)</span> <span class="ow">or</span> <span class="n">filter2</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Si se utiliza como operando un número o fecha, la misma debe venir formateada como tal en la vista de datos. Si no viene formateada, puede aplicarse un formato a través de la API (ver apartado siguiente).</p>
+<p>Cuando se agrega una fecha como parámetro debe incluirse utilizando el formato MM/dd/aaaa.</p>
+</div>
+<div class="section" id="ordenar-los-datos">
+<h2>Ordenar los Datos<a class="headerlink" href="#ordenar-los-datos" title="Permalink to this headline">¶</a></h2>
+<p>La API permite ordenar los resultados obtenidos durante la solicitud de una vista de datos utilizando el parámetro <code class="docutils literal"><span class="pre">orderBy</span></code>. Debe indicarse la columna sobre la cual deseamos ordenar los resultados y entre corchetes si el orden debe ser ascedente [A] o descendente [D].</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">http://api.datosabiertos.chilecompra.cl/api/v2/datastreams/TRANS-ENTRE-PROVE-E-INSTI/data.ajson/?auth_key=MI_AUTH_KEY&amp;orderBy0=column0[D]</span></code></div></blockquote>
+</div>
+<div class="section" id="formateo-de-datos">
+<h2>Formateo de Datos<a class="headerlink" href="#formateo-de-datos" title="Permalink to this headline">¶</a></h2>
+<p>Permite a los desarrolladores el dar formato a columnas de datos con un tipo y formato que afectará cómo son devueltos los datos de la consulta. Usa la siguiente sintaxis y debe aplicarse a una columna que ya haya sido objeto de un filtro :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">format</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;table&quot;</span><span class="p">:[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;column10&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">:{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="s2">&quot;ES&quot;</span><span class="p">,</span> <span class="s2">&quot;lang&quot;</span><span class="p">:</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;dd/MM/yyyy&quot;</span><span class="p">}}]}</span>
+</pre></div>
+</div>
+<p>Donde :</p>
+<ul class="simple">
+<li>id : Corresponde a la posición de la columna a filtrar. Esta columna debe haber sido objeto de un filtro para poder ser formateada.</li>
+<li>type: El tipo de dato que contiene la columna. Por defecto todas las columnas se consideran de tipo texto (TEXT), pero pueden cambiarse a fecha (DATE) o número (NUMBER).</li>
+<li>format : Dependiendo del tipo elegido puede requerir la siguiente información.</li>
+</ul>
+<p>El formato DATE requiere country (país), lang (idioma) y style (estilo). Los valores de country y lang corresponden al formato ISO, mientras que posibles valores de style pueden encontrarse aquí:</p>
+<p><a class="reference external" href="http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html">http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;table&quot;</span><span class="p">:[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;column10&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">:{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="s2">&quot;CL&quot;</span><span class="p">,</span> <span class="s2">&quot;lang&quot;</span><span class="p">:</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;dd/MM/yyyy&quot;</span><span class="p">}}]}</span>
+<span class="n">El</span> <span class="n">formato</span> <span class="n">NUMBER</span> <span class="n">requiere</span> <span class="n">country</span> <span class="p">(</span><span class="n">país</span><span class="p">),</span> <span class="n">lang</span> <span class="p">(</span><span class="n">idioma</span><span class="p">)</span> <span class="n">y</span> <span class="n">pattern</span> <span class="p">(</span><span class="n">patrón</span><span class="p">)</span><span class="o">.</span> <span class="n">Los</span> <span class="n">patrones</span> <span class="n">permiten</span> <span class="n">definir</span> <span class="n">cómo</span> <span class="n">se</span> <span class="n">separarán</span> <span class="n">los</span> <span class="n">miles</span> <span class="n">y</span> <span class="n">los</span> <span class="n">decimales</span> <span class="n">o</span> <span class="n">si</span> <span class="n">las</span> <span class="n">cifran</span> <span class="n">irán</span> <span class="n">agrupadas</span> <span class="n">de</span> <span class="n">acuerdo</span> <span class="n">a</span> <span class="n">estándares</span> <span class="n">asociados</span> <span class="n">al</span> <span class="n">país</span> <span class="n">e</span> <span class="n">idioma</span> <span class="n">elegidos</span>
+<span class="p">{</span><span class="s2">&quot;table&quot;</span><span class="p">:[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;column4&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;NUMBER&quot;</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">:{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="s2">&quot;US&quot;</span><span class="p">,</span> <span class="s2">&quot;lang&quot;</span><span class="p">:</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;decimals&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;thousands&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">}}]}</span>
+</pre></div>
+</div>
+<p>Ejemplo</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>..../invoke/SACRA-ANNUA-CRIME-STATS?...&amp;filter0=column0[==]Homicide&amp;filter1=column4[&gt;]0&amp;where=(filter0 or filter1)&amp;format=
+        {&quot;table&quot;:[{&quot;id&quot;:&quot;column4&quot;, &quot;type&quot;:&quot;NUMBER&quot;, &quot;format&quot;:&quot;format&quot;:{&quot;country&quot;:&quot;US&quot;, &quot;lang&quot;:&quot;es&quot;, &quot;pattern&quot;:&quot;&quot;, &quot;decimals&quot;:&quot;.&quot;, &quot;thousands&quot;:&quot;,&quot;}}]}
+</pre></div>
+</div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;SACRA-ANNUA-CRIME-STATI&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Sacramento Annual Crime Statistics&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Year to date information on different types of crimes and variation 2012 2013&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;sacramento&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;ARRAY&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fArray&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Homicide&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fNum&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;NUMBER&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;42.9%&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Robbery&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;275&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;309&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fNum&quot;</span><span class="p">:</span> <span class="mf">34.0</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;NUMBER&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;12.4%&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Burglary&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;944&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;1,084&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fNum&quot;</span><span class="p">:</span> <span class="mf">140.0</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;NUMBER&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;14.8%&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;fRows&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;fCols&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nt">&quot;fTimestamp&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;fLength&quot;</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Sacramento&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;POLICE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;crime&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-28 00:27:27&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.sacpd.org/crime/stats/&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://sacramento.opendata.junar.com/datastreams/77447/sacramento-annual-crime-statistics/&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="agrupaciones-y-funciones-sobre-vistas-de-datos">
+<h2>Agrupaciones y Funciones sobre vistas de datos<a class="headerlink" href="#agrupaciones-y-funciones-sobre-vistas-de-datos" title="Permalink to this headline">¶</a></h2>
+<p>Puedes aplicar algunas FUNCIONES y AGRUPACIONES sobre los datos de una vista. Las operaciones se realizan a demanda sobre un juego de columnas definido en una llamada API y asociados a través de dos parámetros pGroupBy y pFunction. El resultado puede ser reutilizado como una fuente tipo web service REST/JSON para crear nuevos recursos de datos (vistas, visualizaciones) en el área de trabajo. Las funciones disponibles actualmente son SUM (suma), COUNT (contar), y AVG (promedio).</p>
+<p>En primer lugar definiremos la columna que servirá para agrupar mediante el parametro pGroupBy seguido de un número que indica la jerarquía (pGroupBy0=column0, pGroupBy1=column2…). Luego, aplicamos una función FUNCTION aplicada en la columna sobre la que vamos a operar. Debes incluir paréntesis cuadrados (brackets) al ingresar la columna, pudiendo concatenar mas de una pFunction agregandole un número entero empezando desde cero (pFunction0=SUM[column0], pFunction1=COUNT[column10]).</p>
+<p>Por ejemplo, si quisieramos responder a la pregunta por la cantidad de incidencias totales agrupadas según cada estación de respuesta del servicio 911 de la ciudad de Sacramento, el request a la API sería</p>
+<p><a class="reference external" href="http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=8fdd7b3db6ef82b08bcf4715b5f0dfce54fc6bf1&amp;pGroupBy0=column2&amp;pGroupBy1=column3&amp;pFunction0=COUNT[column3">http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=8fdd7b3db6ef82b08bcf4715b5f0dfce54fc6bf1&amp;pGroupBy0=column2&amp;pGroupBy1=column3&amp;pFunction0=COUNT[column3</a>]</p>
+<p>Este request retorna los datos como un CSV. Cualquier otro valor de data.{format} puede ser utilizado también.</p>
+<p>El formato de salida <strong>data.ajson</strong> puede además ser reutilizado para crear un conjunto de datos en Junar usando la API como un servicio web REST/JSON. El path a los datos en todos los casos sería <em>$.result</em>. El uso del caché para el dataset es altamente recomendado, ya que la operación es realizada en línea y el exceso de uso puede degradar el rendimiento de la solicitud.</p>
+</div>
+<div class="section" id="publicacion-y-actualizacion-via-api">
+<h2>Publicación y actualización via API<a class="headerlink" href="#publicacion-y-actualizacion-via-api" title="Permalink to this headline">¶</a></h2>
+<p>De manera similar a la publicación de conjuntos de datos via API, usted puede crear nuevas vistas de datos sobre datasets ya existentes usando la API de Junar. Para esto utilice las llamadas POST/PUT/PATCH las cuales reciben los siguientes parámetros:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span>  <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datastreams</span><span class="o">.</span><span class="n">json</span>
+<span class="n">PUT</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datastreams</span><span class="o">/</span><span class="p">:</span><span class="n">guid</span><span class="o">.</span><span class="n">json</span>
+<span class="n">PATCH</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datastreams</span><span class="o">/</span><span class="p">:</span><span class="n">guid</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>title : Título del recurso. Máximo 100 caracteres.</li>
+<li>description : Descripción del recurso. Máximo 250 caracteres.</li>
+<li>category : Slug de la categoría para clasificar los recursos. Debe coincidir con alguna de las categorías de la cuenta</li>
+<li>notes : Opcional. Texto de la nota del conjunto de datos. Máximo 10.000 caracteres. Soporta texto enriquecido.</li>
+<li>dataset : GUID del conjunto de dataos asociado a la vista.</li>
+<li>header_row : Opcional. Indice númerico de la fila a usar como cabecera de la tabla comenzando de cero. Por defecto es vacio</li>
+<li>table_id : Indice numérico de la tabla en el conjunto de datos, comenzando de cero.</li>
+<li>tags : Opcional. Tags separados por coma.</li>
+</ul>
+<p>El path que termine en data.{format} permite retornar un nuevo campo <code class="docutils literal"><span class="pre">result</span></code>: donde están los datos del origen del recurso</p>
+<p>Todas las llamadas en caso de éxito devuelven lo mismo, por ejemplo:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;file://1995/46721/313214253556015558595838280659574174401&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;prueba mesa copypaste&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-02-23T10:34:42&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;prueba&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;junarcity&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;PRUEB&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Financial&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Nuevos tipos de salida se irán incluyendo con el tiempo.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="05-visualizaciones.html" class="btn btn-neutral float-right" title="Visualizaciones" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="03-conjunto_de_datos.html" class="btn btn-neutral" title="Conjunto de Datos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Junar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

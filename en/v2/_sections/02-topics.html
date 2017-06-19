@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Topics &mdash; API Documentation 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="API Documentation 2.0 documentation" href="../index.html"/>
+        <link rel="next" title="Datasets" href="03-datasets.html"/>
+        <link rel="prev" title="Introduction" href="01-index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> API Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-index.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-authentication">Basic Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authorization">Authorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pagination">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-metrics">Basic Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metadata-filters">Metadata Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resource-type-filtering">Resource Type Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#full-catalog-queries">Full catalog queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version">Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03-datasets.html">3. Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-dataviews.html">4. Dataviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-visualizations.html">5. Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-dashboards.html">6. Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-statistics.html">7. Statistics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">API Documentation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Topics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_sections/02-topics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="topics">
+<h1>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-authentication">
+<h2>Basic Authentication<a class="headerlink" href="#basic-authentication" title="Permalink to this headline">¶</a></h2>
+<p>There is a three step process in identifying who’s making an API request</p>
+<ol class="arabic simple">
+<li>First tries to identify an account through the domain.</li>
+<li>Then tries to match the auth_key in the request to a list of authentication keys enabled for the domain of the account.</li>
+<li>Finally, it tries to identify the user of that auth_key. If it cannot identify it, it’ll consider it an anonymous user.</li>
+</ol>
+<p>The system has two types of auth_keys: public and private. Private auth_keys are defined and delivered to an authorized customer contact by the Junar team. Public auth keys can be obtained from the  <code class="docutils literal"><span class="pre">/developers</span></code> path in the Open Data portal.
+All auth keys are anonymous by default, and are generated on the fly with each request. Anonymous keys have less privileges than identified users.</p>
+</div>
+<div class="section" id="authorization">
+<h2>Authorization<a class="headerlink" href="#authorization" title="Permalink to this headline">¶</a></h2>
+<p>If the domain is not associated to an active account, access is denied</p>
+<p>If the auth_key is not recognized or does not belong to the account, access is denied</p>
+<p>If the auth_key is public, it checks the referer. If it cannot identify the referer, access is denied. This feature can be configured on a need-to basis by the Junar team</p>
+<p>If five (5) requests per seconds limit is surpassed, access is denied for one (1) second</p>
+<p>Public auth_keys allow only for read operations</p>
+</div>
+<div class="section" id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
+<p>The Junar API uses regular HTTP responses to indicate success or failure of API requests. Following this HTTP standard, codes in the 2XX range indicate success and on the 4XX indicate errors.</p>
+<ul class="simple">
+<li>ParseError: Data parsing error “400 Bad Request”.</li>
+<li>AuthenticationFailed: Authentication error “401 Unauthenticated”</li>
+<li>NotAuthenticated: Query does not contain authentication “401 Unauthenticated”</li>
+<li>PermissionDenied: Access is not allowed “403 Forbidden”.</li>
+<li>NotFound: Resource is not found “404 Not Found”.</li>
+<li>MethodNotAllowed: There’s been a request for a method (POST, PUT, ect) that is not allowed “405 Method Not Allowed”.</li>
+<li>NotAcceptable: An invalid request has been made over a data type “406 Not Acceptable”.</li>
+<li>UnsupportedMediaType: An invalid file format has been attempted to upload “415 Unsupported Media Type”.</li>
+<li>Throttled: The access limit has been beaten “429 Too Many Requests”.</li>
+<li>ValidationError: Invalid parameters “400 Bad Request”.</li>
+<li>UnexpectedError: An unexpected error. Please contact <a class="reference external" href="mailto:support&#37;&#52;&#48;junar&#46;com">support<span>&#64;</span>junar<span>&#46;</span>com</a> “500 internal Server”.</li>
+</ul>
+</div>
+<div class="section" id="pagination">
+<h2>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h2>
+<p>All listed API methods have a pagination function that can receive any or all of the following parameters:</p>
+<ul class="simple">
+<li>limit: amount of results per query</li>
+<li>offset: result position over which the query applies</li>
+<li>page: page of results of the query, size related to <code class="docutils literal"><span class="pre">limit</span></code></li>
+</ul>
+<p>When these parameters are present, the response of the API is affected, adding the following fields</p>
+<ul class="simple">
+<li>count: total amount of results</li>
+<li>next: link to the next query</li>
+<li>preview: link to the previous query</li>
+<li>result: a list of results</li>
+</ul>
+<p>A sample with a <code class="docutils literal"><span class="pre">limit</span></code> equal to 2</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.dev:8080/api/v2/datasets/?auth_key=576bba0dd5a27df9aaac12d1d7ec25c8411fe29e&amp;limit=2&amp;offset=2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+          <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://datastorage.mineduc.cl/tablas/Nivel_Calificaciones_anio_2006.csv&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Descripcion del conjuto de datos&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[],</span>
+          <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="s2">&quot;&quot;</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="mi">1337611920</span><span class="p">,</span>
+          <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nivel de Calificaciones 2006&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://microsites.dev:8080/datasets/61649/nivel-de-calificaciones-2006&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;publicador&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;DATASET-ID-61649&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Educación&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+          <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://datastorage.mineduc.cl/tablas/Nivel_Rendimiento_anio_2010.csv&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Descripcion del conjuto de datos&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[],</span>
+          <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="s2">&quot;&quot;</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="mi">1337611453</span><span class="p">,</span>
+          <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nivel de Rendimiento 2010&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://microsites.dev:8080/datasets/61648/nivel-de-rendimiento-2010&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;publicador&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;DATASET-ID-61648&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Educación&quot;</span>
+      <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-metrics">
+<h2>Basic Metrics<a class="headerlink" href="#basic-metrics" title="Permalink to this headline">¶</a></h2>
+<p>You can obtain an ordered list of basic metrics related to the performance of your open data site. You can use the <code class="docutils literal"><span class="pre">order</span></code> parameter to get one of the following results.</p>
+<ul class="simple">
+<li>viewed: list of most viewed resources (hits on the portal)</li>
+<li>downloaded: most downloaded resources (including API requests)</li>
+<li>top: an aggregation of the two previous methods</li>
+<li>last: ordered by last update.</li>
+</ul>
+</div>
+<div class="section" id="metadata-filters">
+<h2>Metadata Filters<a class="headerlink" href="#metadata-filters" title="Permalink to this headline">¶</a></h2>
+<p>You can retrieve data resources that fits a <code class="docutils literal"><span class="pre">query</span></code> parameter over title, description, or tags of the open data resource. You can also filter over a specific category by using the <code class="docutils literal"><span class="pre">categories</span></code> parameter, which receives any number of category_name separated by commas.</p>
+</div>
+<div class="section" id="resource-type-filtering">
+<h2>Resource Type Filtering<a class="headerlink" href="#resource-type-filtering" title="Permalink to this headline">¶</a></h2>
+<p>You can also retrieve resources of a specific type by using the <code class="docutils literal"><span class="pre">resources</span></code> parameter on the request, which can contain any of the following values, separated by commas.</p>
+<ul class="simple">
+<li>dt: Datasets</li>
+<li>ds: Dataviews</li>
+<li>vz: Visualizations</li>
+<li>db: Dashboards</li>
+</ul>
+<p>On the response array there’s a <code class="docutils literal"><span class="pre">type</span></code> parameter which identifies the resource</p>
+<p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/resources/?auth_key=MI_AUTH_KEY&amp;type=dt</span></code></p>
+<p>In addition, you can search for words by using the “ query“ parameter</p>
+<p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/resources/?auth_key=MI_AUTH_KEY&amp;query=search</span> <span class="pre">term</span></code></p>
+<p>With the <code class="docutils literal"><span class="pre">score</span></code> value, it is possible to sort by ascending <code class="docutils literal"><span class="pre">:asc</span></code> or descending <code class="docutils literal"><span class="pre">:desc</span></code> results according to the relevance of the searched term.
+Relevance is defined by calculating how similar the spelling of the word found to the original search term is.</p>
+<p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/resources/?auth_key=MI_AUTH_KEY&amp;query=search</span> <span class="pre">term&amp;order=_score:asc</span></code></p>
+</div>
+<div class="section" id="full-catalog-queries">
+<h2>Full catalog queries<a class="headerlink" href="#full-catalog-queries" title="Permalink to this headline">¶</a></h2>
+<p>You can filter, order, search and paginate over the entire catalog with one query by using the following GET method</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">resources</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>For instance ´´http://cne.cloudapi.junar.com/api/v2/resources.json?auth_key=MY_AUTH_KEY&amp;limit=2&amp;offset=8&amp;query=balance&amp;order=top´´ returns</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span>
+    <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://cne.cloudapi.junar.com/api/v2/resources.json/?auth_key=7a392227077e0efbfdb16f843fd12a09bea78210&amp;limit=2&amp;offset=10&amp;order=top&amp;query=balance&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="s2">&quot;http://cne.cloudapi.junar.com/api/v2/resources.json/?auth_key=7a392227077e0efbfdb16f843fd12a09bea78210&amp;limit=2&amp;offset=6&amp;order=top&amp;query=balance&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dataset.cne.cl/Energia_Abierta/Balances%20Energeticos/bne_2014.xls&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Fuente: Elaborado por la División de Prospectiva y Política Energética del Ministerio de Energía &quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+
+        <span class="p">],</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;consumo&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sector Publico&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;comercial&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;residencial&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cpr&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bne 2014&quot;</span>
+                <span class="p">],</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1472489817419</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="mi">1449000423</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;BNE 2014 - Consumo Sector Comercial, Público, Residencial (CPR)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="mi">1455897663</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="s2">&quot;41209&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://datos.energiaabierta.cne.cl/dataviews/111743/bne-2014-consumo-sector-comercial-publico-residencial-cpr/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;cne&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;BNE-2014-CONSU-SECTO-COMER&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Balance Energético&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ds&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dataset.cne.cl/Energia_Abierta/Balances%20Energeticos/bne_2014.xls&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Fuente: Elaborado por la División de Prospectiva y Política Energética del Ministerio de Energía &quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+
+        <span class="p">],</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;consumo&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sector industrial&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sector minero&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bne 2014&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1472049616033</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="mi">1448996916</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;BNE 2014 - Consumo Sector Industrial y Minero&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="mi">1455897663</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="s2">&quot;41209&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://datos.energiaabierta.cne.cl/dataviews/111697/bne-2014-consumo-sector-industrial-y-minero/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;cne&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;BNE-2014-CONSU-SECTO-INDUS&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Balance Energético&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ds&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="version">
+<h2>Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<p>Current API version is 2.0.
+Maintenance and support for APIv1.0 related issues will not be available beginning on September, 2016. While v1.0 requests will continue to work, we strongly recommend to integrate all developments over to the current version of the API.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="03-datasets.html" class="btn btn-neutral float-right" title="Datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01-index.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Junar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
