@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Visualizaciones &mdash; Documentación de API v2 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Documentación de API v2 2.0 documentation" href="../index.html"/>
+        <link rel="next" title="Colecciones" href="06-colecciones.html"/>
+        <link rel="prev" title="Vistas de Datos" href="04-vistas.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Documentación de API v2
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-index.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-topicos.html">2. Tópicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-conjunto_de_datos.html">3. Conjunto de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-vistas.html">4. Vistas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Visualizaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-colecciones.html">6. Colecciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-estadisticas.html">7. Estadísticas del portal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentación de API v2</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Visualizaciones</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_sections/05-visualizaciones.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="visualizaciones">
+<h1>Visualizaciones<a class="headerlink" href="#visualizaciones" title="Permalink to this headline">¶</a></h1>
+<p>Las llamadas GET nos devuelve los siguientes parámetros  :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">visualizations</span><span class="o">.</span><span class="n">json</span>
+<span class="n">GET</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">visualizations</span><span class="o">/</span><span class="p">{</span><span class="n">guid</span><span class="p">}</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Y los parámetros  son los siguientes.</p>
+<ul class="simple">
+<li>guid: Identificador del recurso,</li>
+<li>title: Título del recursos.</li>
+<li>description: Descripción del recursos.</li>
+<li>category_name: Nombre de la categoría.</li>
+<li>endpoint: Viene en null y se utiliza para concoordar con otros recursos de datos</li>
+<li>tags : Opcional. Tags separados por coma.</li>
+<li>user : Usuario que publica el recurso.</li>
+<li>parameters : Viene en null y se utiliza para concoordar con otros recursos de datos</li>
+<li>created_at : Fecha de creación de la versión del recurso</li>
+<li>link : Link a la vista del recurso en el portal</li>
+</ul>
+<p>Por ejemplo el <code class="docutils literal"><span class="pre">GET</span>&#160;&#160; <span class="pre">/api/v2/visualizations/{guid}.json</span></code> muestra los siguientes datos:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;prueba apeso 2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-03-04T17:43:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;prueba p&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;junarcity&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;PRUEB-P&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Financial&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="06-colecciones.html" class="btn btn-neutral float-right" title="Colecciones" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="04-vistas.html" class="btn btn-neutral" title="Vistas de Datos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Junar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

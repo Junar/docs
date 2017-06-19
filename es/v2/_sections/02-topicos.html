@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tópicos &mdash; Documentación de API v2 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Documentación de API v2 2.0 documentation" href="../index.html"/>
+        <link rel="next" title="Conjunto de Datos" href="03-conjunto_de_datos.html"/>
+        <link rel="prev" title="Introducción" href="01-index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Documentación de API v2
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-index.html">1. Introducción</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Tópicos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#autenticacion-basica">Autenticación Básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autorizacion">Autorización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#errores">Errores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paginacion">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ordenamiento">Ordenamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filtros">Filtros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#busquedas-multiples">Busquedas Múltiples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#versiones">Versiones</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03-conjunto_de_datos.html">3. Conjunto de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-vistas.html">4. Vistas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-visualizaciones.html">5. Visualizaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-colecciones.html">6. Colecciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-estadisticas.html">7. Estadísticas del portal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentación de API v2</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Tópicos</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_sections/02-topicos.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="topicos">
+<h1>Tópicos<a class="headerlink" href="#topicos" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="autenticacion-basica">
+<h2>Autenticación Básica<a class="headerlink" href="#autenticacion-basica" title="Permalink to this headline">¶</a></h2>
+<p>Existen 3 pasos para intentar identificar quien está llamando a la API</p>
+<ol class="arabic simple">
+<li>Lo primero que se hace es tratar de identificar la cuenta (Account) mediante el dominio.</li>
+<li>Luego se intenta identificar la auth_key que debe coincidir con una de las auth_key dentro de las habilitadas en la cuenta.</li>
+<li>Por último, se trata de identificar el usuario y en caso negativo se lo considera un usuario anónimo.</li>
+</ol>
+<p>El sistema tiene dos tipos de auth_key; públicas y privadas. Las privadas son solicitadas directamente al equipo de Junar, quienes la entregan únicamente a un contacto autorizado por la cuenta, mientras que las publicas se pueden obtener entrando al path <code class="docutils literal"><span class="pre">/developers</span></code> dentro del portal de la cuenta.
+Las auth_keys son anónimas y se generan dinámicamente para cada solicitud.</p>
+</div>
+<div class="section" id="autorizacion">
+<h2>Autorización<a class="headerlink" href="#autorizacion" title="Permalink to this headline">¶</a></h2>
+<p>Si el dominio no es un dominio que corresponde con una cuenta activa, se deniega el acceso</p>
+<p>Si la auth_key no se reconoce o no corresponde a la cuenta, se deniega el acceso</p>
+<p>Si la auth_key es pública se chequea el referer y si no se puede identificar (configurable por sistema) no se permite el acceso.</p>
+<p>Si se exceden las cinco (5) solicitudes por segundo, se deniega el acceso por 1 segundo.</p>
+<p>Las auth_key públicas solo permiten operaciones de lectura.</p>
+</div>
+<div class="section" id="errores">
+<h2>Errores<a class="headerlink" href="#errores" title="Permalink to this headline">¶</a></h2>
+<p>La API de Junar usa respuesta HTTP convencionales para indicar el éxito o el fracaso de una llamada a la API. Siguiendo los lineamientos HTTP los códigos de rango 2xx indicana éxito y los códigos de rango 4xxx indicana un error.</p>
+<ul class="simple">
+<li>ParseError: Error de parseo de datos “400 Bad Request”.</li>
+<li>AuthenticationFailed: Error de autenticación “401 Unauthenticated”</li>
+<li>NotAuthenticated: El query viene sin autenciación “401 Unauthenticated”</li>
+<li>PermissionDenied: Error de acceso no permitido “403 Forbidden”.</li>
+<li>NotFound: El recurso no se encuenta “404 Not Found”.</li>
+<li>MethodNotAllowed: Se quiere ejecutar un método (POST, PUT, ect) no permitido “405 Method Not Allowed”.</li>
+<li>NotAcceptable: Se pide que se devuelva la inforamción en un tipo de dato que no es válido “406 Not Acceptable”.</li>
+<li>UnsupportedMediaType: Se intenta subir un tipo de dato que no es válido “415 Unsupported Media Type”.</li>
+<li>Throttled: Se super el límite de accesos “429 Too Many Requests”.</li>
+<li>ValidationError: Parámetros inválidos “400 Bad Request”.</li>
+<li>UnexpectedError: Error inesperado “500 internal Server”.</li>
+</ul>
+</div>
+<div class="section" id="paginacion">
+<h2>Paginación<a class="headerlink" href="#paginacion" title="Permalink to this headline">¶</a></h2>
+<p>Todos los métodos de listado de recursos de la API tienen el funcionamiento de paginado. Cualquiera puede recibir los siguientes parámetros:</p>
+<ul class="simple">
+<li>limit: cantidad de resultados por búsqueda</li>
+<li>offset: número de resultado a partir del cual se realiza la búsqueda.</li>
+<li>page: página sobre la cual se retornan los resultados, según lo especificado en <code class="docutils literal"><span class="pre">limit</span></code></li>
+</ul>
+<p>Cuando aparecen estos parámetros la respuesta se ordena de otra manera y agrega los siguientes campos</p>
+<ul class="simple">
+<li>count: la cantidad todal de resultados</li>
+<li>next: un link a la llamada siguiente</li>
+<li>preview: un link a la llamada previa</li>
+<li>result: el listado de resultados.</li>
+</ul>
+<p>Un ejemplo de respuesta con limit igual a 2 podría ser</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://api.dev:8080/api/v2/datasets/?auth_key=576bba0dd5a27df9aaac12d1d7ec25c8411fe29e&amp;limit=2&amp;offset=2&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+          <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://datastorage.mineduc.cl/tablas/Nivel_Calificaciones_anio_2006.csv&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Descripcion del conjuto de datos&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[],</span>
+          <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="s2">&quot;&quot;</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="mi">1337611920</span><span class="p">,</span>
+          <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nivel de Calificaciones 2006&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://microsites.dev:8080/datasets/61649/nivel-de-calificaciones-2006&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;publicador&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;DATASET-ID-61649&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Educación&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+          <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://datastorage.mineduc.cl/tablas/Nivel_Rendimiento_anio_2010.csv&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Descripcion del conjuto de datos&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[],</span>
+          <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="s2">&quot;&quot;</span>
+          <span class="p">],</span>
+          <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="mi">1337611453</span><span class="p">,</span>
+          <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nivel de Rendimiento 2010&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://microsites.dev:8080/datasets/61648/nivel-de-rendimiento-2010&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;publicador&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;DATASET-ID-61648&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Educación&quot;</span>
+      <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ordenamiento">
+<h2>Ordenamiento<a class="headerlink" href="#ordenamiento" title="Permalink to this headline">¶</a></h2>
+<p>Para poder ordenar los listados de todos los recursos se usa el parámetro <code class="docutils literal"><span class="pre">order</span></code> que puede tener uno de los siguientes valores.</p>
+<ul class="simple">
+<li>viewed: se ordena por los mas vistos (vistos en el portal)</li>
+<li>downloaded: se ordena por los recursos mas descargados (acceso a través de la API).</li>
+<li>top: se ordena por una suma de los dos campos anteriores</li>
+<li>last: se ordena por fecha de actualización.</li>
+</ul>
+</div>
+<div class="section" id="filtros">
+<h2>Filtros<a class="headerlink" href="#filtros" title="Permalink to this headline">¶</a></h2>
+<p>Los filtros aplican también a los listados de todos los recursos de la API.</p>
+<p>Las búsquedas se realizan utilizando el parámetro <code class="docutils literal"><span class="pre">query</span></code> y actualmente se puede filtrar por categorias utilizando el parámetro <code class="docutils literal"><span class="pre">categories</span></code> que recibe los nombres de las categorias separadas por coma.</p>
+</div>
+<div class="section" id="busquedas-multiples">
+<h2>Busquedas Múltiples<a class="headerlink" href="#busquedas-multiples" title="Permalink to this headline">¶</a></h2>
+<p>Existe la posibilidad de tener un listado de múltiples recursos y para ello se creo el siguiente path:</p>
+<p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/resources</span></code></p>
+<p>Para poder filtrar los tipos de recursos se utiliza el parámetro <code class="docutils literal"><span class="pre">resources</span></code> que puede tener más de uno de los siguientes valores separados por coma.</p>
+<ul class="simple">
+<li>dt: Conjunto de datos</li>
+<li>ds: Vistas</li>
+<li>vz: Visualizaciones</li>
+<li>db: Colecciones</li>
+</ul>
+<p>En los resultados se agrega el parámetro <code class="docutils literal"><span class="pre">type</span></code> para identificar el recurso</p>
+<p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/resources/?auth_key=MI_AUTH_KEY&amp;type=dt</span></code></p>
+<p>Además, es posible buscar recuros por palabras utilizando el parámetro <code class="docutils literal"><span class="pre">query</span></code></p>
+<p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/resources/?auth_key=MI_AUTH_KEY&amp;query=termino</span> <span class="pre">de</span> <span class="pre">busqueda</span></code></p>
+<p>Mediante el valor <code class="docutils literal"><span class="pre">score</span></code> es posible ordenar de forma ascendente <code class="docutils literal"><span class="pre">:asc</span></code> o descendente <code class="docutils literal"><span class="pre">:desc</span></code> los resultados según la relevancia del término buscado.
+La relevancia se define calculando cuán similar es la ortografía de la palabra encontrada al término de búsqueda original.</p>
+<p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/resources/?auth_key=MI_AUTH_KEY&amp;query=termino</span> <span class="pre">de</span> <span class="pre">busqueda&amp;order=_score:asc</span></code></p>
+</div>
+<div class="section" id="versiones">
+<h2>Versiones<a class="headerlink" href="#versiones" title="Permalink to this headline">¶</a></h2>
+<p>Actualmente la api se encuentra en su versión 2.</p>
+<p>Para obtener información de sobre la Versión 1.0 de la API, ingresar a la documentación de esa versión asociada al proyecto <a class="reference external" href="http://junar.github.io/VizCNE/doc/build/index.html">Energía Abierta</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="03-conjunto_de_datos.html" class="btn btn-neutral float-right" title="Conjunto de Datos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01-index.html" class="btn btn-neutral" title="Introducción" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Junar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

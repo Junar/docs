@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Portal Statistics &mdash; API Documentation 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="API Documentation 2.0 documentation" href="../index.html"/>
+        <link rel="prev" title="Dashboards" href="06-dashboards.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> API Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-topics.html">2. Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-datasets.html">3. Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-dataviews.html">4. Dataviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-visualizations.html">5. Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-dashboards.html">6. Dashboards</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Statistics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">API Documentation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Portal Statistics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_sections/07-statistics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="portal-statistics">
+<h1>Portal Statistics<a class="headerlink" href="#portal-statistics" title="Permalink to this headline">¶</a></h1>
+<p>We can obtain statistics from the open data portal using API calls with public API Key.</p>
+<dl class="docutils">
+<dt>The URL to use looks like as follows:</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY</span></code></dd>
+</dl>
+<p>By default, that call will return results for the last 365 days.</p>
+<p>It is possible to refine the results using the following variables:</p>
+<ul class="simple">
+<li>days: The number of days we want to consult. The default value is 365. This argument can not be used together with hours, minutes, from and to. If so, the argument has priority.</li>
+<li>hours: The number of hours back from the current date by which the consultation will be narrow.</li>
+<li>minutes: The amount of minutes back from the current date by which the query will narrow. This argument cannot be used next to from and to. If so, the argument has priority.</li>
+<li>from: Start date of query in dd/mm/yyyy format or mm/dd/yyyy depending on the language of the account.</li>
+<li>to: Upto Date to query in dd/mm/yyyy or mm/dd/yyyy format, depending on the language of the account. If provided from, the default value of the to argument is the current date.</li>
+<li>channel: Channel to limit the ranking. Valid options are API and WEB. By default all channels are considered.</li>
+<li>facets=country_name: Queries made according to the location of users.</li>
+<li>limit: Number of resources to include in the ranking</li>
+<li>group_by: The grouping criterion. Valid options are date, year, month, day, hour and minute. By default the results will only be grouped by resource.</li>
+<li>order: Ascending and descending, to consult the less and more accessed respectively</li>
+</ul>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Query on the last 90 days</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;days=90</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Query on the last 12 hours</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;hours=12</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Query on the last 60 minutes</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;minutes=60</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Query between dates, from January 1 to January 20, 2017.</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;from=01/01/2017&amp;to=20/01/2017</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Query according to the location of users.</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;facets=country_name</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Web Channel Query</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;channel=0</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>API Channel Query</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;channel=1</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Group results by month</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;group_by=month</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Sort results by ascending according to number of visits</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;order=asc</span></code></dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="06-dashboards.html" class="btn btn-neutral" title="Dashboards" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Junar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

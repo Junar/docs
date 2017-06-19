@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dashboards &mdash; API Documentation 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="API Documentation 2.0 documentation" href="../index.html"/>
+        <link rel="next" title="Portal Statistics" href="07-statistics.html"/>
+        <link rel="prev" title="Visualizations" href="05-visualizations.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> API Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-topics.html">2. Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-datasets.html">3. Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-dataviews.html">4. Dataviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-visualizations.html">5. Visualizations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-statistics.html">7. Statistics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">API Documentation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Dashboards</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_sections/06-dashboards.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dashboards">
+<h1>Dashboards<a class="headerlink" href="#dashboards" title="Permalink to this headline">¶</a></h1>
+<p>We can get a full list of all published dashboards related to an Open Data portal, including also each individual resource published inside a particular dashboard using a GET method. You’ll need to include in each request your auth key from the portal’s developer page.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">dashboards</span><span class="o">.</span><span class="n">json</span>
+<span class="n">GET</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">dashboards</span><span class="o">/</span><span class="p">{</span><span class="n">guid</span><span class="p">}</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>From which we get the data with the following parameters :</p>
+<ul class="simple">
+<li>guid: Unique identifier of the dashboard,</li>
+<li>title: Resource title</li>
+<li>description: Resource description</li>
+<li>category_name: Name of the category</li>
+<li>endpoint: Null by default. Used to mantain regular structure with other data resources.</li>
+<li>tags : Array of tags separated by comma. Optional.</li>
+<li>user : Username of resource publisher.</li>
+<li>parameters : Null by default. Used to mantain regular structure with other data resources.</li>
+<li>created_at : Timestamp of resource revision creation.</li>
+<li>link : Link to the resource in the Open Data portal</li>
+</ul>
+<p>Example <code class="docutils literal"><span class="pre">GET</span>&#160;&#160; <span class="pre">https://api.data.arlingtonva.us/api/v2/dashboards.json?auth_key=MY_AUTH_KEY</span></code> returns:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">[</span>
+        <span class="p">{</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Maps for bike related services and terrain&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-06-21T16:22:07Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-06-21T16:09:09Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Transportation (Bike)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-06-21T16:22:07Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Transportation&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;https://data.arlingtonva.us/dashboards/19313/transportation-bike/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;atran&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;TRANS-26367&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Transportation&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[</span>
+
+        <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+                <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Maps for ART and Metro services&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-06-21T16:21:46Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-02-22T20:02:29Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Public Transportation (Metro + Bus)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-06-21T16:21:46Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Transportation&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;https://data.arlingtonva.us/dashboards/19314/public-transportation-metro-bus/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;atran&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;PUBLI-TRANS-METRO-BUS&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Transportation&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[</span>
+
+        <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;All economic Indicators&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-06-16T18:59:54Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-04-25T19:56:05Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Economic Indicators&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-06-16T18:59:54Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Demographics and Economic Indicators&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;https://data.arlingtonva.us/dashboards/19456/economic-indicators/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;atran&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;ECONO-INDIC-60379&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demographics and Economic Indicators&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[</span>
+
+        <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Pool, Food, and Hotel Inspections with critical violations.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-02-24T15:09:21Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-02-24T15:09:19Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Inspections&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-02-24T15:09:21Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Health and Human Services&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;https://data.arlingtonva.us/dashboards/19311/inspections/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;atran&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;INSPE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Health and Human Services&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[</span>
+
+        <span class="p">]</span>
+        <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="07-statistics.html" class="btn btn-neutral float-right" title="Portal Statistics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="05-visualizations.html" class="btn btn-neutral" title="Visualizations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Junar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

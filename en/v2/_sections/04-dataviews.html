@@ -1,0 +1,1038 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data Views &mdash; API Documentation 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="API Documentation 2.0 documentation" href="../index.html"/>
+        <link rel="next" title="Visualizations" href="05-visualizations.html"/>
+        <link rel="prev" title="Datasets" href="03-datasets.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> API Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-topics.html">2. Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-datasets.html">3. Datasets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Dataviews</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#json-structure-of-the-data-json-output">JSON structure of the data.json output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-output-examples">Data output examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#output-with-data-json-value">Output with <em>data.json</em> value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-with-data-pjson-value">Output with <em>data.pjson</em> value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-with-data-ajson-value">Output with <em>data.ajson</em> value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-with-data-xml-value">Output with <em>data.xml</em> value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-with-data-csv-value">Output with <em>data.csv</em> value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-with-data-xls-value">Output with <em>data.xls</em> value</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#requesting-a-data-view-with-parameters">Requesting a data view with parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filtering-data-view-results">Filtering data view results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-sorting">Data sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-column-formatting">Data column formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#group-by-sum-count-avg">GROUP BY, SUM, COUNT, AVG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publishing-and-updating-data-views-using-the-api">Publishing and updating data views using the API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05-visualizations.html">5. Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-dashboards.html">6. Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-statistics.html">7. Statistics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">API Documentation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Data Views</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_sections/04-dataviews.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-views">
+<h1>Data Views<a class="headerlink" href="#data-views" title="Permalink to this headline">¶</a></h1>
+<p>A data view is a user built resource based on a custom selection of rows and columns over a specific table of a dataset. This data selection can include some level of modifications over the original data, such as headers, column formatting and data type selection, as well as parametric filters to query over large databases.</p>
+<p>There is a special API request for a data view to return all its data content:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datastreams</span><span class="o">/</span><span class="p">{</span><span class="n">guid</span><span class="p">}</span><span class="o">/</span><span class="n">data</span><span class="o">.</span><span class="p">{</span><span class="nb">format</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The path that ends in data. <code class="docutils literal"><span class="pre">{format}</span></code>  returns a new  <code class="docutils literal"><span class="pre">result</span></code> field where the data of the resource origin is located</p>
+<p>The <code class="docutils literal"><span class="pre">{format}</span></code> of the output can be one of the following:</p>
+<ul class="simple">
+<li>json: Returns a json that follows the structure detailed in the next section.</li>
+<li>ajson: Returns a json array of arrays inside a ‘result’ element.</li>
+<li>pjson: Returns a json array with labels for each element. It automatically uses the first row of the data view as the source for the labels.</li>
+<li>jsonp: Returns the data in JSONP format</li>
+<li>csv: Returns a comma separated value text document.</li>
+<li>xml: Returns the data as an XML structure.</li>
+<li>xls: Returns a link inside an fUri element to download an XLS version of the data view.</li>
+</ul>
+<p>There is a special endpoint obtained replacing <code class="docutils literal"><span class="pre">data.{format}</span></code> with <code class="docutils literal"><span class="pre">tableau.html</span></code> which enables the Junar API to be used as a data source on the Tableau application.</p>
+<div class="section" id="json-structure-of-the-data-json-output">
+<h2>JSON structure of the data.json output<a class="headerlink" href="#json-structure-of-the-data-json-output" title="Permalink to this headline">¶</a></h2>
+<p>The result is an Argument object as a recursive data structure with the following properties:</p>
+<ul class="simple">
+<li>fType: Indicates the data type of the Argument. Its values can be  ARRAY | TEXT | NUMBER | DATE | LINK. ARRAY data type indicates that the argument contains a TABLE. The default data type of content inside a TABLE is TEXT, unless it has been defined as another data type during the dataview creation process. Data types can be modified with each API query.</li>
+<li>When the data type is ARRAY, fRows y fCols indicate the number of rows and columns of a TABLE. In the same way, fArray contains the data of a TABLE as an Argument object array.</li>
+<li>When the data type is TEXT, the value is contained in fStr. When the data type is NUMBER the value is contained in fNum. When the data type is DATE the value is contained in fNum as epoch time.</li>
+<li>An Argument can also contain a LINK. In such cases when fType is LINK, the corresponding URI comes inside fUri and the text is contained in fStr.</li>
+<li>An array can also contain the value fHeader. If fHeader equals “true”, that field is part of the headers defined for the data view.</li>
+<li>When a data type is ERROR, there was a problem executing the data view. The error message will be contained in fStr.</li>
+<li>When an error occurs when connecting to the source, the result is replaced with the last positive result from that source.</li>
+<li>To see if the results are up to date, there is an additional fTimestamp property. It contains the POSIX time from the <strong>last valid access to the data source</strong>. If fTimestamp is equal to 0, it means that the result was obtained at the same instant of the query.</li>
+</ul>
+</div>
+<div class="section" id="data-output-examples">
+<h2>Data output examples<a class="headerlink" href="#data-output-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="output-with-data-json-value">
+<h3>Output with <em>data.json</em> value<a class="headerlink" href="#output-with-data-json-value" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fLength&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;ARRAY&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fTimestamp&quot;</span><span class="p">:</span> <span class="mi">1457102225405</span><span class="p">,</span>
+        <span class="nt">&quot;fArray&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Congreso Nacional - Biblioteca del Congreso&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Cifras en miles de $&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Código BIP&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Nombre de Proyecto&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Monto Identificado&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Remodelación Administración Valparaíso&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;26,505&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fHeader&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Bóveda y sala preservación colecciones valiosas&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fHeader&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;111,564&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fHeader&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Raparaciones daños terremoto, Sector Biblioteca&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;66,440&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Proyectos de climatización en Santiago y Valparaíso&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;62,101&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;TOTAL IDENTIFICADO&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;266,610&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;fRows&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="nt">&quot;fCols&quot;</span><span class="p">:</span> <span class="mi">3</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.dipres.gob.cl/574/articles-74267_doc_xls.xls&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Inversiones BCN durante el año 2011 según art. 24 de Ley de Presupuestos N° 18.482&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-06-04T14:12:52&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nóminas de Iniciativas de Inversión (M$) Biblioteca del Congreso Nacional&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;publicador&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;NOMIN-DE-BIBLI-DEL-12877&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finanzas&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output-with-data-pjson-value">
+<h3>Output with <em>data.pjson</em> value<a class="headerlink" href="#output-with-data-pjson-value" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text"><div class="highlight"><pre><span></span>{
+&quot;result&quot;: [
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;Versión : Ejecución DIPRES&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;Dirección de Presupeustos&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;Moneda Nacional - Miles de Pesos - Monto Devengado&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;11  PARTIDA : MINISTERIO DE DEFENSA NACIONAL&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;Ejecución acumulada al Primer Trimestre&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;Clasificación Económica&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;Subt.&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;350,239,182&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;INGRESOS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;1,787,369&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;RENTAS DE LA PROPIEDAD&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;06&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;85,459,417&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;INGRESOS DE OPERACION&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;07&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;2,464,229&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;OTROS INGRESOS CORRIENTES&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;08&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;228,441,645&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;APORTE FISCAL&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;09&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;1,553&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;VENTA DE ACTIVOS NO FINANCIEROS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;10&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;-200,000&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;VENTA DE ACTIVOS FINANCIEROS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;11&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;32,284,969&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;RECUPERACION DE PRESTAMOS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;12&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;0&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;SALDO INICIAL DE CAJA&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;15&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;309,580,095&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;GASTOS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;216,709,098&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;GASTOS EN PERSONAL&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;21&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;50,929,915&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;BIENES Y SERVICIOS DE CONSUMO&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;22&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;292,887&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;PRESTACIONES DE SEGURIDAD SOCIAL&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;23&quot;
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;6,926,828&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;TRANSFERENCIAS CORRIENTES&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;24&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;295,054&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;INTEGROS AL FISCO&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;25&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;72,619&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;OTROS GASTOS CORRIENTES&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;26&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;1,096,186&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;ADQUISICION DE ACTIVOS NO FINANCIEROS&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;29&quot;
+},
+{
+&quot;GASTO-REGISTRADO&quot;: &quot;825,448&quot;,
+&quot;INFORME-DE-EJECUCION-TRIMESTRAL-PERIODO-2012&quot;: &quot;INICIATIVAS DE INVERSION&quot;,
+&quot;MINISTERIO-DE-HACIENDA&quot;: &quot;31&quot;
+},
+
+    {
+&quot;timestamp&quot;: 1466534470176,
+&quot;length&quot;: 27
+}
+],
+&quot;endpoint&quot;: &quot;http://www.sampleurl.gov/573/87684_public_record.xls&quot;,
+&quot;description&quot;: &quot;json&quot;,
+&quot;parameters&quot;: [
+
+],
+&quot;tags&quot;: [
+
+],
+&quot;timestamp&quot;: null,
+&quot;created_at&quot;: &quot;2012-06-04T14:12:52&quot;,
+&quot;title&quot;: &quot;prueba json&quot;,
+&quot;modified_at&quot;: &quot;2016-06-21T14:59:52&quot;,
+&quot;category_id&quot;: 40524,
+&quot;link&quot;: null,
+&quot;user&quot;: &quot;administrador&quot;,
+&quot;guid&quot;: &quot;PRUEB-JSON&quot;,
+&quot;category_name&quot;: &quot;Seguridad Pública&quot;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="output-with-data-ajson-value">
+<h3>Output with <em>data.ajson</em> value<a class="headerlink" href="#output-with-data-ajson-value" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;Congreso Nacional - Biblioteca del Congreso&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Cifras en miles de $&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;Código BIP&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Nombre de Proyecto&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Monto Identificado&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Remodelación Administración Valparaíso&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;26,505&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Bóveda y sala preservación colecciones valiosas&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;111,564&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Raparaciones daños terremoto, Sector Biblioteca&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;66,440&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Proyectos de climatización en Santiago y Valparaíso&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;62,101&quot;</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+          <span class="s2">&quot;TOTAL IDENTIFICADO&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;266,610&quot;</span>
+        <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.dipres.gob.cl/574/articles-74267_doc_xls.xls&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Inversiones BCN durante el año 2011 según art. 24 de Ley de Presupuestos N° 18.482&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-06-04T14:12:52&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nóminas de Iniciativas de Inversión (M$) Biblioteca del Congreso Nacional&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;publicador&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;NOMIN-DE-BIBLI-DEL-12877&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Finanzas&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output-with-data-xml-value">
+<h3>Output with <em>data.xml</em> value<a class="headerlink" href="#output-with-data-xml-value" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;table&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Congreso Nacional - Biblioteca del Congreso<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Cifras en miles de $<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Código BIP<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Nombre de Proyecto<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Monto Identificado<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Remodelación Administración Valparaíso<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>26,505<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Bóveda y sala preservación colecciones valiosas<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>111,564<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Raparaciones daños terremoto, Sector Biblioteca<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>66,440<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>Proyectos de climatización en Santiago y Valparaíso<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column&gt;</span>62,101<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+        <span class="nt">&lt;row&gt;</span>
+                <span class="nt">&lt;column&gt;</span>TOTAL IDENTIFICADO<span class="nt">&lt;/column&gt;</span>
+                <span class="nt">&lt;column/&gt;</span>
+                <span class="nt">&lt;column&gt;</span>266,610<span class="nt">&lt;/column&gt;</span>
+        <span class="nt">&lt;/row&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output-with-data-csv-value">
+<h3>Output with <em>data.csv</em> value<a class="headerlink" href="#output-with-data-csv-value" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;Congreso Nacional - Biblioteca del Congreso&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Cifras en miles de $&quot;</span>
+<span class="s2">&quot;Código BIP&quot;</span><span class="p">,</span><span class="s2">&quot;Nombre de Proyecto&quot;</span><span class="p">,</span><span class="s2">&quot;Monto Identificado&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Remodelación Administración Valparaíso&quot;</span><span class="p">,</span><span class="s2">&quot;26,505&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Bóveda y sala preservación colecciones valiosas&quot;</span><span class="p">,</span><span class="s2">&quot;111,564&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Raparaciones daños terremoto, Sector Biblioteca&quot;</span><span class="p">,</span><span class="s2">&quot;66,440&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Proyectos de climatización en Santiago y Valparaíso&quot;</span><span class="p">,</span><span class="s2">&quot;62,101&quot;</span>
+<span class="s2">&quot;TOTAL IDENTIFICADO&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;266,610&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output-with-data-xls-value">
+<h3>Output with <em>data.xls</em> value<a class="headerlink" href="#output-with-data-xls-value" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;fUri&quot;</span><span class="p">:</span> <span class="s2">&quot;http://datastore.dev:8888/resources/datal_temp/2016-03-10/temp_1386265881861839185.xlsx&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;fNum&quot;</span><span class="p">:</span> <span class="mi">302</span><span class="p">,</span>
+  <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;REDIRECT&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="requesting-a-data-view-with-parameters">
+<h2>Requesting a data view with parameters<a class="headerlink" href="#requesting-a-data-view-with-parameters" title="Permalink to this headline">¶</a></h2>
+<p>A data view can require parameters to retrieve data. Parameters can be added to a data view only during the creation process. These parameters can be mapped against a form in the case of an HTML dataset source, against a URL or against columns of data over a specific table. The proper syntax to request parameters of a dataview is
+pArgumentN=X
+Where N is the position of the parameter of the data view and X is the value of said parameter.
+The position of the parameter is informed when querying over the data view <strong>without</strong> the data element.
+Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>http://cne.cloudapi.junar.com/api/v2/datastreams/BALAN-NACIO-ENERG-POR-5269?auth_key=MY_AUTH_KEY
+</pre></div>
+</div>
+<p>From there we know that there is only one parameter, so we build out query like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>http://cne.cloudapi.junar.com/api/v2/datastreams/BALAN-NACIO-ENERG-POR-5269/data.json?auth_key=MY_AUTH_KEY&amp;pArgument0=2014
+</pre></div>
+</div>
+<div class="highlight-text"><div class="highlight"><pre><span></span>{
+&quot;result&quot;: [
+    [
+  &quot;Año&quot;,
+&quot;Sección&quot;,
+&quot;Item&quot;,
+&quot;Combustible&quot;,
+&quot;Valor&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Petróleo Crudo&quot;,
+&quot;4,809.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Gas Natural&quot;,
+&quot;7,381.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energíargético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Carbón&quot;,
+&quot;29,147.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Biomasa&quot;,
+&quot;73,752.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Energía Hídrica&quot;,
+&quot;20,104.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Energético Primario&quot;,
+&quot;Producción Primaria&quot;,
+&quot;Energía Eólica&quot;,
+&quot;1,241.00&quot;
+],
+(...)
+[
+&quot;2014&quot;,
+&quot;Sector de Consumo&quot;,
+&quot;Sector Industrial y Minero&quot;,
+&quot;Gas Corriente&quot;,
+&quot;6.00&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Sector de Consumo&quot;,
+&quot;Sector Industrial y Minero&quot;,
+&quot;Metanol&quot;,
+&quot;-&quot;
+],
+[
+&quot;2014&quot;,
+&quot;Seccióntor de Consumo&quot;,
+&quot;Sector Industrial y Minero&quot;,
+        &quot;Total&quot;,
+&quot;1457102225405,105.00&quot;
+]
+],
+        &quot;endpoint&quot;: &quot;file://5995/5316/185277278134828680067533944176086411863&quot;,
+        &quot;description&quot;: &quot;Fuente: CNE. Datos desde 2008 a 2014 con el balance nacional energético consolidado en formato base de datos.&quot;,
+        &quot;parameters&quot;: [
+{
+&quot;default&quot;: &quot;2014&quot;,
+&quot;position&quot;: 0,
+&quot;name&quot;: &quot;Año&quot;,
+&quot;description&quot;: &quot;Año de la consulta en formato AAAA&quot;
+}
+],
+&quot;tags&quot;: [
+    &quot;Balance&quot;,
+    &quot;nacional&quot;,
+    &quot;energ tico&quot;,
+    &quot;bne&quot;,
+&quot;energia&quot;,
+&quot;Chile&quot;
+        ],
+&quot;timestamp&quot;: null,
+&quot;created_at&quot;: &quot;2015-11-11T17:27:41&quot;,
+&quot;title&quot;: &quot;Consolidado Balances Energéticos (2014 - 2008)&quot;,
+&quot;modified_at&quot;: &quot;2016-06-15T16:29:49&quot;,
+&quot;category_id&quot;: 41209,
+&quot;link&quot;: null,
+&quot;user&quot;: &quot;cne&quot;,
+&quot;guid&quot;: &quot;BALAN-NACIO-ENERG-POR-52693&quot;,
+&quot;category_name&quot;: &quot;Balance Energético&quot;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtering-data-view-results">
+<h2>Filtering data view results<a class="headerlink" href="#filtering-data-view-results" title="Permalink to this headline">¶</a></h2>
+<p>The Junar API allows users to filter the results of a data view request by adding custom filters over any number of columns, which apply logical operators over values and can be concatenated using AND/OR sentences:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>http://api.datosabiertos.chilecompra.cl/api/v2/datastreams/TRANS-ENTRE-PROVE-E-INSTI/data.ajson/?auth_key=MY_AUTH_KEY&amp;filter0=column4[&gt;]1000000000&amp;filter1=column0[==]Mobiliario&amp;where=(filter0 and filter1)
+</pre></div>
+</div>
+<div class="highlight-text"><div class="highlight"><pre><span></span>{
+        &quot;result&quot;: [
+[
+        &quot;Convenio Marco&quot;,
+        &quot;Institución&quot;,
+        &quot;Nombre Empresa&quot;,
+        &quot;Cantidad OC&quot;,
+        &quot;Monto OC&quot;
+],
+[
+        &quot;Mobiliario&quot;,
+        &quot;Ejército de Chile&quot;,
+        &quot;MUEBLES TIMAUKEL LTDA.&quot;,
+        &quot;17.00&quot;,
+        &quot;2,443,853,748.52&quot;
+]
+        ],
+        &quot;endpoint&quot;: &quot;file://6745/9345/70289701374408125008067787804389705863&quot;,
+        &quot;description&quot;: &quot;Datos agrupados en ordenes de compra y montos totales, en pesos chilenos, de cada transaccion realizada en un Convenio Marco para Enero 2016&quot;,
+        &quot;parameters&quot;: [],
+        &quot;tags&quot;:
+                [
+                &quot;transacciones&quot;,
+                &quot;ordenes de compra&quot;,
+                &quot;Proveedor&quot;,
+                &quot;instituciones públicas&quot;,
+                &quot;enero&quot;,&quot;2015&quot;,
+                &quot;convenio marco&quot;
+                ],
+        &quot;timestamp&quot;: null,
+        &quot;created_at&quot;: &quot;2016-05-26T18:15:36&quot;,
+        &quot;title&quot;: &quot;Transacciones entre Proveedores e Instituciones en Convenio Marco - Enero 2015&quot;,
+        &quot;modified_at&quot;: &quot;2016-05-26T19:07:49&quot;,
+        &quot;category_id&quot;: 41338,
+        &quot;link&quot;: null,
+        &quot;user&quot;: &quot;chilecompra&quot;,
+        &quot;guid&quot;: &quot;TRANS-ENTRE-PROVE-E-INSTI&quot;,
+        &quot;category_name&quot;: &quot;Convenio Marco&quot;
+}
+</pre></div>
+</div>
+<p>That sample request returns all values that are over 1.000.000.000 in column 4 where the string is equal to “Mobiliario” in column 0.</p>
+<p>Filters can go from 0 to N (filter0, filter1…filterN) and have the following syntax:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">operand0</span> <span class="o">|</span> <span class="n">logical</span> <span class="n">operator</span> <span class="o">|</span> <span class="n">operand1</span>
+</pre></div>
+</div>
+<p>The values for operand0 can be rownum (the number of row/record in the table) o columnN (where N is a whole number from 0 to N). The value for operand1 can be a string of text, a number or a date.</p>
+<p>The possible values for logical operator are:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">==</span><span class="p">],</span> <span class="p">[</span><span class="o">&gt;</span><span class="p">],</span> <span class="p">[</span><span class="o">&lt;</span><span class="p">],</span> <span class="p">[</span><span class="o">!=</span><span class="p">],</span> <span class="p">[</span><span class="n">contains</span><span class="p">],</span> <span class="p">[</span><span class="o">&gt;=</span><span class="p">],</span> <span class="p">[</span><span class="o">&lt;=</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Square brackets [] must be included. All operands are case sensitive. In the case of the logical operator [contains], the order of operands must be reversed (operand2[contains]operand1).</p>
+<p>A <em>where</em> operation must be included to concatenate two or more filters with and/or expressions (in lowercase). In the example case the where function is equal to (filter0 and filter1). The and/or expressions enable a developer to set the relation between filters and can be mixed to fulfill a certain condition, such as</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">filter0</span> <span class="ow">and</span> <span class="n">filter1</span><span class="p">)</span> <span class="ow">or</span> <span class="n">filter2</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>If an operand contains a number or a date, the data view must have those columns already formatted as either NUMBER or DATE. If they are not formatted in the data view, the API enables you to perform such operation on the fly (see next section).</p>
+<p>When a date is added as an operand value it must be typed in using the US format MM/dd/yyyy.</p>
+</div>
+<div class="section" id="data-sorting">
+<h2>Data sorting<a class="headerlink" href="#data-sorting" title="Permalink to this headline">¶</a></h2>
+<p>The API allows you to sort the results obtained when requesting a data view using the <code class="docutils literal"><span class="pre">orderBy</span></code> parameter. The column on which we wish to sort the results should be in brackets indicates if the order must be ascending [A] or descending [D].</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">http://api.datosabiertos.chilecompra.cl/api/v2/datastreams/TRANS-ENTRE-PROVE-E-INSTI/data.ajson/?auth_key=MI_AUTH_KEY&amp;orderBy0=column0[D]</span></code></div></blockquote>
+</div>
+<div class="section" id="data-column-formatting">
+<h2>Data column formatting<a class="headerlink" href="#data-column-formatting" title="Permalink to this headline">¶</a></h2>
+<p>The API allows to define column formats for queries to enable filtering over NUMBER or DATE records that were not properly formatted during the data view creation stage. This transformation is made on the fly and affects only that query, it does not modifies the original data view. It must be applied over a column that is being filtered on the same query. The syntax is as follows :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">format</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;table&quot;</span><span class="p">:[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;column10&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">:{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="s2">&quot;ES&quot;</span><span class="p">,</span> <span class="s2">&quot;lang&quot;</span><span class="p">:</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;dd/MM/yyyy&quot;</span><span class="p">}}]}</span>
+</pre></div>
+</div>
+<p>Where :</p>
+<ul class="simple">
+<li>id : The position of the column to filter. This column must be affected by a filter in the same API query in order to properly apply format.</li>
+<li>type: The desired data type for the column. By default, all columns are defined as TEXT, but they can also be set as DATE or NUMBER.</li>
+<li>format : Dependiendo del tipo elegido puede requerir la siguiente información.</li>
+</ul>
+<p>When DATE format is applied, we requere the parameters country, lang (language) and style (print) to be defined. Valued for country and lang correspond to standard ISO format, while values for style can be found in:</p>
+<p><a class="reference external" href="http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html">http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">format</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;table&quot;</span><span class="p">:[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;column10&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">:{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="s2">&quot;CL&quot;</span><span class="p">,</span> <span class="s2">&quot;lang&quot;</span><span class="p">:</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;dd/MM/yyyy&quot;</span><span class="p">}}]}</span>
+</pre></div>
+</div>
+<p>When NUMBER format is applied, we require the parameters country, lang (language) and pattern in which the original number comes informed in the data view. The country and language indicates the default separators for thousands and decimals, and the pattern the general structure of the number. Additional parameters <em>decimals</em> and <em>thousands</em> can also be defined in case they are different from country and language.</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>format={“table”:[{“id”:”column4”, “type”:”NUMBER”, “format”:{“country”:”US”, “lang”:”es”, “pattern”:”“, “decimals”:”“, “thousands”:”“}}]}</dd>
+</dl>
+<p>Ejemplo</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>..../invoke/SACRA-ANNUA-CRIME-STATS?...&amp;filter0=column0[==]Homicide&amp;filter1=column4[&gt;]0&amp;where=(filter0 or filter1)&amp;format=
+        {&quot;table&quot;:[{&quot;id&quot;:&quot;column4&quot;, &quot;type&quot;:&quot;NUMBER&quot;, &quot;format&quot;:&quot;format&quot;:{&quot;country&quot;:&quot;US&quot;, &quot;lang&quot;:&quot;es&quot;, &quot;pattern&quot;:&quot;#,###.##&quot;, &quot;decimals&quot;:&quot;.&quot;, &quot;thousands&quot;:&quot;,&quot;}}]}
+</pre></div>
+</div>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;SACRA-ANNUA-CRIME-STATI&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Sacramento Annual Crime Statistics&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Year to date information on different types of crimes and variation 2012 2013&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;sacramento&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;ARRAY&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fArray&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Homicide&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fNum&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;NUMBER&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;42.9%&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Robbery&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;275&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;309&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fNum&quot;</span><span class="p">:</span> <span class="mf">34.0</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;NUMBER&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;12.4%&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;Burglary&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;944&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;1,084&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fNum&quot;</span><span class="p">:</span> <span class="mf">140.0</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;NUMBER&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+                <span class="nt">&quot;fStr&quot;</span><span class="p">:</span> <span class="s2">&quot;14.8%&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;fType&quot;</span><span class="p">:</span> <span class="s2">&quot;TEXT&quot;</span>
+          <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;fRows&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;fCols&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="nt">&quot;fTimestamp&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;fLength&quot;</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Sacramento&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;POLICE&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;crime&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-28 00:27:27&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.sacpd.org/crime/stats/&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://sacramento.opendata.junar.com/datastreams/77447/sacramento-annual-crime-statistics/&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="group-by-sum-count-avg">
+<h2>GROUP BY, SUM, COUNT, AVG<a class="headerlink" href="#group-by-sum-count-avg" title="Permalink to this headline">¶</a></h2>
+<p>You can perform certain FUNCTIONs and GROUP BY over data contained on the data view. All these operations are performed on-the-fly over a specific set of columns. They can be reused into the workspace to create new resources (data views, visualizations) that feed over the calculations made by the API. Current available functions are SUM, COUNT, AVG.</p>
+<p>First define the position number of the columns to GROUP BY followed by a number to identify hierarchy (pGroupBy0=column0, pGroupBy1=column2…). Then apply different FUNCTION over columns of your data view. You must include in brackets the column over which is performed (pFunction0=SUM[column0], pFunction1=COUNT[column10]).</p>
+<p>For instance, to answer the question of how many different incidents occured per responding station in relation to fire response 911 calls from the city of Sacramento, a request can be made like</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=MY_AUTH_KEY&amp;pGroupBy0=column2&amp;pGroupBy1=column3&amp;pFunction0=COUNT[column3]
+</pre></div>
+</div>
+<p>This returns the data in a CSV output.  Any other data.{format} can be used as well.</p>
+<p>The <strong>data.ajson</strong> output can be reused as a web service and used to create a new dataset in the catalog. The path to data for this new dataset will always be <em>$.result</em> when it comes from data.ajson output. The use of cache for the dataset is encouraged, since each operation is performed on the fly and overuse can lead to degraded performance.</p>
+</div>
+<div class="section" id="publishing-and-updating-data-views-using-the-api">
+<h2>Publishing and updating data views using the API<a class="headerlink" href="#publishing-and-updating-data-views-using-the-api" title="Permalink to this headline">¶</a></h2>
+<p>In a similar way to publishing datasets using the API, you can create new data views over existing datasets using the API. You need a private API key with publishing grants to do so. All private API keys are delivered on demand exclusively to the official contact point of the account of the Junar team.
+When publishing/updating you can use basic POST/PUT/PATCH verbs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span>  <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datastreams</span><span class="o">.</span><span class="n">json</span>
+<span class="n">PUT</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datastreams</span><span class="o">/</span><span class="p">:</span><span class="n">guid</span><span class="o">.</span><span class="n">json</span>
+<span class="n">PATCH</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datastreams</span><span class="o">/</span><span class="p">:</span><span class="n">guid</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>The parameters expected for each creation/edition are:</p>
+<ul class="simple">
+<li>title : Title of the resource. Max 100 characters. Mandatory</li>
+<li>description : Description of the resource. Max 250 characters. Mandatory.</li>
+<li>category : Slug name of the category where the resource will be included. Mandatory. It must coincide with a category already existing in the account. To obtain a full category list of the account check <a class="reference external" href="http://account.apidomain/api/v2/categories/?auth_key=my_auth_key">http://account.apidomain/api/v2/categories/?auth_key=my_auth_key</a></li>
+<li>notes : A field to place any extra information beyond the lenght of the original description. Supports enriched text and up to 7000 characters. Optional.</li>
+<li>dataset : GUID of the source dataset. Mandatory. Full list of published datasets available at <a class="reference external" href="http://account.apidomain/api/v2/datasets/?auth_key=my_auth_key">http://account.apidomain/api/v2/datasets/?auth_key=my_auth_key</a></li>
+<li>header_row : The position number of the row to be defined as header for the data view, starting from zero. Syntax is rowN (where N is the position number). By default this value is empty. Optional.</li>
+<li>table_id : Position of the table inside the document, starting from zero. In case of multisheet documents (XLS), it indicates the index number of the document sheet to be used. In case of HTML documents, the position of the table. Syntax: tableN (where N is the position number). Mandatory.</li>
+<li>tags : Any number of tags, separated by comma. Optional.</li>
+</ul>
+<p>If succesfull, a response will return with a  <code class="docutils literal"><span class="pre">result</span></code> field where all the information of the affected resource is informed:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;file://1995/46721/313214253556015558595838280659574174401&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;prueba mesa copypaste&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-02-23T10:34:42&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;prueba&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;junarcity&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;PRUEB&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Financial&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="05-visualizations.html" class="btn btn-neutral float-right" title="Visualizations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="03-datasets.html" class="btn btn-neutral" title="Datasets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Junar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

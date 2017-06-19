@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Datasets &mdash; API Documentation 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="API Documentation 2.0 documentation" href="../index.html"/>
+        <link rel="next" title="Data Views" href="04-dataviews.html"/>
+        <link rel="prev" title="Topics" href="02-topics.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> API Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-topics.html">2. Topics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#automating-dataset-publishing-using-the-junar-api">Automating Dataset Publishing using the Junar API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-method-example">POST method example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#put-method-example">PUT method example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patch-method-example">PATCH method example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-dataviews.html">4. Dataviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-visualizations.html">5. Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-dashboards.html">6. Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-statistics.html">7. Statistics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">API Documentation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Datasets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_sections/03-datasets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="datasets">
+<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
+<p>We can consume the metadata of dataset-type resources published in an Open Data Portal using a GET request.
+These GET requests can return either a list of all published dataset resources, or a single GUID-identified resource.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datasets</span><span class="o">.</span><span class="n">json</span>
+<span class="n">GET</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datasets</span><span class="o">/</span><span class="p">{</span><span class="n">guid</span><span class="p">}</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>All GET requests return the following parameters:
+- guid: Unique identifier of the dashboard,
+- title: Resource title
+- description: Resource description
+- category_name: Name of the category
+- endpoint: URL pointing to where the resource is located.
+- tags : Array of tags separated by comma. Optional.
+- user : Username of resource publisher.
+- parameters : Null by default. Used to mantain regular structure with other data resources.
+- created_at : Timestamp of resource revision creation.
+- link : Link to the resource in the Open Data portal</p>
+<p>For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>http://providencia.cloudapi.junar.com/api/v2/datasets/TRAFI-EN-CICLO-DE-PROVI.json?auth_key=MI_AUTH_KEY
+</pre></div>
+</div>
+<p>returns</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://tv.providencia.cl/ws/ws-css3.php&quot;</span><span class="p">,</span>
+<span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Toma la estadística de 1 mes hacia atrás, desde el dia de la consulta, y publica el promedio por dia de la semana, por hora y sentido.&quot;</span><span class="p">,</span>
+<span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;trafico&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Ciclovias&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;providencia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Promedio&quot;</span>
+<span class="p">],</span>
+<span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-23T14:25:53&quot;</span><span class="p">,</span>
+<span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Tráfico en Ciclovías de Providencia&quot;</span><span class="p">,</span>
+<span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-23T14:27:20&quot;</span><span class="p">,</span>
+<span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="mi">41246</span><span class="p">,</span>
+<span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;TRAFI-EN-CICLO-DE-PROVI&quot;</span><span class="p">,</span>
+<span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ciclovias&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="automating-dataset-publishing-using-the-junar-api">
+<h2>Automating Dataset Publishing using the Junar API<a class="headerlink" href="#automating-dataset-publishing-using-the-junar-api" title="Permalink to this headline">¶</a></h2>
+<p>If you are the owner of a private auth_key, you can automate the data publishing and/or data update process by using our API. You can create or update datasets from local files (which are pushed to the Junar storage servers) or you can define a new, absolute route to where your files are hosted.</p>
+<p>The publishing methods support POST/PUT/PATCH requests and expects the following parameters :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span>  <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datasets</span><span class="o">.</span><span class="n">json</span>
+<span class="n">PUT</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datasets</span><span class="o">/</span><span class="p">:</span><span class="n">guid</span><span class="o">.</span><span class="n">json</span>
+<span class="n">PATCH</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">datasets</span><span class="o">/</span><span class="p">:</span><span class="n">guid</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>title : Title of the dataset. Max. 100 characters.</li>
+<li>description : Description of the dataset. Max. 250 characters.</li>
+<li>category : Name of the category where the dataset will be assigned. Must be equal to a category already existing in the account.</li>
+<li>notes : Extended field for a more complete description of the dataset. Can contain enriched text in HTML (escaped), and supports up to 10.000 characters. Optional.</li>
+<li>end_point : Absolute URL pointing to where the source file or webpage is located. Mandatory if <code class="docutils literal"><span class="pre">file</span></code> hasn’t been added.</li>
+<li>file : Route to the file to be uploaded onto the Junar storage servers. Mandatory if <code class="docutils literal"><span class="pre">end_point</span></code> hasn’t been added.</li>
+<li>license : Licencing associated to this dataset. Optional</li>
+<li>spatial : Text field indicating the geographic zone where the dataset applies. Max. 100 characters. Optional.</li>
+<li>frequency : Dataset resource expected update frequency. Optional.</li>
+<li>mbox : Email address of the person responsible for data upkeep. Optional.</li>
+<li>tags : A list of comma separated tags. Optional</li>
+<li>status: Status of the dataset. Optional.</li>
+</ul>
+<p>Possible values for the <code class="docutils literal"><span class="pre">license</span></code> field:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">creativecommons</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">by</span><span class="o">/</span><span class="mf">4.0</span><span class="o">/</span>
+<span class="o">-</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">creativecommons</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">sa</span><span class="o">/</span><span class="mf">4.0</span><span class="o">/</span>
+<span class="o">-</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">gnu</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">fdl</span><span class="o">-</span><span class="mf">1.3</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">html</span>
+<span class="o">-</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">opendefinition</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">odc</span><span class="o">-</span><span class="n">pddl</span><span class="o">/</span>
+<span class="o">-</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">opendatacommons</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">by</span><span class="o">/</span>
+<span class="o">-</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">opendatacommons</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">odbl</span><span class="o">/</span>
+<span class="o">-</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">creativecommons</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">publicdomain</span><span class="o">/</span><span class="n">zero</span><span class="o">/</span><span class="mf">1.0</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>If you require a new licence to be added, please contact us at <a class="reference external" href="mailto:support&#37;&#52;&#48;junar&#46;com">support<span>&#64;</span>junar<span>&#46;</span>com</a></p>
+<p>Possible values for the <code class="docutils literal"><span class="pre">frequency</span></code> field:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">yearly</span>
+<span class="o">-</span> <span class="n">monthly</span>
+<span class="o">-</span> <span class="n">weekly</span>
+<span class="o">-</span> <span class="n">daily</span>
+<span class="o">-</span> <span class="n">hourly</span>
+<span class="o">-</span> <span class="n">ondemand</span>
+</pre></div>
+</div>
+<p>The possible values for the <code class="docutils literal"><span class="pre">status</span></code> field are:</p>
+<ul class="simple">
+<li>published</li>
+<li>draft</li>
+<li>pending_review</li>
+</ul>
+<p>If the parameter is not sent the default value is pending_review.</p>
+<p>If successful, a sample return from the API looks like this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;file://1995/46721/71341786542282142096488420671282999110&quot;</span><span class="p">,</span>
+<span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;res&quot;</span><span class="p">,</span>
+<span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;&quot;</span> <span class="p">],</span>
+<span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-02-10T17:10:39&quot;</span><span class="p">,</span>
+<span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;resto&quot;</span><span class="p">,</span>
+<span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;junarcity&quot;</span><span class="p">,</span>
+<span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;RESTO&quot;</span><span class="p">,</span>
+<span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Financial&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When updating a dataset, you can change everything from the title and description to the filename and even the file format. Just be sure that, if there’s any resource asociated to this dataset, changes on the data structure will affect it’s outcome. While this in general poses no problem in terms of new records/rows, any new column added will not be represented on pre-existing data views as they are linked to the previous data structure and will not reflect new columns. The data view will have to be edited on the workspace to include any new columns added on a dataset update process.</p>
+<div class="section" id="post-method-example">
+<h3>POST method example<a class="headerlink" href="#post-method-example" title="Permalink to this headline">¶</a></h3>
+<p>The POST method must be used when creating a new dataset.</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>  curl -X  POST \
+http://demo.cloudapi.junar.com/api/v2/datasets.json \
+-H &#39;cache-control: no-cache&#39; \
+-H &#39;content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW&#39; \
+-H &#39;postman-token: 58b98775-8b83-4f7e-ed39-cd2225a586f5&#39; \
+-F auth_key=238415d936545e1994476b900d41db07883eff72 \
+-F &#39;title=Uploaded from API&#39; \
+-F description=Uploaded from API using post method \
+-F category=GIS \
+-F file=@example.csv
+</pre></div>
+</div>
+<p>In case the dataset has been successfully created, we will receive this response:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;file://72121/15031/128335633035380119355724536018989239175&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;postman&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-16T15:20:38Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Uploaded from API&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-16T15:20:38Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="mi">83274</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;UPLOA-FROM-API&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;GIS&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="put-method-example">
+<h3>PUT method example<a class="headerlink" href="#put-method-example" title="Permalink to this headline">¶</a></h3>
+<p>The PUT method is used to update a data set already created. This method requires the sending of all values. So, if a value is missing for the required fields it will return error. In case the field is not obligatory it will send it empty.</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>  curl -X PUT \
+http://junarops.cloudapi.junar.com/api/v2/datasets/SUBID-DESDE-API.json \
+-H &#39;cache-control: no-cache&#39; \
+-H &#39;content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW&#39; \
+-H &#39;postman-token: 5ff0caf2-6639-07dc-9c70-c01ba59bac9a&#39; \
+-F auth_key=238415d936545e1994476b900d41db07883eff72 \
+-F &#39;title=New title&#39; \
+-F &#39;description=This dataset had been updated using put method&#39; \
+-F category=GIS \
+-F file=@example.xlsx
+</pre></div>
+</div>
+<p>In case the dataset has been successfully update, we will receive this response:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;file://72121/15031/272512842402740134577364585136929799929&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This dataset had been updated using put method&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-12T13:15:06Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;New title&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-16T17:31:02Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="mi">83274</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;UPLOA-FROM-API&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;GIS&quot;</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="patch-method-example">
+<h3>PATCH method example<a class="headerlink" href="#patch-method-example" title="Permalink to this headline">¶</a></h3>
+<p>The PATCH method is used to update a data set already created. In this case only the values to be changed must be sent.The rest of the values are maintained.</p>
+<p>In this example we will update only the dataset’s decription:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>curl -X PATCH \
+http://demo.cloudapi.junar.com/api/v2/datasets/SUBID-DESDE-API.json \
+-H &#39;cache-control: no-cache&#39; \
+-H &#39;content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW&#39; \
+-H &#39;postman-token: 0527ec7f-f4ac-3bd6-a5f7-9e521076347e&#39; \
+-F auth_key=238415d936545e1994476b900d447407883eff72 \
+-F description=Updating description using patch method \
+</pre></div>
+</div>
+<p>In case the dataset has been successfully update, we will receive this response:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;file://72121/15031/272512842402740134577364585136929799929&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Updating description using patch method&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-12T13:15:06Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;New title&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-16T17:31:02Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="mi">83274</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;UPLOA-FROM-API&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;GIS&quot;</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="04-dataviews.html" class="btn btn-neutral float-right" title="Data Views" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="02-topics.html" class="btn btn-neutral" title="Topics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Junar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
