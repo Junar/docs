@@ -97,6 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="05-visualizations.html">5. Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-dashboards.html">6. Dashboards</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">7. Statistics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rest-endpoint">REST Endpoint</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
@@ -165,71 +166,110 @@
             
   <div class="section" id="portal-statistics">
 <h1>Portal Statistics<a class="headerlink" href="#portal-statistics" title="Permalink to this headline">¶</a></h1>
-<p>We can obtain statistics from the open data portal using API calls with public API Key.</p>
+<div class="section" id="rest-endpoint">
+<h2>REST Endpoint<a class="headerlink" href="#rest-endpoint" title="Permalink to this headline">¶</a></h2>
+<p>Method: GET
+All usages and examples of this endpoint use the GET method.</p>
 <dl class="docutils">
-<dt>The URL to use looks like as follows:</dt>
-<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY</span></code></dd>
+<dt>Base URL:</dt>
+<dd><code class="docutils literal"><span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY</span></code></dd>
 </dl>
-<p>By default, that call will return results for the last 365 days.</p>
-<p>It is possible to refine the results using the following variables:</p>
-<ul class="simple">
-<li>days: The number of days we want to consult. The default value is 365. This argument can not be used together with hours, minutes, from and to. If so, the argument has priority.</li>
-<li>hours: The number of hours back from the current date by which the consultation will be narrow.</li>
-<li>minutes: The amount of minutes back from the current date by which the query will narrow. This argument cannot be used next to from and to. If so, the argument has priority.</li>
-<li>from: Start date of query in dd/mm/yyyy format or mm/dd/yyyy depending on the language of the account.</li>
-<li>to: Upto Date to query in dd/mm/yyyy or mm/dd/yyyy format, depending on the language of the account. If provided from, the default value of the to argument is the current date.</li>
-<li>channel: Channel to limit the ranking. Valid options are API and WEB. By default all channels are considered.</li>
-<li>facets=country_name: Queries made according to the location of users.</li>
-<li>limit: Number of resources to include in the ranking</li>
-<li>group_by: The grouping criterion. Valid options are date, year, month, day, hour and minute. By default the results will only be grouped by resource.</li>
-<li>order: Ascending and descending, to consult the less and more accessed respectively</li>
-</ul>
+<p>MY_AUTH_KEY is your authorization key for accessing the REST APIs. If you do not have an auth key see <a class="reference external" href="https://junar.github.io/docs/en/_sections/02-topics.html#basic-authentication">this</a>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="docutils">
+<dt>Purpose:</dt>
+<dd>Retrieve portal statistics regarding user visits for a time period. Called with no additional parameters the statistics will include results from the last 365 days for all channels, grouped by resource.</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="docutils">
+<dt>Response:</dt>
+<dd>The response is given by default in Django REST framework, but it could be also get it in JSON and JSONP format.
+Called with no additional parameters the information returned includes total hits, hits by resource type and hit by resource. In each resource, it includes the number of hits, the resource title, description, category and link.</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>Results may be refined by providing additional parameters. Each parameter should be added to the end of the Base URL. Unless noted otherwise, parameters may be used in combination.</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="docutils">
+<dt>&amp;days=365</dt>
+<dd>Number of days prior to today to include in the results. This parameter should not be used in combination with other date range parameters. If days is specified other date parameters will be ignored. If no date related parameters are specified it is equivalent to specifying &amp;days=365.</dd>
+<dt>&amp;hours=24</dt>
+<dd>Number of hours prior to now to include in the results; if used with from and to parameters, the from and to values will be ignored.</dd>
+<dt>&amp;minutes=60</dt>
+<dd>Number of minutes prior to now to include in the results. if used with from and to parameters, the from and to values will be ignored.</dd>
+<dt>&amp;from=dd/mm/yyyy or mm/dd/yyyy</dt>
+<dd>The beginning date for retrieving statistics for a specific date range; may be used if days, hours, or muinutes parameters are not specified. The date format used is dependent on the language used with your account.</dd>
+<dt>&amp;to=dd/mm/yyyy or mm/dd/yyyy</dt>
+<dd>End date for retrieving statistics for a specific date range; may be used if days, hours, or minutes parameters are not specified. If from is defined omitting the to parameter will return statistics from the start date to today. The date format used is dependent on the language used with your account.</dd>
+<dt>&amp;channel=0 or 1</dt>
+<dd>Limit statistics to a specific channel. By default all channels are included.
+0=WEB
+1=API</dd>
+<dt>&amp;facets=country_name</dt>
+<dd>Limit statistics to users’ location.</dd>
+<dt>&amp;group_by=date or year or month or hour or minute</dt>
+<dd>Statistics may be computed for unique values for the group_by target provided. For instance, group_by=month will provide statistics calculated for each unique month for which there is data. If not specified statistics are grouped by resource</dd>
+<dt>&amp;order=asc or desc</dt>
+<dd>Statistics may be returned in ascending (asc) number of visits; fewer visits to greater number of visits. Or results may be returned in descending (desc) number of visits; most visits to fewest visits.</dd>
+</dl>
+</div>
+<hr class="docutils" />
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>Query on the last 90 days</dt>
-<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;days=90</span></code></dd>
+<dd><code class="docutils literal"><span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;days=90</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Query on the last 12 hours</dt>
-<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;hours=12</span></code></dd>
+<dd><code class="docutils literal"><span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;hours=12</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Query on the last 60 minutes</dt>
-<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;minutes=60</span></code></dd>
+<dd><code class="docutils literal"><span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;minutes=60</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Query between dates, from January 1 to January 20, 2017.</dt>
-<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;from=01/01/2017&amp;to=20/01/2017</span></code></dd>
+<dd><code class="docutils literal"><span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;from=01/01/2017&amp;to=20/01/2017</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Query according to the location of users.</dt>
-<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;facets=country_name</span></code></dd>
+<dt>Query according to the location of users (you do not have to change ‘country_name’ value)</dt>
+<dd><code class="docutils literal"><span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;facets=country_name</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Web Channel Query</dt>
-<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;channel=0</span></code></dd>
+<dd><code class="docutils literal"><span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;channel=0</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>API Channel Query</dt>
-<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;channel=1</span></code></dd>
+<dd><code class="docutils literal"><span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;channel=1</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Group results by month</dt>
-<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;group_by=month</span></code></dd>
+<dd><code class="docutils literal"><span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;group_by=month</span></code></dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Sort results by ascending according to number of visits</dt>
-<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;order=asc</span></code></dd>
+<dd><code class="docutils literal"><span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;order=asc</span></code></dd>
 </dl>
 </li>
 </ul>

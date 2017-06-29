@@ -1,10 +1,15 @@
 Portal Statistics
 =======================
 
-We can obtain statistics from the open data portal using API calls with public API Key.
+REST Endpoint
+-------------
+Method: GET
+All usages and examples of this endpoint use the GET method. 
 
-The URL to use looks like as follows:
-	``GET /api/v2/stats/?auth_key=MI_AUTH_KEY``
+Base URL:
+	``/api/v2/stats/?auth_key=MI_AUTH_KEY``
+
+MY_AUTH_KEY is your authorization key for accessing the REST APIs. If you do not have an auth key see :ref:`basic-authentication`
   
 By default, that call will return results for the last 365 days.
 
