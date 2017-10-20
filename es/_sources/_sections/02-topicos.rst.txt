@@ -109,7 +109,7 @@ También pueden paginarse los datos que devuelve una llamada a una vista. En est
 
 Por ejemplo, esta llamada devuelve 50 filas y se ubica en la página 3:
 
-[http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&limit=50&page=3](http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&limit=50&page=3)
+http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&limit=50&page=3
 
 
 Ordenamiento
