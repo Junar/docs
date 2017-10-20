@@ -109,6 +109,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#filtrar-los-resultados-de-una-vista">Filtrar los resultados de una vista</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ordenar-los-datos">Ordenar los Datos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#formateo-de-datos">Formateo de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#establecer-formato-de-valores-numericos">Establecer formato de valores númericos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#agrupaciones-y-funciones-sobre-vistas-de-datos">Agrupaciones y Funciones sobre vistas de datos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#publicacion-y-actualizacion-via-api">Publicación y actualización via API</a></li>
 </ul>
@@ -615,163 +616,109 @@
 <p>Una vista de datos puede contener parámetros. Los parámetros pueden agregarse a la vista de datos solamente durante el proceso de creación. Estos parámetros pueden estar mapeados contra un formulario en un sitio web, directamente contra la URL de la fuente de datos o contra columnas de datos dentro de la tabla sobre la cual se crea la vista. La sintaxis apropiada para agregar parámetros en una solicitud API es
 pArgumentN=X
 Donde N es la posición del parámetro en la vista, empezando desde cero y X es el valor que tendrá dicho parámetro.</p>
-<p>Ejemplo:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>http://cne.cloudapi.junar.com/api/v2/datastreams/BALAN-NACIO-ENERG-POR-5269/data.ajson?auth_key=MI_AUTH_KEY&amp;pArgument0=2014
-</pre></div>
-</div>
-<div class="highlight-json"><div class="highlight"><pre><span></span>{
-&quot;result&quot;: [
-    [
-  &quot;Año&quot;,
-&quot;Sección&quot;,
-&quot;Item&quot;,
-&quot;Combustible&quot;,
-&quot;Valor&quot;
-],
-[
-&quot;2014&quot;,
-&quot;Energético Primario&quot;,
-&quot;Producción Primaria&quot;,
-&quot;Petróleo Crudo&quot;,
-&quot;4,809.00&quot;
-],
-[
-&quot;2014&quot;,
-&quot;Energético Primario&quot;,
-&quot;Producción Primaria&quot;,
-&quot;Gas Natural&quot;,
-&quot;7,381.00&quot;
-],
-[
-&quot;2014&quot;,
-&quot;Energíargético Primario&quot;,
-&quot;Producción Primaria&quot;,
-&quot;Carbón&quot;,
-&quot;29,147.00&quot;
-],
-[
-&quot;2014&quot;,
-&quot;Energético Primario&quot;,
-&quot;Producción Primaria&quot;,
-&quot;Biomasa&quot;,
-&quot;73,752.00&quot;
-],
-[
-&quot;2014&quot;,
-&quot;Energético Primario&quot;,
-&quot;Producción Primaria&quot;,
-&quot;Energía Hídrica&quot;,
-&quot;20,104.00&quot;
-],
-[
-&quot;2014&quot;,
-&quot;Energético Primario&quot;,
-&quot;Producción Primaria&quot;,
-&quot;Energía Eólica&quot;,
-&quot;1,241.00&quot;
-],
-(...)
-[
-&quot;2014&quot;,
-&quot;Sector de Consumo&quot;,
-&quot;Sector Industrial y Minero&quot;,
-&quot;Gas Corriente&quot;,
-&quot;6.00&quot;
-],
-[
-&quot;2014&quot;,
-&quot;Sector de Consumo&quot;,
-&quot;Sector Industrial y Minero&quot;,
-&quot;Metanol&quot;,
-&quot;-&quot;
-],
-[
-&quot;2014&quot;,
-&quot;Seccióntor de Consumo&quot;,
-&quot;Sector Industrial y Minero&quot;,
-        &quot;Total&quot;,
-&quot;1457102225405,105.00&quot;
-]
-],
-        &quot;endpoint&quot;: &quot;file://5995/5316/185277278134828680067533944176086411863&quot;,
-        &quot;description&quot;: &quot;Fuente: CNE. Datos desde 2008 a 2014 con el balance nacional energético consolidado en formato base de datos.&quot;,
-        &quot;parameters&quot;: [
-{
-&quot;default&quot;: &quot;2014&quot;,
-&quot;position&quot;: 0,
-&quot;name&quot;: &quot;Año&quot;,
-&quot;description&quot;: &quot;Año de la consulta en formato AAAA&quot;
-}
-],
-&quot;tags&quot;: [
-    &quot;Balance&quot;,
-    &quot;nacional&quot;,
-    &quot;energ tico&quot;,
-    &quot;bne&quot;,
-&quot;energia&quot;,
-&quot;Chile&quot;
-        ],
-&quot;timestamp&quot;: null,
-&quot;created_at&quot;: &quot;2015-11-11T17:27:41&quot;,
-&quot;title&quot;: &quot;Consolidado Balances Energéticos (2014 - 2008)&quot;,
-&quot;modified_at&quot;: &quot;2016-06-15T16:29:49&quot;,
-&quot;category_id&quot;: 41209,
-&quot;link&quot;: null,
-&quot;user&quot;: &quot;cne&quot;,
-&quot;guid&quot;: &quot;BALAN-NACIO-ENERG-POR-52693&quot;,
-&quot;category_name&quot;: &quot;Balance Energético&quot;
-}
+<dl class="docutils">
+<dt>Ejemplo:</dt>
+<dd><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-89083/data.ajson/?auth_key=MI_AUTH_KEY&amp;pArgument0=Brazil&amp;pArgument1=2008">http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-89083/data.ajson/?auth_key=MI_AUTH_KEY&amp;pArgument0=Brazil&amp;pArgument1=2008</a></dd>
+</dl>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">[</span><span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;Type&quot;</span><span class="p">,</span> <span class="s2">&quot;Sector&quot;</span><span class="p">,</span> <span class="s2">&quot;Subsector&quot;</span><span class="p">,</span> <span class="s2">&quot;National Currency (millons)&quot;</span><span class="p">,</span> <span class="s2">&quot;USD (millons)&quot;</span><span class="p">,</span> <span class="s2">&quot;Percentage of GDP&quot;</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;Brazil&quot;</span><span class="p">,</span> <span class="s2">&quot;2008&quot;</span><span class="p">,</span> <span class="s2">&quot;Public&quot;</span><span class="p">,</span> <span class="s2">&quot;Total sectors&quot;</span><span class="p">,</span> <span class="s2">&quot;Total subsectors&quot;</span><span class="p">,</span> <span class="s2">&quot;37176.01&quot;</span><span class="p">,</span> <span class="s2">&quot;20272.993&quot;</span><span class="p">,</span> <span class="s2">&quot;1.19545&quot;</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;Brazil&quot;</span><span class="p">,</span> <span class="s2">&quot;2008&quot;</span><span class="p">,</span> <span class="s2">&quot;Private&quot;</span><span class="p">,</span> <span class="s2">&quot;Total sectors&quot;</span><span class="p">,</span> <span class="s2">&quot;Total subsectors&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;27909.700&quot;</span><span class="p">,</span> <span class="s2">&quot;1.64576&quot;</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;Brazil&quot;</span><span class="p">,</span> <span class="s2">&quot;2008&quot;</span><span class="p">,</span> <span class="s2">&quot;Total&quot;</span><span class="p">,</span> <span class="s2">&quot;Total sectors&quot;</span><span class="p">,</span> <span class="s2">&quot;Total subsectors&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;48182.693&quot;</span><span class="p">,</span> <span class="s2">&quot;2.84121&quot;</span><span class="p">]</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Investment data at current prices in local currency (millions), USD (millions) and % of GDP&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;Argentina&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+                <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;2015&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Year&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;InfraLatam&quot;</span><span class="p">,</span> <span class="s2">&quot;Infrastructure&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-10-02T17:04:02Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;[InfraLatam] Infrastructure total - sum from all infrastructure sectors&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-10-02T17:45:08Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="mi">83353</span><span class="p">,</span>
+        <span class="nt">&quot;sources&quot;</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="nt">&quot;source__id&quot;</span><span class="p">:</span> <span class="mi">2109</span><span class="p">,</span>
+                <span class="nt">&quot;source__name&quot;</span><span class="p">:</span> <span class="s2">&quot;InfraLatam&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;source__url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://infralatam.info/&quot;</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;frequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;junardemo&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;INFRA-INFRA-TOTAL-SUM-89083&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Default Category&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="filtrar-los-resultados-de-una-vista">
 <h2>Filtrar los resultados de una vista<a class="headerlink" href="#filtrar-los-resultados-de-una-vista" title="Permalink to this headline">¶</a></h2>
-<p>La API de Datos Abiertos de Junar permite a sus usuarios filtrar los resultados obtenidos durante la solicitud de una vista de datos utilizando la siguiente sintaxis:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>http://api.datosabiertos.chilecompra.cl/api/v2/datastreams/TRANS-ENTRE-PROVE-E-INSTI/data.ajson/?auth_key=MI_AUTH_KEY&amp;filter0=column4[&gt;]1000000000&amp;filter1=column0[==]Mobiliario&amp;where=(filter0 and filter1)
-</pre></div>
-</div>
+<dl class="docutils">
+<dt>La API de Datos Abiertos de Junar permite a sus usuarios filtrar los resultados obtenidos durante la solicitud de una vista de datos utilizando la siguiente sintaxis:</dt>
+<dd><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;filter0=column5[%3E]1900000&amp;filter1=column0[==]Chile&amp;where=(filter0%20and%20filter1">http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;filter0=column5[%3E]1900000&amp;filter1=column0[==]Chile&amp;where=(filter0%20and%20filter1</a>)</dd>
+</dl>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
-<span class="p">[</span>
-        <span class="s2">&quot;Convenio Marco&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Institución&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Nombre Empresa&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Cantidad OC&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Monto OC&quot;</span>
-<span class="p">],</span>
-<span class="p">[</span>
-        <span class="s2">&quot;Mobiliario&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Ejército de Chile&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;MUEBLES TIMAUKEL LTDA.&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;17.00&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;2,443,853,748.52&quot;</span>
-<span class="p">]</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;file://6745/9345/70289701374408125008067787804389705863&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Datos agrupados en ordenes de compra y montos totales, en pesos chilenos, de cada transaccion realizada en un Convenio Marco para Enero 2016&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="nt">&quot;Sector&quot;</span><span class="p">:</span> <span class="s2">&quot;Total sectors&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;National-Currency-millons&quot;</span><span class="p">:</span> <span class="s2">&quot;2,195,474.14&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;USD-millons&quot;</span><span class="p">:</span> <span class="s2">&quot;3,914.48&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Country&quot;</span><span class="p">:</span> <span class="s2">&quot;Chile&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Percentage-of-GDP&quot;</span><span class="p">:</span> <span class="s2">&quot;2.28&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Subsector&quot;</span><span class="p">:</span> <span class="s2">&quot;Total subsectors&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Year&quot;</span><span class="p">:</span> <span class="s2">&quot;2009&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;Public&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+                <span class="nt">&quot;Sector&quot;</span><span class="p">:</span> <span class="s2">&quot;Total sectors&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;National-Currency-millons&quot;</span><span class="p">:</span> <span class="s2">&quot;2,058,057.01&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;USD-millons&quot;</span><span class="p">:</span> <span class="s2">&quot;4,230.58&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Country&quot;</span><span class="p">:</span> <span class="s2">&quot;Chile&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Percentage-of-GDP&quot;</span><span class="p">:</span> <span class="s2">&quot;1.6&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Subsector&quot;</span><span class="p">:</span> <span class="s2">&quot;Total subsectors&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Year&quot;</span><span class="p">:</span> <span class="s2">&quot;2012&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;Public&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+                <span class="nt">&quot;Sector&quot;</span><span class="p">:</span> <span class="s2">&quot;Total sectors&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;National-Currency-millons&quot;</span><span class="p">:</span> <span class="s2">&quot;2,236,255.69&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;USD-millons&quot;</span><span class="p">:</span> <span class="s2">&quot;4,515.2&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Country&quot;</span><span class="p">:</span> <span class="s2">&quot;Chile&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Percentage-of-GDP&quot;</span><span class="p">:</span> <span class="s2">&quot;1.63&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Subsector&quot;</span><span class="p">:</span> <span class="s2">&quot;Total subsectors&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Year&quot;</span><span class="p">:</span> <span class="s2">&quot;2013&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;Public&quot;</span>
+        <span class="p">},</span> <span class="p">{</span>
+                <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1506965828308</span><span class="p">,</span>
+                <span class="nt">&quot;length&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Investment data at current prices in local currency (millions), USD (millions) and % of GDP&quot;</span><span class="p">,</span>
         <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="nt">&quot;tags&quot;</span><span class="p">:</span>
-                <span class="p">[</span>
-                <span class="s2">&quot;transacciones&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;ordenes de compra&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;Proveedor&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;instituciones públicas&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;enero&quot;</span><span class="p">,</span><span class="s2">&quot;2015&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;convenio marco&quot;</span>
-                <span class="p">],</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;InfraLatam&quot;</span><span class="p">,</span> <span class="s2">&quot;Infrastructure&quot;</span><span class="p">],</span>
         <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-26T18:15:36&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Transacciones entre Proveedores e Instituciones en Convenio Marco - Enero 2015&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-26T19:07:49&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="mi">41338</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-10-02T17:04:02Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;[InfraLatam] Infrastructure total - sum from all infrastructure sectors&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-10-02T17:37:09Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="mi">83353</span><span class="p">,</span>
+        <span class="nt">&quot;sources&quot;</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="nt">&quot;source__id&quot;</span><span class="p">:</span> <span class="mi">2109</span><span class="p">,</span>
+                <span class="nt">&quot;source__name&quot;</span><span class="p">:</span> <span class="s2">&quot;InfraLatam&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;source__url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://infralatam.info/&quot;</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;frequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;chilecompra&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;TRANS-ENTRE-PROVE-E-INSTI&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Convenio Marco&quot;</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;junardemo&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;INFRA-INFRA-TOTAL-SUM-FROM&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Default Category&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Esto retorna todos los datos que sean mayores a 1.000.000.000 en la columna 4 y sean iguales a la palabra “Mobiliario” en la columna 0.</p>
+<p>Esto retorna todos los datos que sean mayores a 2.000.000 en la columna 5 y sean iguales a la palabra “Chile” en la columna 0.</p>
 <p>Los filtros pueden ir desde 0 a N (filter0, filter1…filterN) y tienen la siguiente sintaxis:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">operando0</span> <span class="o">|</span> <span class="n">operador</span> <span class="n">lógico</span> <span class="o">|</span> <span class="n">operando1</span>
 </pre></div>
@@ -793,14 +740,13 @@ Donde N es la posición del parámetro en la vista, empezando desde cero y X es 
 <h2>Ordenar los Datos<a class="headerlink" href="#ordenar-los-datos" title="Permalink to this headline">¶</a></h2>
 <p>La API permite ordenar los resultados obtenidos durante la solicitud de una vista de datos utilizando el parámetro <code class="docutils literal"><span class="pre">orderBy</span></code>. Debe indicarse la columna sobre la cual deseamos ordenar los resultados y entre corchetes si el orden debe ser ascedente [A] o descendente [D].</p>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">http://api.datosabiertos.chilecompra.cl/api/v2/datastreams/TRANS-ENTRE-PROVE-E-INSTI/data.ajson/?auth_key=MI_AUTH_KEY&amp;orderBy0=column0[D]</span></code></div></blockquote>
+<div><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;orderBy0=column0[A]&amp;orderBy1=column1[D">http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;orderBy0=column0[A]&amp;orderBy1=column1[D</a>]</div></blockquote>
+<p>En este caso ordenamos la primer columna (Country) de forma ascendente y la segunda columna (Year) de forma descendente.</p>
 </div>
 <div class="section" id="formateo-de-datos">
 <h2>Formateo de Datos<a class="headerlink" href="#formateo-de-datos" title="Permalink to this headline">¶</a></h2>
 <p>Permite a los desarrolladores el dar formato a columnas de datos con un tipo y formato que afectará cómo son devueltos los datos de la consulta. Usa la siguiente sintaxis y debe aplicarse a una columna que ya haya sido objeto de un filtro :</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">format</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;table&quot;</span><span class="p">:[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;column10&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">:{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="s2">&quot;ES&quot;</span><span class="p">,</span> <span class="s2">&quot;lang&quot;</span><span class="p">:</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;dd/MM/yyyy&quot;</span><span class="p">}}]}</span>
-</pre></div>
-</div>
+<p><code class="docutils literal"><span class="pre">format={&quot;table&quot;:[{&quot;id&quot;:&quot;column10&quot;,</span> <span class="pre">&quot;type&quot;:&quot;DATE&quot;,</span> <span class="pre">&quot;format&quot;:{&quot;country&quot;:&quot;ES&quot;,</span> <span class="pre">&quot;lang&quot;:&quot;es&quot;,</span> <span class="pre">&quot;style&quot;:</span> <span class="pre">&quot;dd/MM/yyyy&quot;}}]}</span></code></p>
 <p>Donde :</p>
 <ul class="simple">
 <li>id : Corresponde a la posición de la columna a filtrar. Esta columna debe haber sido objeto de un filtro para poder ser formateada.</li>
@@ -809,16 +755,10 @@ Donde N es la posición del parámetro en la vista, empezando desde cero y X es 
 </ul>
 <p>El formato DATE requiere country (país), lang (idioma) y style (estilo). Los valores de country y lang corresponden al formato ISO, mientras que posibles valores de style pueden encontrarse aquí:</p>
 <p><a class="reference external" href="http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html">http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html</a></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;table&quot;</span><span class="p">:[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;column10&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">:{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="s2">&quot;CL&quot;</span><span class="p">,</span> <span class="s2">&quot;lang&quot;</span><span class="p">:</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;dd/MM/yyyy&quot;</span><span class="p">}}]}</span>
-<span class="n">El</span> <span class="n">formato</span> <span class="n">NUMBER</span> <span class="n">requiere</span> <span class="n">country</span> <span class="p">(</span><span class="n">país</span><span class="p">),</span> <span class="n">lang</span> <span class="p">(</span><span class="n">idioma</span><span class="p">)</span> <span class="n">y</span> <span class="n">pattern</span> <span class="p">(</span><span class="n">patrón</span><span class="p">)</span><span class="o">.</span> <span class="n">Los</span> <span class="n">patrones</span> <span class="n">permiten</span> <span class="n">definir</span> <span class="n">cómo</span> <span class="n">se</span> <span class="n">separarán</span> <span class="n">los</span> <span class="n">miles</span> <span class="n">y</span> <span class="n">los</span> <span class="n">decimales</span> <span class="n">o</span> <span class="n">si</span> <span class="n">las</span> <span class="n">cifran</span> <span class="n">irán</span> <span class="n">agrupadas</span> <span class="n">de</span> <span class="n">acuerdo</span> <span class="n">a</span> <span class="n">estándares</span> <span class="n">asociados</span> <span class="n">al</span> <span class="n">país</span> <span class="n">e</span> <span class="n">idioma</span> <span class="n">elegidos</span>
-<span class="p">{</span><span class="s2">&quot;table&quot;</span><span class="p">:[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;column4&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;NUMBER&quot;</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">:{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span><span class="s2">&quot;US&quot;</span><span class="p">,</span> <span class="s2">&quot;lang&quot;</span><span class="p">:</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;decimals&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;thousands&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">}}]}</span>
-</pre></div>
-</div>
+<p><code class="docutils literal"><span class="pre">{&quot;table&quot;:[{&quot;id&quot;:&quot;column10&quot;,</span> <span class="pre">&quot;type&quot;:&quot;DATE&quot;,</span> <span class="pre">&quot;format&quot;:{&quot;country&quot;:&quot;CL&quot;,</span> <span class="pre">&quot;lang&quot;:&quot;es&quot;,</span> <span class="pre">&quot;style&quot;:</span> <span class="pre">&quot;dd/MM/yyyy&quot;}}]}</span></code></p>
+<p>El formato NUMBER requiere country (país), lang (idioma) y pattern (patrón). Los patrones permiten definir cómo se separarán los miles y los decimales o si las cifran irán agrupadas de acuerdo a estándares asociados al país e idioma elegidos</p>
+<p><code class="docutils literal"><span class="pre">{&quot;table&quot;:[{&quot;id&quot;:&quot;column4&quot;,</span> <span class="pre">&quot;type&quot;:&quot;NUMBER&quot;,</span> <span class="pre">&quot;format&quot;:{&quot;country&quot;:&quot;US&quot;,</span> <span class="pre">&quot;lang&quot;:&quot;es&quot;,</span> <span class="pre">&quot;pattern&quot;:&quot;&quot;,</span> <span class="pre">&quot;decimals&quot;:&quot;&quot;,</span> <span class="pre">&quot;thousands&quot;:&quot;&quot;}}]}</span></code></p>
 <p>Ejemplo</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>..../invoke/SACRA-ANNUA-CRIME-STATS?...&amp;filter0=column0[==]Homicide&amp;filter1=column4[&gt;]0&amp;where=(filter0 or filter1)&amp;format=
-        {&quot;table&quot;:[{&quot;id&quot;:&quot;column4&quot;, &quot;type&quot;:&quot;NUMBER&quot;, &quot;format&quot;:&quot;format&quot;:{&quot;country&quot;:&quot;US&quot;, &quot;lang&quot;:&quot;es&quot;, &quot;pattern&quot;:&quot;&quot;, &quot;decimals&quot;:&quot;.&quot;, &quot;thousands&quot;:&quot;,&quot;}}]}
-</pre></div>
-</div>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;SACRA-ANNUA-CRIME-STATI&quot;</span><span class="p">,</span>
   <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Sacramento Annual Crime Statistics&quot;</span><span class="p">,</span>
@@ -905,14 +845,68 @@ Donde N es la posición del parámetro en la vista, empezando desde cero y X es 
 </pre></div>
 </div>
 </div>
+<div class="section" id="establecer-formato-de-valores-numericos">
+<h2>Establecer formato de valores númericos<a class="headerlink" href="#establecer-formato-de-valores-numericos" title="Permalink to this headline">¶</a></h2>
+<p>El argumento applyFormat permite obtener los resultados de los valores númericos y de fecha en diferentes formatos. Puede utilizarse en llamadas json, ajson y pjson.</p>
+<p>Convierte a string con formato estadounidense: <code class="docutils literal"><span class="pre">applyFormat=0</span></code></p>
+<blockquote>
+<div><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;limit=50&amp;applyFormat=0">http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;limit=50&amp;applyFormat=0</a></div></blockquote>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+        <span class="nt">&quot;Sector&quot;</span><span class="p">:</span> <span class="s2">&quot;Total sectors&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;National-Currency-millons&quot;</span><span class="p">:</span> <span class="s2">&quot;16,200.07&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;USD-millons&quot;</span><span class="p">:</span> <span class="s2">&quot;5,152.43&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Country&quot;</span><span class="p">:</span> <span class="s2">&quot;Argentina&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Percentage-of-GDP&quot;</span><span class="p">:</span> <span class="s2">&quot;1.41&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Subsector&quot;</span><span class="p">:</span> <span class="s2">&quot;Total subsectors&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Year&quot;</span><span class="p">:</span> <span class="s2">&quot;2008&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;Public&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Convierte a string aplicando el displayFormat configurado en la vista: <code class="docutils literal"><span class="pre">applyFormat=1</span></code></p>
+<blockquote>
+<div><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;limit=50&amp;applyFormat=1">http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;limit=50&amp;applyFormat=1</a></div></blockquote>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{
+        &quot;Sector&quot;: &quot;Total sectors&quot;,
+        &quot;National-Currency-millons&quot;: &quot;$ 16,200.07&quot;,
+        &quot;USD-millons&quot;: &quot;$5,152.432&quot;,
+        &quot;Country&quot;: &quot;Argentina&quot;,
+        &quot;Percentage-of-GDP&quot;: &quot;1.40914&quot;,
+        &quot;Subsector&quot;: &quot;Total subsectors&quot;,
+        &quot;Year&quot;: &quot;2008&quot;,
+        &quot;Type&quot;: &quot;Public&quot;
+},
+</pre></div>
+</div>
+<p>NUMBER y DATES como double: <code class="docutils literal"><span class="pre">applyFormat=-1</span></code></p>
+<blockquote>
+<div><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;limit=50&amp;applyFormat=-1">http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;limit=50&amp;applyFormat=-1</a></div></blockquote>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+        <span class="nt">&quot;Sector&quot;</span><span class="p">:</span> <span class="s2">&quot;Total sectors&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;National-Currency-millons&quot;</span><span class="p">:</span> <span class="mf">16200.07</span><span class="p">,</span>
+        <span class="nt">&quot;USD-millons&quot;</span><span class="p">:</span> <span class="mf">5152.432</span><span class="p">,</span>
+        <span class="nt">&quot;Country&quot;</span><span class="p">:</span> <span class="s2">&quot;Argentina&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Percentage-of-GDP&quot;</span><span class="p">:</span> <span class="mf">1.40914</span><span class="p">,</span>
+        <span class="nt">&quot;Subsector&quot;</span><span class="p">:</span> <span class="s2">&quot;Total subsectors&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Year&quot;</span><span class="p">:</span> <span class="s2">&quot;2008&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;Public&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="agrupaciones-y-funciones-sobre-vistas-de-datos">
 <h2>Agrupaciones y Funciones sobre vistas de datos<a class="headerlink" href="#agrupaciones-y-funciones-sobre-vistas-de-datos" title="Permalink to this headline">¶</a></h2>
-<p>Puedes aplicar algunas FUNCIONES y AGRUPACIONES sobre los datos de una vista. Las operaciones se realizan a demanda sobre un juego de columnas definido en una llamada API y asociados a través de dos parámetros pGroupBy y pFunction. El resultado puede ser reutilizado como una fuente tipo web service REST/JSON para crear nuevos recursos de datos (vistas, visualizaciones) en el área de trabajo. Las funciones disponibles actualmente son SUM (suma), COUNT (contar), y AVG (promedio).</p>
-<p>En primer lugar definiremos la columna que servirá para agrupar mediante el parametro pGroupBy seguido de un número que indica la jerarquía (pGroupBy0=column0, pGroupBy1=column2…). Luego, aplicamos una función FUNCTION aplicada en la columna sobre la que vamos a operar. Debes incluir paréntesis cuadrados (brackets) al ingresar la columna, pudiendo concatenar mas de una pFunction agregandole un número entero empezando desde cero (pFunction0=SUM[column0], pFunction1=COUNT[column10]).</p>
-<p>Por ejemplo, si quisieramos responder a la pregunta por la cantidad de incidencias totales agrupadas según cada estación de respuesta del servicio 911 de la ciudad de Sacramento, el request a la API sería</p>
-<p><a class="reference external" href="http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=8fdd7b3db6ef82b08bcf4715b5f0dfce54fc6bf1&amp;pGroupBy0=column2&amp;pGroupBy1=column3&amp;pFunction0=COUNT[column3">http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=8fdd7b3db6ef82b08bcf4715b5f0dfce54fc6bf1&amp;pGroupBy0=column2&amp;pGroupBy1=column3&amp;pFunction0=COUNT[column3</a>]</p>
-<p>Este request retorna los datos como un CSV. Cualquier otro valor de data.{format} puede ser utilizado también.</p>
-<p>El formato de salida <strong>data.ajson</strong> puede además ser reutilizado para crear un conjunto de datos en Junar usando la API como un servicio web REST/JSON. El path a los datos en todos los casos sería <em>$.result</em>. El uso del caché para el dataset es altamente recomendado, ya que la operación es realizada en línea y el exceso de uso puede degradar el rendimiento de la solicitud.</p>
+<p>Puedes aplicar algunas FUNCIONES y AGRUPACIONES sobre los datos de una vista. Las operaciones se realizan a demanda sobre un juego de columnas definido en una llamada API y asociados a través de dos parámetros <code class="docutils literal"><span class="pre">groupBy</span></code> y <code class="docutils literal"><span class="pre">function</span></code>. El resultado puede ser reutilizado como una fuente tipo web service REST/JSON para crear nuevos recursos de datos (vistas, visualizaciones) en el área de trabajo. Las funciones disponibles actualmente son SUM (suma), COUNT (contar), y AVG (promedio).</p>
+<p>En primer lugar definiremos la columna que servirá para agrupar mediante el parametro <code class="docutils literal"><span class="pre">groupBy</span></code> seguido de un número que indica la jerarquía <code class="docutils literal"><span class="pre">(groupBy0=column0,</span> <span class="pre">groupBy1=column2...)</span></code>. Luego, aplicamos una función <code class="docutils literal"><span class="pre">function</span></code> aplicada en la columna sobre la que vamos a operar. Debes incluir paréntesis cuadrados (brackets) al ingresar la columna, pudiendo concatenar mas de una function agregandole un número entero empezando desde cero <code class="docutils literal"><span class="pre">(function0=SUM[column0],</span> <span class="pre">function1=COUNT[column10])</span></code>.</p>
+<p>Por ejemplo, si quisieramos responder a la pregunta por la cantidad de incidencias totales agrupadas según cada estación de respuesta del servicio 911 de esta vista de ejemplo <a class="reference external" href="http://junardemo.opendata.junar.com/dataviews/242684/city-fire-department-911-call-response/">http://junardemo.opendata.junar.com/dataviews/242684/city-fire-department-911-call-response/</a>, el request a la API sería</p>
+<blockquote>
+<div><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/CITY-FIRE-DEPAR-911-CALL/data.ajson/?auth_key=MI_AUTH_KEY&amp;groupBy0=column2&amp;groupBy1=column3&amp;function0=COUNT[column3">http://junardemo.cloudapi.junar.com/api/v2/datastreams/CITY-FIRE-DEPAR-911-CALL/data.ajson/?auth_key=MI_AUTH_KEY&amp;groupBy0=column2&amp;groupBy1=column3&amp;function0=COUNT[column3</a>]</div></blockquote>
+<p>Este request retorna los datos en formato ajson. Cualquier otro valor de data.{format} puede ser utilizado también.</p>
+<p>El formato de salida data.ajson puede además ser reutilizado para crear un conjunto de datos en Junar usando la API como un servicio web REST/JSON. El path a los datos en todos los casos sería $.result. El uso del caché para el dataset es altamente recomendado, ya que la operación es realizada en línea y el exceso de uso puede degradar el rendimiento de la solicitud.</p>
+<p>Proporcionamos otro ejemplo, en este caso usando la función promedio. Si quisieramos conocer el promedio por país y tipo de inversión para el total del periodo publicado de esta vista <a class="reference external" href="http://junardemo.opendata.junar.com/dataviews/242640/infralatam-infrastructure-total-sum-from-all-infrastructure-sectors/">http://junardemo.opendata.junar.com/dataviews/242640/infralatam-infrastructure-total-sum-from-all-infrastructure-sectors/</a>, debemos utilizar el siguiente request:</p>
+<blockquote>
+<div><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.ajson/?auth_key=MI_AUTH_KEY&amp;groupBy0=column0&amp;groupBy1=column2&amp;function0=AVG[column6">http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.ajson/?auth_key=MI_AUTH_KEY&amp;groupBy0=column0&amp;groupBy1=column2&amp;function0=AVG[column6</a>]</div></blockquote>
+<p>Allí estamos agrupando por país (Columna 0) y por tipo de inversión (columna 2), obteniendo el promedio en millones de dólares (columna 6).</p>
 </div>
 <div class="section" id="publicacion-y-actualizacion-via-api">
 <h2>Publicación y actualización via API<a class="headerlink" href="#publicacion-y-actualizacion-via-api" title="Permalink to this headline">¶</a></h2>

@@ -21,7 +21,7 @@ Purpose:
 
 Response: 
 	The response is given by default in Django REST framework, but it could be also get it in JSON and JSONP format.
-	Called with no additional parameters the information returned includes total hits, hits by resource type and hit by resource. In each resource, it includes the number of hits, the resource title, description, category and link. 
+	Called with no additional parameters the information returned includes total hits, hits by resource type and hits by resource. In each resource, it includes the number of hits, the resource title, description, category and link. 
  	 
 | 
 Parameters: 

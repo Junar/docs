@@ -215,7 +215,6 @@ Las auth_keys son anónimas y se generan dinámicamente para cada solicitud.</p>
 <ul class="simple">
 <li>limit: cantidad de resultados por búsqueda</li>
 <li>offset: número de resultado a partir del cual se realiza la búsqueda.</li>
-<li>page: página sobre la cual se retornan los resultados, según lo especificado en <code class="docutils literal"><span class="pre">limit</span></code></li>
 </ul>
 <p>Cuando aparecen estos parámetros la respuesta se ordena de otra manera y agrega los siguientes campos</p>
 <ul class="simple">
@@ -262,6 +261,13 @@ Las auth_keys son anónimas y se generan dinámicamente para cada solicitud.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>También pueden paginarse los datos que devuelve una llamada a una vista. En este caso, deben utulizarse los siguientes parámetros:</p>
+<ul class="simple">
+<li>limit: cantidad de resultados por búsqueda</li>
+<li>page: página sobre la cual se retornan los resultados, según lo especificado en <code class="docutils literal"><span class="pre">limit</span></code></li>
+</ul>
+<p>Por ejemplo, esta llamada devuelve 50 filas y se ubica en la página 3:</p>
+<p>[<a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&amp;limit=50&amp;page=3](http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/">http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&amp;limit=50&amp;page=3](http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/</a>?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&amp;limit=50&amp;page=3)</p>
 </div>
 <div class="section" id="ordenamiento">
 <h2>Ordenamiento<a class="headerlink" href="#ordenamiento" title="Permalink to this headline">¶</a></h2>
@@ -272,6 +278,10 @@ Las auth_keys son anónimas y se generan dinámicamente para cada solicitud.</p>
 <li>top: se ordena por una suma de los dos campos anteriores</li>
 <li>last: se ordena por fecha de actualización.</li>
 </ul>
+<p>dbleyenda [3:37 PM]
+&lt;option value=”modified_at:desc”&gt;&lt;?php if($lang == ‘en’){ echo ‘Most recent’; }else{ echo ‘Más recientes’; }?&gt;&lt;/option&gt;
+&lt;option value=”web_hits:desc”&gt;&lt;?php if($lang == ‘en’){ echo ‘Most viewed’; }else{ echo ‘Más vistos’; }?&gt;&lt;/option&gt;
+&lt;option value=”api_hits:desc”&gt;&lt;?php if($lang == ‘en’){ echo ‘Most downloaded’; }else{ echo ‘Más descargados’; }?&gt;&lt;/option&gt;</p>
 </div>
 <div class="section" id="filtros">
 <h2>Filtros<a class="headerlink" href="#filtros" title="Permalink to this headline">¶</a></h2>

@@ -17,7 +17,7 @@ Es posible refinar los resultados utilizando las siguientes variables:
 - from: Fecha inicio de consulta en formato dd/mm/yyyy o mm/dd/yyyy dependiendo el idioma de la cuenta.
 - to: Fecha hasta consulta en formato dd/mm/yyyy o mm/dd/yyyy dependiendo el idioma de la cuenta. En caso que from sea provisto, el valor por defecto del argumento to es la fecha actual. 
 - channel: Canal por el cual acotar el ranking. Las opciones validas son API/WEB. Por defecto se deberá contemplar todos los canales.
-- facets=country_name: consultas realizadas según la ubicación de los usuarios.
+- facets=geoinfo.country_name: consultas realizadas según la ubicación de los usuarios.
 - limit: Cantidad recursos a incluir en el ranking
 - group_by: El criterio de agrupamiento. Las opciones validas son date, year, month, day, hour y minute. Por defecto los resultados solo se agruparan por recurso.
 - order: asc/dsc para consultar los menos y mas accedidos respectivamente
@@ -42,7 +42,7 @@ Ejemplos
 	``GET /api/v2/stats/?auth_key=MI_AUTH_KEY&from=01/01/2017&to=20/01/2017``
 
 - Consulta sobre origen de las visitas
-	``GET /api/v2/stats/?auth_key=MI_AUTH_KEY&facets=country_name``
+	``GET /api/v2/stats/?auth_key=MI_AUTH_KEY&facets=geoinfo.country_name``
 
 - Consulta sobre el canal Web
 	``GET /api/v2/stats/?auth_key=MI_AUTH_KEY&channel=0``

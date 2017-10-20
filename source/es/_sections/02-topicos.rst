@@ -52,7 +52,6 @@ Todos los métodos de listado de recursos de la API tienen el funcionamiento de 
 
 - limit: cantidad de resultados por búsqueda
 - offset: número de resultado a partir del cual se realiza la búsqueda.
-- page: página sobre la cual se retornan los resultados, según lo especificado en ``limit``
 
 Cuando aparecen estos parámetros la respuesta se ordena de otra manera y agrega los siguientes campos
 
@@ -101,6 +100,18 @@ Un ejemplo de respuesta con limit igual a 2 podría ser
     ]
   }
 
+
+
+También pueden paginarse los datos que devuelve una llamada a una vista. En este caso, deben utulizarse los siguientes parámetros: 
+
+- limit: cantidad de resultados por búsqueda
+- page: página sobre la cual se retornan los resultados, según lo especificado en ``limit``
+
+Por ejemplo, esta llamada devuelve 50 filas y se ubica en la página 3:
+
+[http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&limit=50&page=3](http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&limit=50&page=3)
+
+
 Ordenamiento
 ============
 
@@ -110,6 +121,12 @@ Para poder ordenar los listados de todos los recursos se usa el parámetro ``ord
 - downloaded: se ordena por los recursos mas descargados (acceso a través de la API).
 - top: se ordena por una suma de los dos campos anteriores
 - last: se ordena por fecha de actualización.
+
+dbleyenda [3:37 PM] 
+<option value="modified_at:desc"><?php if($lang == 'en'){ echo 'Most recent'; }else{ echo 'Más recientes'; }?></option>
+<option value="web_hits:desc"><?php if($lang == 'en'){ echo 'Most viewed'; }else{ echo 'Más vistos'; }?></option>
+<option value="api_hits:desc"><?php if($lang == 'en'){ echo 'Most downloaded'; }else{ echo 'Más descargados'; }?></option>
+
 
 Filtros
 =======

@@ -180,8 +180,10 @@ Ejemplo sobre el retorno de *data.json*
 
 Ejemplo sobre el retorno de *data.pjson*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. code-block:: json
-	
+
+
 	{
   	"result": [
     	{
@@ -460,172 +462,114 @@ Una vista de datos puede contener parámetros. Los parámetros pueden agregarse 
 pArgumentN=X
 Donde N es la posición del parámetro en la vista, empezando desde cero y X es el valor que tendrá dicho parámetro.
 
-Ejemplo::
-
-
-    http://cne.cloudapi.junar.com/api/v2/datastreams/BALAN-NACIO-ENERG-POR-5269/data.ajson?auth_key=MI_AUTH_KEY&pArgument0=2014
+Ejemplo:
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-89083/data.ajson/?auth_key=MI_AUTH_KEY&pArgument0=Brazil&pArgument1=2008
 
 
 .. code-block:: json
 
 	{
-  	"result": [
-	    [
-    	  "Año",
-      	"Sección",
-      	"Item",
-      	"Combustible",
-      	"Valor"
-    	],
-    	[
-      	"2014",
-      	"Energético Primario",
-      	"Producción Primaria",
-      	"Petróleo Crudo",
-      	"4,809.00"
-    	],
-    	[
-      	"2014",
-      	"Energético Primario",
-      	"Producción Primaria",
-      	"Gas Natural",
-      	"7,381.00"
-    	],
-    	[	
-    	"2014",
-      	"Energíargético Primario",
-      	"Producción Primaria",
-      	"Carbón",
-      	"29,147.00"
-    	],
-    	[
-      	"2014",
-      	"Energético Primario",
-      	"Producción Primaria",
-      	"Biomasa",
-      	"73,752.00"
-    	],
-    	[
-      	"2014",
-      	"Energético Primario",
-      	"Producción Primaria",
-      	"Energía Hídrica",
-      	"20,104.00"
-    	],
-    	[
-      	"2014",
-      	"Energético Primario",
-      	"Producción Primaria",
-      	"Energía Eólica",
-      	"1,241.00"
-    	],
-    	(...)
-    	[
-      	"2014",
-      	"Sector de Consumo",
-      	"Sector Industrial y Minero",
-      	"Gas Corriente",
-      	"6.00"
-    	],
-    	[
-      	"2014",
-      	"Sector de Consumo",
-      	"Sector Industrial y Minero",
-      	"Metanol",
-      	"-"
-    	],
-    	[	
-    	"2014",
-      	"Seccióntor de Consumo",
-      	"Sector Industrial y Minero",
-	  	"Total",
-      	"1457102225405,105.00"
-    	]
-  	],
-  		"endpoint": "file://5995/5316/185277278134828680067533944176086411863",
-  		"description": "Fuente: CNE. Datos desde 2008 a 2014 con el balance nacional energético consolidado en formato base de datos.",
-  		"parameters": [
-    	{
-      	"default": "2014",
-      	"position": 0,
-      	"name": "Año",
-      	"description": "Año de la consulta en formato AAAA"
-    	}
-  	],
-  	"tags": [
-	    "Balance",
-	    "nacional",
-	    "energ tico",
-	    "bne",
-    	"energia",
-    	"Chile"
-  		],
-  	"timestamp": null,
-  	"created_at": "2015-11-11T17:27:41",
-  	"title": "Consolidado Balances Energéticos (2014 - 2008)",
-  	"modified_at": "2016-06-15T16:29:49",
-  	"category_id": 41209,
-  	"link": null,
-  	"user": "cne",
-  	"guid": "BALAN-NACIO-ENERG-POR-52693",
-  	"category_name": "Balance Energético"
+		"result": [
+			["Country", "Year", "Type", "Sector", "Subsector", "National Currency (millons)", "USD (millons)", "Percentage of GDP"],
+			["Brazil", "2008", "Public", "Total sectors", "Total subsectors", "37176.01", "20272.993", "1.19545"],
+			["Brazil", "2008", "Private", "Total sectors", "Total subsectors", "", "27909.700", "1.64576"],
+			["Brazil", "2008", "Total", "Total sectors", "Total subsectors", "", "48182.693", "2.84121"]
+		],
+		"description": "Investment data at current prices in local currency (millions), USD (millions) and % of GDP",
+		"parameters": [{
+			"default": "Argentina",
+			"position": 0,
+			"name": "Country",
+			"description": ""
+		}, {
+			"default": "2015",
+			"position": 1,
+			"name": "Year",
+			"description": ""
+		}],
+		"tags": ["InfraLatam", "Infrastructure"],
+		"timestamp": null,
+		"created_at": "2017-10-02T17:04:02Z",
+		"title": "[InfraLatam] Infrastructure total - sum from all infrastructure sectors",
+		"modified_at": "2017-10-02T17:45:08Z",
+		"category_id": 83353,
+		"sources": [{
+			"source__id": 2109,
+			"source__name": "InfraLatam",
+			"source__url": "http://infralatam.info/"
+		}],
+		"frequency": "",
+		"link": null,
+		"user": "junardemo",
+		"guid": "INFRA-INFRA-TOTAL-SUM-89083",
+		"category_name": "Default Category"
 	}
-
 
 
 
 Filtrar los resultados de una vista
 ------------------------------------
 
-La API de Datos Abiertos de Junar permite a sus usuarios filtrar los resultados obtenidos durante la solicitud de una vista de datos utilizando la siguiente sintaxis::
-
-	http://api.datosabiertos.chilecompra.cl/api/v2/datastreams/TRANS-ENTRE-PROVE-E-INSTI/data.ajson/?auth_key=MI_AUTH_KEY&filter0=column4[>]1000000000&filter1=column0[==]Mobiliario&where=(filter0 and filter1)
+La API de Datos Abiertos de Junar permite a sus usuarios filtrar los resultados obtenidos durante la solicitud de una vista de datos utilizando la siguiente sintaxis:
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&filter0=column5[%3E]1900000&filter1=column0[==]Chile&where=(filter0%20and%20filter1)
 
 
 .. code-block:: json
 
 	{
-  		"result": [
-    	[
-      		"Convenio Marco",
-      		"Institución",
-      		"Nombre Empresa",
-      		"Cantidad OC",
-      		"Monto OC"
-    	],
-    	[
-      		"Mobiliario",
-      		"Ejército de Chile",
-      		"MUEBLES TIMAUKEL LTDA.",
-      		"17.00",
-      		"2,443,853,748.52"
-    	]
-  		],
-  		"endpoint": "file://6745/9345/70289701374408125008067787804389705863",
-  		"description": "Datos agrupados en ordenes de compra y montos totales, en pesos chilenos, de cada transaccion realizada en un Convenio Marco para Enero 2016",  
-  		"parameters": [], 
-  		"tags": 
-  			[
-  			"transacciones",
-  			"ordenes de compra",
-  			"Proveedor",
-  			"instituciones públicas",
-  			"enero","2015",
-  			"convenio marco"
-  			],  
-  		"timestamp": null,  
-  		"created_at": "2016-05-26T18:15:36",  
-  		"title": "Transacciones entre Proveedores e Instituciones en Convenio Marco - Enero 2015",  
-  		"modified_at": "2016-05-26T19:07:49",  
-  		"category_id": 41338,  
-  		"link": null,  
-  		"user": "chilecompra",  
-  		"guid": "TRANS-ENTRE-PROVE-E-INSTI",  
-  		"category_name": "Convenio Marco"
+		"result": [{
+			"Sector": "Total sectors",
+			"National-Currency-millons": "2,195,474.14",
+			"USD-millons": "3,914.48",
+			"Country": "Chile",
+			"Percentage-of-GDP": "2.28",
+			"Subsector": "Total subsectors",
+			"Year": "2009",
+			"Type": "Public"
+		}, {
+			"Sector": "Total sectors",
+			"National-Currency-millons": "2,058,057.01",
+			"USD-millons": "4,230.58",
+			"Country": "Chile",
+			"Percentage-of-GDP": "1.6",
+			"Subsector": "Total subsectors",
+			"Year": "2012",
+			"Type": "Public"
+		}, {
+			"Sector": "Total sectors",
+			"National-Currency-millons": "2,236,255.69",
+			"USD-millons": "4,515.2",
+			"Country": "Chile",
+			"Percentage-of-GDP": "1.63",
+			"Subsector": "Total subsectors",
+			"Year": "2013",
+			"Type": "Public"
+		}, {
+			"timestamp": 1506965828308,
+			"length": 0
+		}],
+		"description": "Investment data at current prices in local currency (millions), USD (millions) and % of GDP",
+		"parameters": [],
+		"tags": ["InfraLatam", "Infrastructure"],
+		"timestamp": null,
+		"created_at": "2017-10-02T17:04:02Z",
+		"title": "[InfraLatam] Infrastructure total - sum from all infrastructure sectors",
+		"modified_at": "2017-10-02T17:37:09Z",
+		"category_id": 83353,
+		"sources": [{
+			"source__id": 2109,
+			"source__name": "InfraLatam",
+			"source__url": "http://infralatam.info/"
+		}],
+		"frequency": "",
+		"link": null,
+		"user": "junardemo",
+		"guid": "INFRA-INFRA-TOTAL-SUM-FROM",
+		"category_name": "Default Category"
 	}
 
 
-Esto retorna todos los datos que sean mayores a 1.000.000.000 en la columna 4 y sean iguales a la palabra "Mobiliario" en la columna 0.
+Esto retorna todos los datos que sean mayores a 2.000.000 en la columna 5 y sean iguales a la palabra “Chile” en la columna 0.
 
 Los filtros pueden ir desde 0 a N (filter0, filter1...filterN) y tienen la siguiente sintaxis::
 
@@ -653,7 +597,9 @@ Ordenar los Datos
 
 La API permite ordenar los resultados obtenidos durante la solicitud de una vista de datos utilizando el parámetro ``orderBy``. Debe indicarse la columna sobre la cual deseamos ordenar los resultados y entre corchetes si el orden debe ser ascedente [A] o descendente [D].
 
-	``http://api.datosabiertos.chilecompra.cl/api/v2/datastreams/TRANS-ENTRE-PROVE-E-INSTI/data.ajson/?auth_key=MI_AUTH_KEY&orderBy0=column0[D]``
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&orderBy0=column0[A]&orderBy1=column1[D]
+
+En este caso ordenamos la primer columna (Country) de forma ascendente y la segunda columna (Year) de forma descendente. 
 
 
 Formateo de Datos
@@ -661,9 +607,7 @@ Formateo de Datos
 
 Permite a los desarrolladores el dar formato a columnas de datos con un tipo y formato que afectará cómo son devueltos los datos de la consulta. Usa la siguiente sintaxis y debe aplicarse a una columna que ya haya sido objeto de un filtro :
 
-::
-
-	format={"table":[{"id":"column10", "type":"DATE", "format":{"country":"ES", "lang":"es", "style": "dd/MM/yyyy"}}]}
+``format={"table":[{"id":"column10", "type":"DATE", "format":{"country":"ES", "lang":"es", "style": "dd/MM/yyyy"}}]}``
 
 Donde : 
 
@@ -675,20 +619,20 @@ El formato DATE requiere country (país), lang (idioma) y style (estilo). Los va
 
 http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
 
-::
+``{"table":[{"id":"column10", "type":"DATE", "format":{"country":"CL", "lang":"es", "style": "dd/MM/yyyy"}}]}``
 
-	{"table":[{"id":"column10", "type":"DATE", "format":{"country":"CL", "lang":"es", "style": "dd/MM/yyyy"}}]}
-	El formato NUMBER requiere country (país), lang (idioma) y pattern (patrón). Los patrones permiten definir cómo se separarán los miles y los decimales o si las cifran irán agrupadas de acuerdo a estándares asociados al país e idioma elegidos
-	{"table":[{"id":"column4", "type":"NUMBER", "format":{"country":"US", "lang":"es", "pattern":"", "decimals":"", "thousands":""}}]}
+El formato NUMBER requiere country (país), lang (idioma) y pattern (patrón). Los patrones permiten definir cómo se separarán los miles y los decimales o si las cifran irán agrupadas de acuerdo a estándares asociados al país e idioma elegidos
+
+``{"table":[{"id":"column4", "type":"NUMBER", "format":{"country":"US", "lang":"es", "pattern":"", "decimals":"", "thousands":""}}]}``
 
 Ejemplo
 
-::
+.. code sample::
 
 	..../invoke/SACRA-ANNUA-CRIME-STATS?...&filter0=column0[==]Homicide&filter1=column4[>]0&where=(filter0 or filter1)&format=
 		{"table":[{"id":"column4", "type":"NUMBER", "format":"format":{"country":"US", "lang":"es", "pattern":"", "decimals":".", "thousands":","}}]}
-	
-	
+
+
 .. code-block:: json
 	
 	{
@@ -775,23 +719,88 @@ Ejemplo
 	  "link": "http://sacramento.opendata.junar.com/datastreams/77447/sacramento-annual-crime-statistics/"
 	}
 
+
+Establecer formato de valores númericos
+----------------------------------------
+El argumento applyFormat permite obtener los resultados de los valores númericos y de fecha en diferentes formatos. Puede utilizarse en llamadas json, ajson y pjson. 
+
+Convierte a string con formato estadounidense: ``applyFormat=0`` 
+
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&limit=50&applyFormat=0
+
+
+.. code-block:: json
+
+	{
+		"Sector": "Total sectors",
+		"National-Currency-millons": "16,200.07",
+		"USD-millons": "5,152.43",
+		"Country": "Argentina",
+		"Percentage-of-GDP": "1.41",
+		"Subsector": "Total subsectors",
+		"Year": "2008",
+		"Type": "Public"
+	}
+
+
+Convierte a string aplicando el displayFormat configurado en la vista: ``applyFormat=1``
+
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&limit=50&applyFormat=1
+
+
+.. code-block:: json
+
+	{
+		"Sector": "Total sectors",
+		"National-Currency-millons": "$ 16,200.07",
+		"USD-millons": "$5,152.432",
+		"Country": "Argentina",
+		"Percentage-of-GDP": "1.40914",
+		"Subsector": "Total subsectors",
+		"Year": "2008",
+		"Type": "Public"
+	},
+
+
+NUMBER y DATES como double: ``applyFormat=-1`` 
+
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&limit=50&applyFormat=-1
+	
+
+.. code-block:: json
+
+	{
+		"Sector": "Total sectors",
+		"National-Currency-millons": 16200.07,
+		"USD-millons": 5152.432,
+		"Country": "Argentina",
+		"Percentage-of-GDP": 1.40914,
+		"Subsector": "Total subsectors",
+		"Year": "2008",
+		"Type": "Public"
+	}
+
+
 Agrupaciones y Funciones sobre vistas de datos
 ----------------------------------------------
 
-Puedes aplicar algunas FUNCIONES y AGRUPACIONES sobre los datos de una vista. Las operaciones se realizan a demanda sobre un juego de columnas definido en una llamada API y asociados a través de dos parámetros pGroupBy y pFunction. El resultado puede ser reutilizado como una fuente tipo web service REST/JSON para crear nuevos recursos de datos (vistas, visualizaciones) en el área de trabajo. Las funciones disponibles actualmente son SUM (suma), COUNT (contar), y AVG (promedio).
+Puedes aplicar algunas FUNCIONES y AGRUPACIONES sobre los datos de una vista. Las operaciones se realizan a demanda sobre un juego de columnas definido en una llamada API y asociados a través de dos parámetros ``groupBy`` y ``function``. El resultado puede ser reutilizado como una fuente tipo web service REST/JSON para crear nuevos recursos de datos (vistas, visualizaciones) en el área de trabajo. Las funciones disponibles actualmente son SUM (suma), COUNT (contar), y AVG (promedio).
 
-En primer lugar definiremos la columna que servirá para agrupar mediante el parametro pGroupBy seguido de un número que indica la jerarquía (pGroupBy0=column0, pGroupBy1=column2...). Luego, aplicamos una función FUNCTION aplicada en la columna sobre la que vamos a operar. Debes incluir paréntesis cuadrados (brackets) al ingresar la columna, pudiendo concatenar mas de una pFunction agregandole un número entero empezando desde cero (pFunction0=SUM[column0], pFunction1=COUNT[column10]).
+En primer lugar definiremos la columna que servirá para agrupar mediante el parametro ``groupBy`` seguido de un número que indica la jerarquía ``(groupBy0=column0, groupBy1=column2...)``. Luego, aplicamos una función ``function`` aplicada en la columna sobre la que vamos a operar. Debes incluir paréntesis cuadrados (brackets) al ingresar la columna, pudiendo concatenar mas de una function agregandole un número entero empezando desde cero ``(function0=SUM[column0], function1=COUNT[column10])``.
 
-Por ejemplo, si quisieramos responder a la pregunta por la cantidad de incidencias totales agrupadas según cada estación de respuesta del servicio 911 de la ciudad de Sacramento, el request a la API sería 
+Por ejemplo, si quisieramos responder a la pregunta por la cantidad de incidencias totales agrupadas según cada estación de respuesta del servicio 911 de esta vista de ejemplo http://junardemo.opendata.junar.com/dataviews/242684/city-fire-department-911-call-response/, el request a la API sería
 
-::
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/CITY-FIRE-DEPAR-911-CALL/data.ajson/?auth_key=MI_AUTH_KEY&groupBy0=column2&groupBy1=column3&function0=COUNT[column3]
 
-http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=8fdd7b3db6ef82b08bcf4715b5f0dfce54fc6bf1&pGroupBy0=column2&pGroupBy1=column3&pFunction0=COUNT[column3]
+Este request retorna los datos en formato ajson. Cualquier otro valor de data.{format} puede ser utilizado también.
 
+El formato de salida data.ajson puede además ser reutilizado para crear un conjunto de datos en Junar usando la API como un servicio web REST/JSON. El path a los datos en todos los casos sería $.result. El uso del caché para el dataset es altamente recomendado, ya que la operación es realizada en línea y el exceso de uso puede degradar el rendimiento de la solicitud.
 
-Este request retorna los datos como un CSV. Cualquier otro valor de data.{format} puede ser utilizado también.
+Proporcionamos otro ejemplo, en este caso usando la función promedio. Si quisieramos conocer el promedio por país y tipo de inversión para el total del periodo publicado de esta vista http://junardemo.opendata.junar.com/dataviews/242640/infralatam-infrastructure-total-sum-from-all-infrastructure-sectors/, debemos utilizar el siguiente request:
 
-El formato de salida **data.ajson** puede además ser reutilizado para crear un conjunto de datos en Junar usando la API como un servicio web REST/JSON. El path a los datos en todos los casos sería *$.result*. El uso del caché para el dataset es altamente recomendado, ya que la operación es realizada en línea y el exceso de uso puede degradar el rendimiento de la solicitud. 
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.ajson/?auth_key=MI_AUTH_KEY&groupBy0=column0&groupBy1=column2&function0=AVG[column6]
+
+Allí estamos agrupando por país (Columna 0) y por tipo de inversión (columna 2), obteniendo el promedio en millones de dólares (columna 6).
 
 
 
