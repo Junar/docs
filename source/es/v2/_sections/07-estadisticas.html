@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Estadísticas del portal &mdash; Documentación de API v2 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Documentación de API v2 2.0 documentation" href="../index.html"/>
+        <link rel="prev" title="Colecciones" href="06-colecciones.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Documentación de API v2
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-index.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-topicos.html">2. Tópicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-conjunto_de_datos.html">3. Conjunto de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-vistas.html">4. Vistas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-visualizaciones.html">5. Visualizaciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-colecciones.html">6. Colecciones</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Estadísticas del portal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ejemplos">Ejemplos</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentación de API v2</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Estadísticas del portal</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_sections/07-estadisticas.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="estadisticas-del-portal">
+<h1>Estadísticas del portal<a class="headerlink" href="#estadisticas-del-portal" title="Permalink to this headline">¶</a></h1>
+<p>Podemos obtener las estadísticas de uso del portal de datos abiertos a través de llamadas a la API, utilizando una API Key pública.</p>
+<dl class="docutils">
+<dt>La URL que debemos utilizar se contruye de la siguiente manera:</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY</span></code></dd>
+</dl>
+<p>Por defecto, esa llamada devolverá resultados para los últimos 365 días.</p>
+<p>Es posible refinar los resultados utilizando las siguientes variables:</p>
+<ul class="simple">
+<li>days: La cantidad de días sobre los cuales queremos consultar. El valor por defecto será 365. Este argumento no puede utilizarse junto a hours, minutes, from y to. Si asi sucediera, el argumento tiene prioridad.</li>
+<li>hours: La cantidad de horas hacia atrás desde la fecha actual por la cual se acotará la consulta.</li>
+<li>minutes: La cantidad de minutos hacia atras desde la fecha actual por la cual se acotará la consulta. Este argumento no puede utilizarse junto a  from y to. Si asi sucediera, el argumento tiene prioridad.</li>
+<li>from: Fecha inicio de consulta en formato dd/mm/yyyy o mm/dd/yyyy dependiendo el idioma de la cuenta.</li>
+<li>to: Fecha hasta consulta en formato dd/mm/yyyy o mm/dd/yyyy dependiendo el idioma de la cuenta. En caso que from sea provisto, el valor por defecto del argumento to es la fecha actual.</li>
+<li>channel: Canal por el cual acotar el ranking. Las opciones validas son API/WEB. Por defecto se deberá contemplar todos los canales.</li>
+<li>facets=geoinfo.country_name: consultas realizadas según la ubicación de los usuarios.</li>
+<li>limit: Cantidad recursos a incluir en el ranking</li>
+<li>group_by: El criterio de agrupamiento. Las opciones validas son date, year, month, day, hour y minute. Por defecto los resultados solo se agruparan por recurso.</li>
+<li>order: asc/dsc para consultar los menos y mas accedidos respectivamente</li>
+</ul>
+<div class="section" id="ejemplos">
+<h2>Ejemplos<a class="headerlink" href="#ejemplos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Consulta sobre los últimos 90 días</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;days=90</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Consulta sobre las últimas 12 horas</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;hours=12</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Consulta sobre los últimos 60 minutos</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;minutes=60</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Consulta entre dos fechas, desde 1 de enero a 20 de enero de 2017.</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;from=01/01/2017&amp;to=20/01/2017</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Consulta sobre origen de las visitas</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;facets=geoinfo.country_name</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Consulta sobre el canal Web</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;channel=0</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Consulta sobre el canal API</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;channel=1</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Agrupar los resultados por mes</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;group_by=month</span></code></dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Ordenar los resultados de forma ascendente según cantidad de visitas</dt>
+<dd><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/stats/?auth_key=MI_AUTH_KEY&amp;order=asc</span></code></dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="06-colecciones.html" class="btn btn-neutral" title="Colecciones" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Junar.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

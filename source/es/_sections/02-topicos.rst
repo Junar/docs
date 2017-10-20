@@ -122,10 +122,6 @@ Para poder ordenar los listados de todos los recursos se usa el parámetro ``ord
 - top: se ordena por una suma de los dos campos anteriores
 - last: se ordena por fecha de actualización.
 
-dbleyenda [3:37 PM] 
-<option value="modified_at:desc"><?php if($lang == 'en'){ echo 'Most recent'; }else{ echo 'Más recientes'; }?></option>
-<option value="web_hits:desc"><?php if($lang == 'en'){ echo 'Most viewed'; }else{ echo 'Más vistos'; }?></option>
-<option value="api_hits:desc"><?php if($lang == 'en'){ echo 'Most downloaded'; }else{ echo 'Más descargados'; }?></option>
 
 
 Filtros
