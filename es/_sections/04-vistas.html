@@ -108,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#consumiendo-una-vista-de-datos-con-parametros">Consumiendo una vista de datos con parámetros</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#filtrar-los-resultados-de-una-vista">Filtrar los resultados de una vista</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ordenar-los-datos">Ordenar los Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paginar-los-resultados">Paginar los resultados</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#formateo-de-datos">Formateo de Datos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#establecer-formato-de-valores-numericos">Establecer formato de valores númericos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#agrupaciones-y-funciones-sobre-vistas-de-datos">Agrupaciones y Funciones sobre vistas de datos</a></li>
@@ -742,6 +743,16 @@ Donde N es la posición del parámetro en la vista, empezando desde cero y X es 
 <blockquote>
 <div><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;orderBy0=column0[A]&amp;orderBy1=column1[D">http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&amp;orderBy0=column0[A]&amp;orderBy1=column1[D</a>]</div></blockquote>
 <p>En este caso ordenamos la primer columna (Country) de forma ascendente y la segunda columna (Year) de forma descendente.</p>
+</div>
+<div class="section" id="paginar-los-resultados">
+<h2>Paginar los resultados<a class="headerlink" href="#paginar-los-resultados" title="Permalink to this headline">¶</a></h2>
+<p>Pueden paginarse los datos que devuelve una llamada a una vista. En este caso, deben utulizarse los siguientes parámetros:</p>
+<ul class="simple">
+<li>limit: cantidad de resultados por búsqueda</li>
+<li>page: página sobre la cual se retornan los resultados, según lo especificado en <code class="docutils literal"><span class="pre">limit</span></code></li>
+</ul>
+<p>Por ejemplo, esta llamada devuelve 50 filas y se ubica en la página 3:</p>
+<p><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&amp;limit=50&amp;page=3">http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&amp;limit=50&amp;page=3</a></p>
 </div>
 <div class="section" id="formateo-de-datos">
 <h2>Formateo de Datos<a class="headerlink" href="#formateo-de-datos" title="Permalink to this headline">¶</a></h2>

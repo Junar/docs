@@ -597,7 +597,7 @@ When a date is added as an operand value it must be typed in using the US format
 
 
 Data sorting
------------------
+------------
 
 The API allows you to sort the results obtained when requesting a data view using the ``orderBy`` parameter. The column on which we wish to sort the results should be in brackets indicates if the order must be ascending [A] or descending [D].
 
@@ -606,9 +606,8 @@ The API allows you to sort the results obtained when requesting a data view usin
 In this case, we sort the first column (Country) in ascending order and the second column (Year) in descending order.
 
 
-
-Paginar los resultados
-----------------------
+Results per page
+----------------
 
 It is possible to paginate the results of a dataview. In this case, the following parameters must be used:
 
