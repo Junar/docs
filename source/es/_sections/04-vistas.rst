@@ -604,7 +604,7 @@ En este caso ordenamos la primer columna (Country) de forma ascendente y la segu
 Paginar los resultados
 ----------------------
 
-Pueden paginarse los datos que devuelve una llamada a una vista. En este caso, deben utulizarse los siguientes parámetros: 
+Pueden paginarse los datos que devuelve una llamada a una vista. En este caso, deben utilizarse los siguientes parámetros: 
 
 - limit: cantidad de resultados por búsqueda
 - page: página sobre la cual se retornan los resultados, según lo especificado en ``limit``
