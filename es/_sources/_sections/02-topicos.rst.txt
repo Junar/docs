@@ -161,6 +161,78 @@ La relevancia se define calculando cuán similar es la ortografía de la palabra
 ``GET /api/v2/resources/?auth_key=MI_AUTH_KEY&query=termino de busqueda&order=_score:asc``
 
 
+Full catalog queries
+====================
+
+You can filter, order, search and paginate over the entire catalog with one query by using the following GET method
+
+::
+
+  GET   /api/v2/resources.json
+
+For instance ´´http://cne.cloudapi.junar.com/api/v2/resources.json?auth_key=MY_AUTH_KEY&limit=2&offset=8&query=balance&order=top´´ returns
+
+.. code-block:: json
+
+    {
+        "count": 101,
+        "next": "http://cne.cloudapi.junar.com/api/v2/resources.json/?auth_key=7a392227077e0efbfdb16f843fd12a09bea78210&limit=2&offset=10&order=top&query=balance",
+        "previous": "http://cne.cloudapi.junar.com/api/v2/resources.json/?auth_key=7a392227077e0efbfdb16f843fd12a09bea78210&limit=2&offset=6&order=top&query=balance",
+        "results": [
+            {
+            "result": null,
+            "endpoint": "http://dataset.cne.cl/Energia_Abierta/Balances%20Energeticos/bne_2014.xls",
+            "description": "Fuente: Elaborado por la División de Prospectiva y Política Energética del Ministerio de Energía ",
+            "parameters": [
+                
+            ],
+            "tags": [
+                "consumo",
+                "Sector Publico",
+                "comercial",
+                "residencial",
+                "cpr",
+                "bne 2014"
+                    ],
+            "timestamp": 1472489817419,
+            "created_at": 1449000423,
+            "title": "BNE 2014 - Consumo Sector Comercial, Público, Residencial (CPR)",
+            "modified_at": 1455897663,
+            "category_id": "41209",
+            "link": "http://datos.energiaabierta.cne.cl/dataviews/111743/bne-2014-consumo-sector-comercial-publico-residencial-cpr/",
+            "user": "cne",
+            "guid": "BNE-2014-CONSU-SECTO-COMER",
+            "category_name": "Balance Energético",
+            "type": "ds"
+            },
+            {
+            "result": null,
+            "endpoint": "http://dataset.cne.cl/Energia_Abierta/Balances%20Energeticos/bne_2014.xls",
+            "description": "Fuente: Elaborado por la División de Prospectiva y Política Energética del Ministerio de Energía ",
+            "parameters": [
+                
+            ],
+            "tags": [
+                "consumo",
+                "sector industrial",
+                "sector minero",
+                "bne 2014"
+            ],
+            "timestamp": 1472049616033,
+            "created_at": 1448996916,
+            "title": "BNE 2014 - Consumo Sector Industrial y Minero",
+            "modified_at": 1455897663,
+            "category_id": "41209",
+            "link": "http://datos.energiaabierta.cne.cl/dataviews/111697/bne-2014-consumo-sector-industrial-y-minero/",
+            "user": "cne",
+                "guid": "BNE-2014-CONSU-SECTO-INDUS",
+            "category_name": "Balance Energético",
+            "type": "ds"
+            }
+        ]
+    }
+
+
 Versiones
 =========
 

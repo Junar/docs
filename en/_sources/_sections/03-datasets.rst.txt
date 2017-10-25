@@ -20,35 +20,35 @@ All GET requests return the following parameters:
 - created_at : Timestamp of resource revision creation.
 - link : Link to the resource in the Open Data portal
 
-For example::
+For example
 
- http://providencia.cloudapi.junar.com/api/v2/datasets/TRAFI-EN-CICLO-DE-PROVI.json?auth_key=MI_AUTH_KEY 
-
+  http://junardemo.cloudapi.junar.com/api/v2/datasets/INFRA-INFRA-TOTAL-SUM-FROM.json/?auth_key=MI_AUTH_KEY 
 
 returns
 
 .. code-block:: json
 
     {
-    "result": null,
-    "endpoint": "http://tv.providencia.cl/ws/ws-css3.php",
-    "description": "Toma la estadística de 1 mes hacia atrás, desde el dia de la consulta, y publica el promedio por dia de la semana, por hora y sentido.",
-    "parameters": null,
-    "tags": [
-        "trafico",
-        "Ciclovias",
-        "providencia",
-        "Promedio"
-    ],
-    "timestamp": null,
-    "created_at": "2016-05-23T14:25:53",
-    "title": "Tráfico en Ciclovías de Providencia",
-    "modified_at": "2016-05-23T14:27:20",
-    "category_id": 41246,
-    "link": null,
-    "user": null,
-    "guid": "TRAFI-EN-CICLO-DE-PROVI",
-    "category_name": "Ciclovias"
+      "result": null,
+      "endpoint": "file://73121/71821/147721638324488614901557308458266348545",
+      "description": "Investment data at current prices in local currency (millions), USD (millions) and % of GDP",
+      "parameters": null,
+      "tags": ["InfraLatam", "Infrastructure"],
+      "timestamp": null,
+      "created_at": "2017-10-02T17:04:02Z",
+      "title": "[InfraLatam] Infrastructure total - sum from all infrastructure sectors",
+      "modified_at": "2017-10-02T17:16:17Z",
+      "category_id": 83353,
+      "sources": [{
+        "source__id": 2109,
+        "source__name": "InfraLatam",
+        "source__url": "http://infralatam.info/"
+      }],
+      "frequency": "",
+      "link": null,
+      "user": null,
+      "guid": "INFRA-INFRA-TOTAL-SUM-FROM",
+      "category_name": "Default Category"
     }
 
 Automating Dataset Publishing using the Junar API

@@ -459,7 +459,7 @@ Consumiendo una vista de datos con parámetros
 -----------------------------------------------
 
 Una vista de datos puede contener parámetros. Los parámetros pueden agregarse a la vista de datos solamente durante el proceso de creación. Estos parámetros pueden estar mapeados contra un formulario en un sitio web, directamente contra la URL de la fuente de datos o contra columnas de datos dentro de la tabla sobre la cual se crea la vista. La sintaxis apropiada para agregar parámetros en una solicitud API es
-pArgumentN=X
+``pArgumentN=X``
 Donde N es la posición del parámetro en la vista, empezando desde cero y X es el valor que tendrá dicho parámetro.
 
 Ejemplo:

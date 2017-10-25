@@ -1,7 +1,7 @@
 Estadísticas del portal
 =======================
 
-Podemos obtener las estadísticas de uso del portal de datos abiertos a través de llamadas a la API, utilizando una API Key pública.
+Podemos obtener las estadísticas de uso del portal de datos abiertos a través de llamadas a la API, utilizando una API Key pública. Para crear una API key acceda `aquí <https://junar.github.io/docs/en/_sections/02-topics.html#basic-authentication>`_.
 
 La URL que debemos utilizar se contruye de la siguiente manera:
 	``GET /api/v2/stats/?auth_key=MI_AUTH_KEY``

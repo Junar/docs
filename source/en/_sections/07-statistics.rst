@@ -49,8 +49,11 @@ Parameters:
 	0=WEB 
 	1=API 
 
-&facets=country_name 
+&facets=geoinfo.country_name 
 	Limit statistics to users’ location.
+
+&limit=N 
+	Number of results to be included in the response
 
 &group_by=date or year or month or hour or minute 
 	Statistics may be computed for unique values for the group_by target provided. For instance, group_by=month will provide statistics calculated for each unique month for which there is data. If not specified statistics are grouped by resource 

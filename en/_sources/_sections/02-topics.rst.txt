@@ -2,8 +2,6 @@
 Topics
 ====================
 
-.. _basic-authentication:
-
 Basic Authentication
 ====================
 
@@ -154,7 +152,7 @@ You can filter, order, search and paginate over the entire catalog with one quer
 
   GET   /api/v2/resources.json
 
-For instance ´´http://cne.cloudapi.junar.com/api/v2/resources.json?auth_key=MY_AUTH_KEY&limit=2&offset=8&query=balance&order=top´´ returns
+For instance http://cne.cloudapi.junar.com/api/v2/resources.json?auth_key=MY_AUTH_KEY&limit=2&offset=8&query=balance&order=top returns
 
 .. code-block:: json
 
@@ -221,4 +219,5 @@ Version
 =======
 
 Current API version is 2.0.
+
 Maintenance and support for APIv1.0 related issues will not be available beginning on September, 2016. While v1.0 requests will continue to work, we strongly recommend to integrate all developments over to the current version of the API. 

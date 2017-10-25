@@ -188,31 +188,31 @@ These GET requests can return either a list of all published dataset resources, 
 - parameters : Null by default. Used to mantain regular structure with other data resources.
 - created_at : Timestamp of resource revision creation.
 - link : Link to the resource in the Open Data portal</p>
-<p>For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>http://providencia.cloudapi.junar.com/api/v2/datasets/TRAFI-EN-CICLO-DE-PROVI.json?auth_key=MI_AUTH_KEY
-</pre></div>
-</div>
+<p>For example</p>
+<blockquote>
+<div><a class="reference external" href="http://junardemo.cloudapi.junar.com/api/v2/datasets/INFRA-INFRA-TOTAL-SUM-FROM.json/?auth_key=MI_AUTH_KEY">http://junardemo.cloudapi.junar.com/api/v2/datasets/INFRA-INFRA-TOTAL-SUM-FROM.json/?auth_key=MI_AUTH_KEY</a></div></blockquote>
 <p>returns</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-<span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://tv.providencia.cl/ws/ws-css3.php&quot;</span><span class="p">,</span>
-<span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Toma la estadística de 1 mes hacia atrás, desde el dia de la consulta, y publica el promedio por dia de la semana, por hora y sentido.&quot;</span><span class="p">,</span>
-<span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-<span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">&quot;trafico&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Ciclovias&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;providencia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Promedio&quot;</span>
-<span class="p">],</span>
-<span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-<span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-23T14:25:53&quot;</span><span class="p">,</span>
-<span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Tráfico en Ciclovías de Providencia&quot;</span><span class="p">,</span>
-<span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-23T14:27:20&quot;</span><span class="p">,</span>
-<span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="mi">41246</span><span class="p">,</span>
-<span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-<span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-<span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;TRAFI-EN-CICLO-DE-PROVI&quot;</span><span class="p">,</span>
-<span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ciclovias&quot;</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;file://73121/71821/147721638324488614901557308458266348545&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Investment data at current prices in local currency (millions), USD (millions) and % of GDP&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;InfraLatam&quot;</span><span class="p">,</span> <span class="s2">&quot;Infrastructure&quot;</span><span class="p">],</span>
+  <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-10-02T17:04:02Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;[InfraLatam] Infrastructure total - sum from all infrastructure sectors&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-10-02T17:16:17Z&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="mi">83353</span><span class="p">,</span>
+  <span class="nt">&quot;sources&quot;</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="nt">&quot;source__id&quot;</span><span class="p">:</span> <span class="mi">2109</span><span class="p">,</span>
+    <span class="nt">&quot;source__name&quot;</span><span class="p">:</span> <span class="s2">&quot;InfraLatam&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;source__url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://infralatam.info/&quot;</span>
+  <span class="p">}],</span>
+  <span class="nt">&quot;frequency&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;INFRA-INFRA-TOTAL-SUM-FROM&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Default Category&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>

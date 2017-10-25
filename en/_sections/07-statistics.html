@@ -188,7 +188,7 @@ All usages and examples of this endpoint use the GET method.</p>
 <dl class="docutils">
 <dt>Response:</dt>
 <dd>The response is given by default in Django REST framework, but it could be also get it in JSON and JSONP format.
-Called with no additional parameters the information returned includes total hits, hits by resource type and hit by resource. In each resource, it includes the number of hits, the resource title, description, category and link.</dd>
+Called with no additional parameters the information returned includes total hits, hits by resource type and hits by resource. In each resource, it includes the number of hits, the resource title, description, category and link.</dd>
 </dl>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -215,8 +215,10 @@ Called with no additional parameters the information returned includes total hit
 <dd>Limit statistics to a specific channel. By default all channels are included.
 0=WEB
 1=API</dd>
-<dt>&amp;facets=country_name</dt>
+<dt>&amp;facets=geoinfo.country_name</dt>
 <dd>Limit statistics to users’ location.</dd>
+<dt>&amp;limit=N</dt>
+<dd>Number of results to be included in the response</dd>
 <dt>&amp;group_by=date or year or month or hour or minute</dt>
 <dd>Statistics may be computed for unique values for the group_by target provided. For instance, group_by=month will provide statistics calculated for each unique month for which there is data. If not specified statistics are grouped by resource</dd>
 <dt>&amp;order=asc or desc</dt>

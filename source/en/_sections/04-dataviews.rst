@@ -456,122 +456,56 @@ Requesting a data view with parameters
 -----------------------------------------------
 
 A data view can require parameters to retrieve data. Parameters can be added to a data view only during the creation process. These parameters can be mapped against a form in the case of an HTML dataset source, against a URL or against columns of data over a specific table. The proper syntax to request parameters of a dataview is 
-pArgumentN=X
+``pArgumentN=X``
 Where N is the position of the parameter of the data view and X is the value of said parameter.
 The position of the parameter is informed when querying over the data view **without** the data element.
-Example::
 
+Example:
 
-    http://cne.cloudapi.junar.com/api/v2/datastreams/BALAN-NACIO-ENERG-POR-5269?auth_key=MY_AUTH_KEY
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-89083/data.ajson/?auth_key=MI_AUTH_KEY
 
-From there we know that there is only one parameter, so we build out query like this::
+From there we know that there is only one parameter, so we build out query like this:
 
-    http://cne.cloudapi.junar.com/api/v2/datastreams/BALAN-NACIO-ENERG-POR-5269/data.json?auth_key=MY_AUTH_KEY&pArgument0=2014
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-89083/data.ajson/?auth_key=MI_AUTH_KEY&pArgument0=Brazil&pArgument1=2008
 
 
 .. code-block:: text
 
 	{
-  	"result": [
-	    [
-    	  "Año",
-      	"Sección",
-      	"Item",
-      	"Combustible",
-      	"Valor"
-    	],
-    	[
-      	"2014",
-      	"Energético Primario",
-      	"Producción Primaria",
-      	"Petróleo Crudo",
-      	"4,809.00"
-    	],
-    	[
-      	"2014",
-      	"Energético Primario",
-      	"Producción Primaria",
-      	"Gas Natural",
-      	"7,381.00"
-    	],
-    	[	
-    	"2014",
-      	"Energíargético Primario",
-      	"Producción Primaria",
-      	"Carbón",
-      	"29,147.00"
-    	],
-    	[
-      	"2014",
-      	"Energético Primario",
-      	"Producción Primaria",
-      	"Biomasa",
-      	"73,752.00"
-    	],
-    	[
-      	"2014",
-      	"Energético Primario",
-      	"Producción Primaria",
-      	"Energía Hídrica",
-      	"20,104.00"
-    	],
-    	[
-      	"2014",
-      	"Energético Primario",
-      	"Producción Primaria",
-      	"Energía Eólica",
-      	"1,241.00"
-    	],
-    	(...)
-    	[
-      	"2014",
-      	"Sector de Consumo",
-      	"Sector Industrial y Minero",
-      	"Gas Corriente",
-      	"6.00"
-    	],
-    	[
-      	"2014",
-      	"Sector de Consumo",
-      	"Sector Industrial y Minero",
-      	"Metanol",
-      	"-"
-    	],
-    	[	
-    	"2014",
-      	"Seccióntor de Consumo",
-      	"Sector Industrial y Minero",
-	  	"Total",
-      	"1457102225405,105.00"
-    	]
-  	],
-  		"endpoint": "file://5995/5316/185277278134828680067533944176086411863",
-  		"description": "Fuente: CNE. Datos desde 2008 a 2014 con el balance nacional energético consolidado en formato base de datos.",
-  		"parameters": [
-    	{
-      	"default": "2014",
-      	"position": 0,
-      	"name": "Año",
-      	"description": "Año de la consulta en formato AAAA"
-    	}
-  	],
-  	"tags": [
-	    "Balance",
-	    "nacional",
-	    "energ tico",
-	    "bne",
-    	"energia",
-    	"Chile"
-  		],
-  	"timestamp": null,
-  	"created_at": "2015-11-11T17:27:41",
-  	"title": "Consolidado Balances Energéticos (2014 - 2008)",
-  	"modified_at": "2016-06-15T16:29:49",
-  	"category_id": 41209,
-  	"link": null,
-  	"user": "cne",
-  	"guid": "BALAN-NACIO-ENERG-POR-52693",
-  	"category_name": "Balance Energético"
+		"result": [
+			["Country", "Year", "Type", "Sector", "Subsector", "National Currency (millons)", "USD (millons)", "Percentage of GDP"],
+			["Brazil", "2008", "Public", "Total sectors", "Total subsectors", "37176.01", "20272.993", "1.19545"],
+			["Brazil", "2008", "Private", "Total sectors", "Total subsectors", "", "27909.700", "1.64576"],
+			["Brazil", "2008", "Total", "Total sectors", "Total subsectors", "", "48182.693", "2.84121"]
+		],
+		"description": "Investment data at current prices in local currency (millions), USD (millions) and % of GDP",
+		"parameters": [{
+			"default": "Argentina",
+			"position": 0,
+			"name": "Country",
+			"description": ""
+		}, {
+			"default": "2015",
+			"position": 1,
+			"name": "Year",
+			"description": ""
+		}],
+		"tags": ["InfraLatam", "Infrastructure"],
+		"timestamp": null,
+		"created_at": "2017-10-02T17:04:02Z",
+		"title": "[InfraLatam] Infrastructure total - sum from all infrastructure sectors",
+		"modified_at": "2017-10-02T17:45:08Z",
+		"category_id": 83353,
+		"sources": [{
+			"source__id": 2109,
+			"source__name": "InfraLatam",
+			"source__url": "http://infralatam.info/"
+		}],
+		"frequency": "",
+		"link": null,
+		"user": "junardemo",
+		"guid": "INFRA-INFRA-TOTAL-SUM-89083",
+		"category_name": "Default Category"
 	}
 
 
@@ -579,55 +513,67 @@ From there we know that there is only one parameter, so we build out query like 
 Filtering data view results
 ------------------------------------
 
-The Junar API allows users to filter the results of a data view request by adding custom filters over any number of columns, which apply logical operators over values and can be concatenated using AND/OR sentences::
+The Junar API allows users to filter the results of a data view request by adding custom filters over any number of columns, which apply logical operators over values and can be concatenated using AND/OR sentences:
 
-	http://api.datosabiertos.chilecompra.cl/api/v2/datastreams/TRANS-ENTRE-PROVE-E-INSTI/data.ajson/?auth_key=MY_AUTH_KEY&filter0=column4[>]1000000000&filter1=column0[==]Mobiliario&where=(filter0 and filter1)
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&filter0=column5[%3E]1900000&filter1=column0[==]Chile&where=(filter0%20and%20filter1)
 
 
 .. code-block:: text
 
 	{
-  		"result": [
-    	[
-      		"Convenio Marco",
-      		"Institución",
-      		"Nombre Empresa",
-      		"Cantidad OC",
-      		"Monto OC"
-    	],
-    	[
-      		"Mobiliario",
-      		"Ejército de Chile",
-      		"MUEBLES TIMAUKEL LTDA.",
-      		"17.00",
-      		"2,443,853,748.52"
-    	]
-  		],
-  		"endpoint": "file://6745/9345/70289701374408125008067787804389705863",
-  		"description": "Datos agrupados en ordenes de compra y montos totales, en pesos chilenos, de cada transaccion realizada en un Convenio Marco para Enero 2016",  
-  		"parameters": [], 
-  		"tags": 
-  			[
-  			"transacciones",
-  			"ordenes de compra",
-  			"Proveedor",
-  			"instituciones públicas",
-  			"enero","2015",
-  			"convenio marco"
-  			],  
-  		"timestamp": null,  
-  		"created_at": "2016-05-26T18:15:36",  
-  		"title": "Transacciones entre Proveedores e Instituciones en Convenio Marco - Enero 2015",  
-  		"modified_at": "2016-05-26T19:07:49",  
-  		"category_id": 41338,  
-  		"link": null,  
-  		"user": "chilecompra",  
-  		"guid": "TRANS-ENTRE-PROVE-E-INSTI",  
-  		"category_name": "Convenio Marco"
+		"result": [{
+			"Sector": "Total sectors",
+			"National-Currency-millons": "2,195,474.14",
+			"USD-millons": "3,914.48",
+			"Country": "Chile",
+			"Percentage-of-GDP": "2.28",
+			"Subsector": "Total subsectors",
+			"Year": "2009",
+			"Type": "Public"
+		}, {
+			"Sector": "Total sectors",
+			"National-Currency-millons": "2,058,057.01",
+			"USD-millons": "4,230.58",
+			"Country": "Chile",
+			"Percentage-of-GDP": "1.6",
+			"Subsector": "Total subsectors",
+			"Year": "2012",
+			"Type": "Public"
+		}, {
+			"Sector": "Total sectors",
+			"National-Currency-millons": "2,236,255.69",
+			"USD-millons": "4,515.2",
+			"Country": "Chile",
+			"Percentage-of-GDP": "1.63",
+			"Subsector": "Total subsectors",
+			"Year": "2013",
+			"Type": "Public"
+		}, {
+			"timestamp": 1506965828308,
+			"length": 0
+		}],
+		"description": "Investment data at current prices in local currency (millions), USD (millions) and % of GDP",
+		"parameters": [],
+		"tags": ["InfraLatam", "Infrastructure"],
+		"timestamp": null,
+		"created_at": "2017-10-02T17:04:02Z",
+		"title": "[InfraLatam] Infrastructure total - sum from all infrastructure sectors",
+		"modified_at": "2017-10-02T17:37:09Z",
+		"category_id": 83353,
+		"sources": [{
+			"source__id": 2109,
+			"source__name": "InfraLatam",
+			"source__url": "http://infralatam.info/"
+		}],
+		"frequency": "",
+		"link": null,
+		"user": "junardemo",
+		"guid": "INFRA-INFRA-TOTAL-SUM-FROM",
+		"category_name": "Default Category"
 	}
 
 
-That sample request returns all values that are over 1.000.000.000 in column 4 where the string is equal to "Mobiliario" in column 0.
+That sample request returns all values that are over 2.000.000 in column 5 where the string is equal to "Chile" in column 0.
 
 Filters can go from 0 to N (filter0, filter1...filterN) and have the following syntax::
 
@@ -655,8 +601,9 @@ Data sorting
 
 The API allows you to sort the results obtained when requesting a data view using the ``orderBy`` parameter. The column on which we wish to sort the results should be in brackets indicates if the order must be ascending [A] or descending [D].
 
-	``http://api.datosabiertos.chilecompra.cl/api/v2/datastreams/TRANS-ENTRE-PROVE-E-INSTI/data.ajson/?auth_key=MI_AUTH_KEY&orderBy0=column0[D]``
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&orderBy0=column0[A]&orderBy1=column1[D]
 
+In this case, we sort the first column (Country) in ascending order and the second column (Year) in descending order.
 
 
 Data column formatting 
@@ -783,23 +730,90 @@ Ejemplo
 	}
 
 
+Set numeric value format
+------------------------
+
+The applyFormat argument allow to obtain the results of the numerical and date values in different formats. It can be used in json, ajson and pjson calls.
+
+Convert to US-format string: ``applyFormat=0`` 
+
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&limit=50&applyFormat=0
+
+
+.. code-block:: json
+
+	{
+		"Sector": "Total sectors",
+		"National-Currency-millons": "16,200.07",
+		"USD-millons": "5,152.43",
+		"Country": "Argentina",
+		"Percentage-of-GDP": "1.41",
+		"Subsector": "Total subsectors",
+		"Year": "2008",
+		"Type": "Public"
+	}
+
+
+Converts to string the format configured in dataview: ``applyFormat=1``
+
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&limit=50&applyFormat=1
+
+
+.. code-block:: json
+
+	{
+		"Sector": "Total sectors",
+		"National-Currency-millons": "$ 16,200.07",
+		"USD-millons": "$5,152.432",
+		"Country": "Argentina",
+		"Percentage-of-GDP": "1.40914",
+		"Subsector": "Total subsectors",
+		"Year": "2008",
+		"Type": "Public"
+	},
+
+
+NUMBER y DATES as double: ``applyFormat=-1`` 
+
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.pjson/?auth_key=MI_AUTH_KEY&limit=50&applyFormat=-1
+	
+.. code-block:: json
+
+	{
+		"Sector": "Total sectors",
+		"National-Currency-millons": 16200.07,
+		"USD-millons": 5152.432,
+		"Country": "Argentina",
+		"Percentage-of-GDP": 1.40914,
+		"Subsector": "Total subsectors",
+		"Year": "2008",
+		"Type": "Public"
+	}
+
+
 GROUP BY, SUM, COUNT, AVG
 -------------------------
 
-You can perform certain FUNCTIONs and GROUP BY over data contained on the data view. All these operations are performed on-the-fly over a specific set of columns. They can be reused into the workspace to create new resources (data views, visualizations) that feed over the calculations made by the API. Current available functions are SUM, COUNT, AVG. 
+You can perform certain FUNCTIONs and GROUP BY over data contained on the data view. All these operations are performed on-the-fly over a specific set of columns, using ``groupBy`` y ``function`` parameters. They can be reused into the workspace to create new resources (data views, visualizations) that feed over the calculations made by the API. Current available functions are SUM, COUNT, AVG. 
 
-First define the position number of the columns to GROUP BY followed by a number to identify hierarchy (pGroupBy0=column0, pGroupBy1=column2...). Then apply different FUNCTION over columns of your data view. You must include in brackets the column over which is performed (pFunction0=SUM[column0], pFunction1=COUNT[column10]).
+First define the position number of the columns to GROUP BY followed by a number to identify hierarchy ``(groupBy0=column0, groupBy1=column2...)``. Then apply different FUNCTION over columns of your data view. You must include in brackets the column over which is performed ``(function0=SUM[column0], function1=COUNT[column10])``.
 
-For instance, to answer the question of how many different incidents occured per responding station in relation to fire response 911 calls from the city of Sacramento, a request can be made like
+For instance, to answer the question of how many different incidents occured per responding station in relation to fire response 911 calls using this dataview http://junardemo.opendata.junar.com/dataviews/242684/city-fire-department-911-call-response/, a request can be made like
 
-::
 
-	http://api.data.cityofsacramento.org/api/v2/datastreams/SACRA-FIRE-DEPAR-911-73507/data.csv/?auth_key=MY_AUTH_KEY&pGroupBy0=column2&pGroupBy1=column3&pFunction0=COUNT[column3]
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/CITY-FIRE-DEPAR-911-CALL/data.ajson/?auth_key=MI_AUTH_KEY&groupBy0=column2&groupBy1=column3&function0=COUNT[column3]
 
 
 This returns the data in a CSV output.  Any other data.{format} can be used as well.
 
 The **data.ajson** output can be reused as a web service and used to create a new dataset in the catalog. The path to data for this new dataset will always be *$.result* when it comes from data.ajson output. The use of cache for the dataset is encouraged, since each operation is performed on the fly and overuse can lead to degraded performance. 
+
+
+We provide another example, in this case using the average function. If we would like to know the average by country and type of investment for the total published period of this view http://junardemo.opendata.junar.com/dataviews/242640/infralatam-infrastructure-total-sum-from-all-infrastructure- sectors /, we must use the following request:
+
+	http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.ajson/?auth_key=MI_AUTH_KEY&groupBy0=column0&groupBy1=column2&function0=AVG[column6]
+
+There we are grouping by country (Column 0) and by type of investment (column 2), obtaining the average in millions of dollars (column 6).
 
 
 
@@ -826,7 +840,7 @@ The parameters expected for each creation/edition are:
 - table_id : Position of the table inside the document, starting from zero. In case of multisheet documents (XLS), it indicates the index number of the document sheet to be used. In case of HTML documents, the position of the table. Syntax: tableN (where N is the position number). Mandatory.
 - tags : Any number of tags, separated by comma. Optional.
 
-If succesfull, a response will return with a  ``result`` field where all the information of the affected resource is informed:
+If succesfull, a response will return with a ``result`` field where all the information of the affected resource is informed:
 
 .. code-block:: json
 

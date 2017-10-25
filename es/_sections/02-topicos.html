@@ -100,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ordenamiento">Ordenamiento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#filtros">Filtros</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#busquedas-multiples">Busquedas Múltiples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#full-catalog-queries">Full catalog queries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#versiones">Versiones</a></li>
 </ul>
 </li>
@@ -302,6 +303,73 @@ Las auth_keys son anónimas y se generan dinámicamente para cada solicitud.</p>
 <p>Mediante el valor <code class="docutils literal"><span class="pre">score</span></code> es posible ordenar de forma ascendente <code class="docutils literal"><span class="pre">:asc</span></code> o descendente <code class="docutils literal"><span class="pre">:desc</span></code> los resultados según la relevancia del término buscado.
 La relevancia se define calculando cuán similar es la ortografía de la palabra encontrada al término de búsqueda original.</p>
 <p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/resources/?auth_key=MI_AUTH_KEY&amp;query=termino</span> <span class="pre">de</span> <span class="pre">busqueda&amp;order=_score:asc</span></code></p>
+</div>
+<div class="section" id="full-catalog-queries">
+<h2>Full catalog queries<a class="headerlink" href="#full-catalog-queries" title="Permalink to this headline">¶</a></h2>
+<p>You can filter, order, search and paginate over the entire catalog with one query by using the following GET method</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">resources</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>For instance ´´http://cne.cloudapi.junar.com/api/v2/resources.json?auth_key=MY_AUTH_KEY&amp;limit=2&amp;offset=8&amp;query=balance&amp;order=top´´ returns</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span>
+    <span class="nt">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://cne.cloudapi.junar.com/api/v2/resources.json/?auth_key=7a392227077e0efbfdb16f843fd12a09bea78210&amp;limit=2&amp;offset=10&amp;order=top&amp;query=balance&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="s2">&quot;http://cne.cloudapi.junar.com/api/v2/resources.json/?auth_key=7a392227077e0efbfdb16f843fd12a09bea78210&amp;limit=2&amp;offset=6&amp;order=top&amp;query=balance&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dataset.cne.cl/Energia_Abierta/Balances%20Energeticos/bne_2014.xls&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Fuente: Elaborado por la División de Prospectiva y Política Energética del Ministerio de Energía &quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+
+        <span class="p">],</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;consumo&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sector Publico&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;comercial&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;residencial&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cpr&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bne 2014&quot;</span>
+                <span class="p">],</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1472489817419</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="mi">1449000423</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;BNE 2014 - Consumo Sector Comercial, Público, Residencial (CPR)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="mi">1455897663</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="s2">&quot;41209&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://datos.energiaabierta.cne.cl/dataviews/111743/bne-2014-consumo-sector-comercial-publico-residencial-cpr/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;cne&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;BNE-2014-CONSU-SECTO-COMER&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Balance Energético&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ds&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;http://dataset.cne.cl/Energia_Abierta/Balances%20Energeticos/bne_2014.xls&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Fuente: Elaborado por la División de Prospectiva y Política Energética del Ministerio de Energía &quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+
+        <span class="p">],</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;consumo&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sector industrial&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sector minero&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bne 2014&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1472049616033</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="mi">1448996916</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;BNE 2014 - Consumo Sector Industrial y Minero&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified_at&quot;</span><span class="p">:</span> <span class="mi">1455897663</span><span class="p">,</span>
+        <span class="nt">&quot;category_id&quot;</span><span class="p">:</span> <span class="s2">&quot;41209&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;link&quot;</span><span class="p">:</span> <span class="s2">&quot;http://datos.energiaabierta.cne.cl/dataviews/111697/bne-2014-consumo-sector-industrial-y-minero/&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;cne&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;guid&quot;</span><span class="p">:</span> <span class="s2">&quot;BNE-2014-CONSU-SECTO-INDUS&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Balance Energético&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ds&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="versiones">
 <h2>Versiones<a class="headerlink" href="#versiones" title="Permalink to this headline">¶</a></h2>
