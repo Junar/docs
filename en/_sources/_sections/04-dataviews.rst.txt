@@ -606,6 +606,20 @@ The API allows you to sort the results obtained when requesting a data view usin
 In this case, we sort the first column (Country) in ascending order and the second column (Year) in descending order.
 
 
+
+Paginar los resultados
+----------------------
+
+It is possible to paginate the results of a dataview. In this case, the following parameters must be used:
+
+- limit: number of results per search
+- page: page on which results are returned, according to specified in `` limit``
+
+For example, this call returns 50 rows and is located on page 3:
+
+http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&limit=50&page=3
+
+
 Data column formatting 
 ----------------------
 

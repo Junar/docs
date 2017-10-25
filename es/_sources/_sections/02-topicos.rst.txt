@@ -101,17 +101,6 @@ Un ejemplo de respuesta con limit igual a 2 podría ser
   }
 
 
-
-También pueden paginarse los datos que devuelve una llamada a una vista. En este caso, deben utulizarse los siguientes parámetros: 
-
-- limit: cantidad de resultados por búsqueda
-- page: página sobre la cual se retornan los resultados, según lo especificado en ``limit``
-
-Por ejemplo, esta llamada devuelve 50 filas y se ubica en la página 3:
-
-http://junardemo.cloudapi.junar.com/api/v2/datastreams/INFRA-INFRA-TOTAL-SUM-FROM/data.json/?auth_key=7f9ef43c9132fd3766d69d65a881134cc2ffbfcd&limit=50&page=3
-
-
 Ordenamiento
 ============
 
