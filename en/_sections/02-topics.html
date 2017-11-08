@@ -289,7 +289,7 @@ All auth keys are anonymous by default, and are generated on the fly with each r
 </ul>
 <p>On the response array there’s a <code class="docutils literal"><span class="pre">type</span></code> parameter which identifies the resource</p>
 <p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/resources/?auth_key=MI_AUTH_KEY&amp;type=dt</span></code></p>
-<p>In addition, you can search for words by using the “ query“ parameter</p>
+<p>In addition, you can search for words by using the `` query`` parameter</p>
 <p><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/api/v2/resources/?auth_key=MI_AUTH_KEY&amp;query=search</span> <span class="pre">term</span></code></p>
 <p>With the <code class="docutils literal"><span class="pre">score</span></code> value, it is possible to sort by ascending <code class="docutils literal"><span class="pre">:asc</span></code> or descending <code class="docutils literal"><span class="pre">:desc</span></code> results according to the relevance of the searched term.
 Relevance is defined by calculating how similar the spelling of the word found to the original search term is.</p>
@@ -438,7 +438,18 @@ Relevance is defined by calculating how similar the spelling of the word found t
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-   
+  
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15500152-10"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-15500152-10');
+</script>
+
 
 </body>
 </html>
